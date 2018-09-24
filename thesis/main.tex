@@ -104,6 +104,9 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \hypersetup{citecolor=blue}
 }
 
+\DeclareSIUnit \lilh {\ensuremath{\mathit{h}}}
+\DeclareSIUnit \parsec {pc}
+
 \begin{document}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
@@ -212,7 +215,7 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 \tableofcontents % Prints the main table of contents
 
-\listoffigures % Prints the list of figures
+%\listoffigures % Prints the list of figures
 
 %\listoftables % Prints the list of tables
 
@@ -247,11 +250,23 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 $v$ & Recessional Velocity & \si{\meter\per\second} \\
 $d$ & Distance & \si{\meter} \\
+
+$H$ & Hubble Constant & \si{\kilo\meter\per\second\per\mega\parsec}\\
+$V$ & Potential & \\
+
+$P$ & Pressure & \\
+
 %Symbol & Name & Unit \\
 
 \addlinespace % Gap to separate the Roman symbols from the Greek
 
 $\omega$ & angular frequency & \si{\radian} \\
+$\rho$ & Density & \\
+$\phi$ & Inflation Field & \\
+
+
+
+
 
 \end{symbols}
 
