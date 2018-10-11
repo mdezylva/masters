@@ -71,5 +71,24 @@
     \field{title}{Inflationary Cosmology}
     \field{year}{2007}
   \endentry
+
+  \entry{LiddleLyth:00}{book}{}
+    \name{author}{1}{}{%
+      {{hash=ARLDHL}{%
+         family={Andrew R.\bibnamedelima Liddle},
+         familyi={A\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+         given={David H.\bibnamedelima Lyth},
+         giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ARLDHL1}
+    \strng{fullhash}{ARLDHL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Cosmological Inflation and Large-Scale Structure}
+    \field{year}{2000}
+  \endentry
 \enddatalist
 \endinput

@@ -8,6 +8,6 @@
 \contentsline {section}{\numberline {1.1}Modern Cosmology}{3}{section.9}
 \contentsline {subsection}{\numberline {1.1.1}The Big Bang Theory}{3}{subsection.10}
 \contentsline {subsection}{\numberline {1.1.2}Inflation}{4}{subsection.13}
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{7}{appendix.17}
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{7}{section.18}
-\contentsline {chapter}{Bibliography}{9}{appendix*.19}
+\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{7}{appendix.20}
+\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{7}{section.21}
+\contentsline {chapter}{Bibliography}{9}{appendix*.22}
