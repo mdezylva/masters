@@ -10,32 +10,39 @@ def RaDec2XYZ(ra, dec):
     """
     From (ra,dec) -> unit vector on the sphere
     """
+
     rar = np.radians(ra)
     decr = np.radians(dec)
 
     x = np.cos(rar) * np.cos(decr)
     y = np.sin(rar) * np.cos(decr)
     z = np.sin(decr)
-
     vec = np.array([x, y, z]).T
 
     return vec
 
 
 def get_vec_distances(ra, dec, comoving_dist):
+    '''
+    Converts RA,DEC, and Comoving Distances into a single vector in 3D space
+    '''
     vec_unit = RaDec2XYZ(ra, dec)
     vec_dist = (vec_unit.T * comoving_dist).T
     return vec_dist
 
 
-def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz'):
-    ''' Takes a data frame with RA, DEC, and COMOVING distances, and pairs
+def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_frame=False):
+    '''
+    Takes a data frame with RA, DEC, and COMOVING distances, and pairs
     up those vectors with the closest vector under a given maximum separation
     and store the results in an array where:
     results[0] = First Item
     results[1] = Second Item
     results[2] = Distance between First Item and Second Item
     '''
+    assert(data_frame['RA'])
+    assert(data_frame['DEC'])
+    assert(data_frame['COMOVING'])
 
     vec_distances = []
     for index in range(len(data_frame)):
@@ -60,7 +67,8 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz'):
     result = sparse.coo_matrix(
         (dist_u['v'], (dist_u['i'], dist_u['j'])), (len(dist_u), len(dist_u)))
 
-    data_frame.to_csv('DES_REDMAGIC_Manipulated.csv')
+    if save_frame == True:
+        data_frame.to_csv('DES_REDMAGIC_Manipulated.csv')
 
     sp.sparse.save_npz(results_loc, result)
 
