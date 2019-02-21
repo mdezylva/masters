@@ -40,9 +40,9 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     results[1] = Second Item
     results[2] = Distance between First Item and Second Item
     '''
-    assert(data_frame['RA'])
-    assert(data_frame['DEC'])
-    assert(data_frame['COMOVING'])
+    # assert(data_frame['RA'])
+    # assert(data_frame['DEC'])
+    # assert(data_frame['COMOVING'])
 
     vec_distances = []
     for index in range(len(data_frame)):
