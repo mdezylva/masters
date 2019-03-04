@@ -75,3 +75,15 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     pairs_matrix = np.vstack((dist_u['i'], dist_u['j'], dist_u['v']))
 
     return(pairs_matrix)
+
+
+def get_subarray(array, centre, sqr_radius):
+    '''
+    Gets Sub Array with with an input centre and half width from an input Array
+    '''
+    x_cen = centre[0]
+    y_cen = centre[1]
+    sl_x = slice(x_cen - sqr_radius, x_cen + sqr_radius)
+    sl_y = slice(y_cen - sqr_radius, y_cen + sqr_radius)
+
+    return(array[sl_x, sl_y])
