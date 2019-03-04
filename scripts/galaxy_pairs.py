@@ -31,7 +31,7 @@ def get_vec_distances(ra, dec, comoving_dist):
     return vec_dist
 
 
-def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_frame=False):
+def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_frame=False, output='DES_REDMAGIC_Manipulated.csv'):
     '''
     Takes a data frame with RA, DEC, and COMOVING distances, and pairs
     up those vectors with the closest vector under a given maximum separation
@@ -68,7 +68,7 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
         (dist_u['v'], (dist_u['i'], dist_u['j'])), (len(dist_u), len(dist_u)))
 
     if save_frame == True:
-        data_frame.to_csv('DES_REDMAGIC_Manipulated.csv')
+        data_frame.to_csv(output)
 
     sp.sparse.save_npz(results_loc, result)
 
