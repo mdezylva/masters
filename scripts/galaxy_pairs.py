@@ -77,6 +77,16 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     return(pairs_matrix)
 
 
+def euclideanDistance(instance1, instance2, length):
+    '''
+    Returns the Euclidean Distance between two vectors of a given length
+    '''
+    distance = 0
+    for x in range(length):
+        distance += pow((instance1[x] - instance2[x]), 2)
+    return np.sqrt(distance)
+
+
 def get_subarray(array, centre, sqr_radius):
     '''
     Gets Sub Array with with an input centre and half width from an input Array
