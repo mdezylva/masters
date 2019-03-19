@@ -40,9 +40,12 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     results[1] = Second Item
     results[2] = Distance between First Item and Second Item
     '''
-    # assert(data_frame['RA'])
-    # assert(data_frame['DEC'])
-    # assert(data_frame['COMOVING'])
+    if 'RA' not in data_frame.columns:
+        return("Error: RA not in Data Frame")
+    if 'DEC' not in data_frame.columns:
+        return("Error: DEC not in Data Frame")
+    if 'COMOVING' not in data_frame.columns:
+        return("Error: COMOVING not in Data Frame")
 
     vec_distances = []
     for index in range(len(data_frame)):
