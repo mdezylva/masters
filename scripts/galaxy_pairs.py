@@ -59,8 +59,8 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     data_frame['y_vec'] = pd.Series(np.transpose(vec_distances)[1])
     data_frame['z_vec'] = pd.Series(np.transpose(vec_distances)[2])
 
-    vec = [data_frame['x_vec'][0], data_frame['y_vec']
-           [0], data_frame['z_vec'][0]]
+    # vec = [data_frame['x_vec'][0], data_frame['y_vec']
+        #    [0], data_frame['z_vec'][0]]
     vec_frame = np.vstack(
         (data_frame['x_vec'], data_frame['y_vec'], data_frame['z_vec']))
     vec_frame = vec_frame.T
@@ -162,7 +162,7 @@ def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
     midpoint = get_midpoint(point_1, point_2)
     # print(np.array(midpoint).astype(int))
     midpoint = np.array(midpoint).astype(int)
-    return(galaxy_pairs.get_subarray(y_map, midpoint, sqr_radius))
+    return(get_subarray(y_map, midpoint, sqr_radius))
 
 
 def stack(y_map, galaxy_catalogue, pairs):
