@@ -4,6 +4,8 @@ import pandas as pd
 import scipy.spatial.distance as dist
 from scipy import sparse
 from scipy.spatial import cKDTree as KDTree
+import sptpol_software.observation as obs
+from sptpol_software import *
 
 
 def RaDec2XYZ(ra, dec):
@@ -45,7 +47,7 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     if 'DEC' not in data_frame.columns:
         return("Error: DEC not in Data Frame")
     if 'COMOVING' not in data_frame.columns:
-        return("Error: COMOVING not in Data Frame")
+        return("Error: COMOVINGb not in Data Frame")
 
     vec_distances = []
     for index in range(len(data_frame)):
@@ -100,3 +102,50 @@ def get_subarray(array, centre, sqr_radius):
     sl_y = slice(y_cen - sqr_radius, y_cen + sqr_radius)
 
     return(array[sl_x, sl_y])
+
+
+def get_midpoint(ra_dec_1, ra_dec_2):
+    '''
+    Find the midpoint between two points in array space
+    '''
+    pt1 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+    pt2 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+
+    X1 = pt1[0]
+    X2 = pt2[0]
+
+    Y1 = pt1[1]
+    Y2 = pt2[1]
+
+    return(((X1 + X2) / 2, (Y1 + Y2) / 2))
+
+
+def get_rotn_angle(ra_dec_1, ra_dec_2):
+    '''
+    Return angle needed to rotate array based on dot-product of ra_dec vectors
+    '''
+    pt1 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+    pt2 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+
+    X1 = pt1[0]
+    X2 = pt2[0]
+
+    Y1 = pt1[1]
+    Y2 = pt2[1]
+
+    m = (Y2 - Y1) / (X2 - X1)
+
+    return(np.arctan(m))
+
+
+def stack(y_map, galaxy_catalogue, pairs):
+    '''
+    Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
+    '''
+    for index, row in pairs.iterrows():
+        galaxy_1 = row['galaxy_index_1']
+        galaxy_2 = row['galaxy_index_2']
