@@ -6,6 +6,7 @@ from scipy import sparse
 from scipy.spatial import cKDTree as KDTree
 import sptpol_software.observation as obs
 from sptpol_software import *
+import sptpol_software
 
 
 def RaDec2XYZ(ra, dec):
@@ -94,7 +95,7 @@ def euclideanDistance(instance1, instance2, length):
 
 def get_subarray(array, centre, sqr_radius):
     '''
-    Gets Sub Array with with an input centre and half width from an input Array
+    Gets Sub Array with with an input centre in array space and half width from an input Array
     '''
     x_cen = centre[0]
     y_cen = centre[1]
@@ -113,13 +114,13 @@ def get_midpoint(ra_dec_1, ra_dec_2):
     pt2 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
 
-    X1 = pt1[0]
-    X2 = pt2[0]
+    X1 = float(pt1[0][0])
+    X2 = float(pt2[0][0])
 
-    Y1 = pt1[1]
-    Y2 = pt2[1]
+    Y1 = float(pt1[0][1])
+    Y2 = float(pt2[0][1])
 
-    return(((X1 + X2) / 2, (Y1 + Y2) / 2))
+    return(((X1 + X2) / 2., (Y1 + Y2) / 2.))
 
 
 def get_rotn_angle(ra_dec_1, ra_dec_2):
@@ -140,6 +141,28 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
     m = (Y2 - Y1) / (X2 - X1)
 
     return(np.arctan(m))
+
+
+def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
+    '''
+    Takes an input pair and a Compton Y-Map, and extract the pair as a sub map
+    '''
+    first_point = pair[0]
+    second_point = pair[1]
+
+    ra_1 = galaxy_catalogue.loc[first_point]['RA']
+    dec_1 = galaxy_catalogue.loc[first_point]['DEC']
+
+    ra_2 = galaxy_catalogue.loc[second_point]['RA']
+    dec_2 = galaxy_catalogue.loc[second_point]['DEC']
+
+    point_1 = (ra_1, dec_1)
+    point_2 = (ra_2, dec_2)
+
+    midpoint = get_midpoint(point_1, point_2)
+    # print(np.array(midpoint).astype(int))
+    midpoint = np.array(midpoint).astype(int)
+    return(galaxy_pairs.get_subarray(y_map, midpoint, sqr_radius))
 
 
 def stack(y_map, galaxy_catalogue, pairs):
