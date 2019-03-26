@@ -1,12 +1,13 @@
 import numpy as np
-import scipy as sp
 import pandas as pd
+import scipy as sp
 import scipy.spatial.distance as dist
 from scipy import sparse
 from scipy.spatial import cKDTree as KDTree
+
+import sptpol_software
 import sptpol_software.observation as obs
 from sptpol_software import *
-import sptpol_software
 
 
 def RaDec2XYZ(ra, dec):
@@ -60,7 +61,7 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     data_frame['z_vec'] = pd.Series(np.transpose(vec_distances)[2])
 
     # vec = [data_frame['x_vec'][0], data_frame['y_vec']
-        #    [0], data_frame['z_vec'][0]]
+    #    [0], data_frame['z_vec'][0]]
     vec_frame = np.vstack(
         (data_frame['x_vec'], data_frame['y_vec'], data_frame['z_vec']))
     vec_frame = vec_frame.T
@@ -150,25 +151,41 @@ def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
     first_point = pair[0]
     second_point = pair[1]
 
-    ra_1 = galaxy_catalogue.loc[first_point]['RA']
-    dec_1 = galaxy_catalogue.loc[first_point]['DEC']
+    # ra_1 = galaxy_catalogue.loc[first_point]['RA']
+    # dec_1 = galaxy_catalogue.loc[first_point]['DEC']
+    # ra_2 = galaxy_catalogue.loc[second_point]['RA']
+    # dec_2 = galaxy_catalogue.loc[second_point]['DEC']
+    # point_1 = (ra_1, dec_1)
+    # point_2 = (ra_2, dec_2)
 
-    ra_2 = galaxy_catalogue.loc[second_point]['RA']
-    dec_2 = galaxy_catalogue.loc[second_point]['DEC']
-
-    point_1 = (ra_1, dec_1)
-    point_2 = (ra_2, dec_2)
+    point_1 = (ra_1, dec_1) = extract_ra_dec(first_point,galaxy_catalogue)
+    point_2 = (ra_2, dec_2) = extract_ra_dec(second_point,galaxy_catalogue)
 
     midpoint = get_midpoint(point_1, point_2)
-    # print(np.array(midpoint).astype(int))
     midpoint = np.array(midpoint).astype(int)
+
     return(get_subarray(y_map, midpoint, sqr_radius))
+
+def extract_ra_dec(galaxy_index,galaxy_catalogue):
+    ra = galaxy_catalogue.loc[galaxy_index]['RA']
+    dec = galaxy_catalogue.loc[galaxy_index]['DEC']
+    return((ra,dec)
 
 
 def stack(y_map, galaxy_catalogue, pairs):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
+    returning a stacked array
     '''
+    size_of_cutout = 60
+    output = np.ndarray([size_of_cutout / 2., size_of_cutout / 2.])
     for index, row in pairs.iterrows():
         galaxy_1 = row['galaxy_index_1']
         galaxy_2 = row['galaxy_index_2']
+        pair = [galaxy_1, galaxy_2]
+        cut_array = cut_out_pair(pair, y_map,
+                                 galaxy_catalogue, size_of_cutout / 2.)
+        angle = get_rotn_angle()
+        output +=
+
+    return(output)
