@@ -25,7 +25,6 @@ def RaDec2XYZ(ra, dec):
 
     return vec
 
-
 def get_vec_distances(ra, dec, comoving_dist):
     '''
     Converts RA,DEC, and Comoving Distances into a single vector in 3D space
@@ -33,7 +32,6 @@ def get_vec_distances(ra, dec, comoving_dist):
     vec_unit = RaDec2XYZ(ra, dec)
     vec_dist = (vec_unit.T * comoving_dist).T
     return vec_dist
-
 
 def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_frame=False, output='DES_REDMAGIC_Manipulated.csv'):
     '''
@@ -83,7 +81,6 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
 
     return(pairs_matrix)
 
-
 def euclideanDistance(instance1, instance2, length):
     '''
     Returns the Euclidean Distance between two vectors of a given length
@@ -92,7 +89,6 @@ def euclideanDistance(instance1, instance2, length):
     for x in range(length):
         distance += pow((instance1[x] - instance2[x]), 2)
     return np.sqrt(distance)
-
 
 def get_subarray(array, centre, sqr_radius):
     '''
@@ -104,7 +100,6 @@ def get_subarray(array, centre, sqr_radius):
     sl_y = slice(y_cen - sqr_radius, y_cen + sqr_radius)
 
     return(array[sl_x, sl_y])
-
 
 def get_midpoint(ra_dec_1, ra_dec_2):
     '''
@@ -122,7 +117,6 @@ def get_midpoint(ra_dec_1, ra_dec_2):
     Y2 = float(pt2[0][1])
 
     return(((X1 + X2) / 2., (Y1 + Y2) / 2.))
-
 
 def get_rotn_angle(ra_dec_1, ra_dec_2):
     '''
@@ -143,7 +137,6 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
 
     return(np.arctan(m))
 
-
 def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
     '''
     Takes an input pair and a Compton Y-Map, and extract the pair as a sub map
@@ -155,11 +148,11 @@ def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
     # dec_1 = galaxy_catalogue.loc[first_point]['DEC']
     # ra_2 = galaxy_catalogue.loc[second_point]['RA']
     # dec_2 = galaxy_catalogue.loc[second_point]['DEC']
-    # point_1 = (ra_1, dec_1)
-    # point_2 = (ra_2, dec_2)
+    # point_1 = (ra_1, dec_1)(ra_1, dec_1) =
+    # point_2 = (ra_2, dec_2)(ra_2, dec_2) =
 
-    point_1 = (ra_1, dec_1) = extract_ra_dec(first_point,galaxy_catalogue)
-    point_2 = (ra_2, dec_2) = extract_ra_dec(second_point,galaxy_catalogue)
+    point_1 =  extract_ra_dec(first_point,galaxy_catalogue)
+    point_2 =  extract_ra_dec(second_point,galaxy_catalogue)
 
     midpoint = get_midpoint(point_1, point_2)
     midpoint = np.array(midpoint).astype(int)
@@ -167,12 +160,14 @@ def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
     return(get_subarray(y_map, midpoint, sqr_radius))
 
 def extract_ra_dec(galaxy_index,galaxy_catalogue):
+    '''
+    Takes input galaxy index from get_pairs, and returns corresponding RA and DEC
+    '''
     ra = galaxy_catalogue.loc[galaxy_index]['RA']
     dec = galaxy_catalogue.loc[galaxy_index]['DEC']
-    return((ra,dec)
-
-
-def stack(y_map, galaxy_catalogue, pairs):
+    return((ra,dec))
+    
+def stack_pairs(y_map, galaxy_catalogue, pairs):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
@@ -183,9 +178,15 @@ def stack(y_map, galaxy_catalogue, pairs):
         galaxy_1 = row['galaxy_index_1']
         galaxy_2 = row['galaxy_index_2']
         pair = [galaxy_1, galaxy_2]
+
         cut_array = cut_out_pair(pair, y_map,
                                  galaxy_catalogue, size_of_cutout / 2.)
-        angle = get_rotn_angle()
-        output +=
+
+        gal_1_coords = extract_ra_dec(galaxy_1,galaxy_catalogue)
+        gal_2_coords = extract_ra_dec(galaxy_2,galaxy_catalogue)
+
+        angle = get_rotn_angle(gal_1_coords,gal_2_coords)
+        rot_array = sp.ndimage.rotate(cut_array, angle, reshape=False)
+        output += rot_array
 
     return(output)
