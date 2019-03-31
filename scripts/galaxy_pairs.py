@@ -118,6 +118,7 @@ def get_midpoint(ra_dec_1, ra_dec_2):
 
     return(((X1 + X2) / 2., (Y1 + Y2) / 2.))
 
+
 def get_rotn_angle(ra_dec_1, ra_dec_2):
     '''
     Return angle needed to rotate array based on dot-product of ra_dec vectors
@@ -127,37 +128,40 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
     pt2 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
 
-    X1 = pt1[0]
-    X2 = pt2[0]
+    X1 = np.array(pt1[0][0][0])
+    X2 = np.array(pt2[0][0][0])
 
-    Y1 = pt1[1]
-    Y2 = pt2[1]
+    Y1 = pt1[0][1][0]
+    Y2 = pt2[0][1][0]
 
     m = (Y2 - Y1) / (X2 - X1)
-
     return(np.arctan(m))
 
-def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius=50):
+
+def cut_out_pair(pair, y_map, galaxy_catalogue):
     '''
     Takes an input pair and a Compton Y-Map, and extract the pair as a sub map
     '''
     first_point = pair[0]
+    # print("Index of first pair : " + str(first_point))
     second_point = pair[1]
+    # print("Index of second pair : " + str(second_point))
+    ra_1 = galaxy_catalogue.loc[first_point]['RA']
+    dec_1 = galaxy_catalogue.loc[first_point]['DEC']
 
-    # ra_1 = galaxy_catalogue.loc[first_point]['RA']
-    # dec_1 = galaxy_catalogue.loc[first_point]['DEC']
-    # ra_2 = galaxy_catalogue.loc[second_point]['RA']
-    # dec_2 = galaxy_catalogue.loc[second_point]['DEC']
-    # point_1 = (ra_1, dec_1)(ra_1, dec_1) =
-    # point_2 = (ra_2, dec_2)(ra_2, dec_2) =
+    ra_2 = galaxy_catalogue.loc[second_point]['RA']
+    dec_2 = galaxy_catalogue.loc[second_point]['DEC']
 
-    point_1 =  extract_ra_dec(first_point,galaxy_catalogue)
-    point_2 =  extract_ra_dec(second_point,galaxy_catalogue)
+    point_1 = (ra_1, dec_1)
+    # print(point_1)
+    point_2 = (ra_2, dec_2)
+    # print(point_2)
 
     midpoint = get_midpoint(point_1, point_2)
+    # print(np.array(midpoint).astype(int))
     midpoint = np.array(midpoint).astype(int)
+    return(galaxy_pairs.get_subarray(y_map, midpoint, 20))
 
-    return(get_subarray(y_map, midpoint, sqr_radius))
 
 def extract_ra_dec(galaxy_index,galaxy_catalogue):
     '''
@@ -179,8 +183,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs):
         galaxy_2 = row['galaxy_index_2']
         pair = [galaxy_1, galaxy_2]
 
-        cut_array = cut_out_pair(pair, y_map,
-                                 galaxy_catalogue, size_of_cutout / 2.)
+        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue)
 
         gal_1_coords = extract_ra_dec(galaxy_1,galaxy_catalogue)
         gal_2_coords = extract_ra_dec(galaxy_2,galaxy_catalogue)
