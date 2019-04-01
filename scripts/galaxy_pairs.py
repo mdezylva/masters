@@ -118,7 +118,6 @@ def get_midpoint(ra_dec_1, ra_dec_2):
 
     return(((X1 + X2) / 2., (Y1 + Y2) / 2.))
 
-
 def get_rotn_angle(ra_dec_1, ra_dec_2):
     '''
     Return angle needed to rotate array based on dot-product of ra_dec vectors
@@ -136,7 +135,6 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
 
     m = (Y2 - Y1) / (X2 - X1)
     return(np.arctan(m))
-
 
 def cut_out_pair(pair, y_map, galaxy_catalogue):
     '''
@@ -161,7 +159,6 @@ def cut_out_pair(pair, y_map, galaxy_catalogue):
     # print(np.array(midpoint).astype(int))
     midpoint = np.array(midpoint).astype(int)
     return(galaxy_pairs.get_subarray(y_map, midpoint, 20))
-
 
 def extract_ra_dec(galaxy_index,galaxy_catalogue):
     '''
