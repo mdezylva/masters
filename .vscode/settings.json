@@ -5,5 +5,6 @@
     "python.venvPath": "/home/mitchell/Software/anaconda3/envs/py27/bin/python",
     "python.autoComplete.extraPaths": [
         "/home/mitchell/Software/SPT/sptpol_software"
-    ]
+    ],
+    "python.pythonPath": "/home/mitchell/Software/anaconda3/envs/py27/bin/python"
 }

@@ -4,6 +4,7 @@ import scipy as sp
 import scipy.spatial.distance as dist
 from scipy import sparse
 from scipy.spatial import cKDTree as KDTree
+import pdb
 
 import sptpol_software
 import sptpol_software.observation as obs
@@ -116,34 +117,41 @@ def get_midpoint(ra_dec_1, ra_dec_2):
     Y1 = float(pt1[0][1])
     Y2 = float(pt2[0][1])
 
-    return(((X1 + X2) / 2., (Y1 + Y2) / 2.))
+    return((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
 
 def get_rotn_angle(ra_dec_1, ra_dec_2):
     '''
-    Return angle needed to rotate array based on dot-product of ra_dec vectors
+    Return angle needed to rotate array based on gradient of ra_dec vectors
     '''
     pt1 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
     pt2 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
 
-    X1 = np.array(pt1[0][0][0])
-    X2 = np.array(pt2[0][0][0])
+    X1 = pt1[0][0][0]
+    X2 = pt2[0][0][0]
 
     Y1 = pt1[0][1][0]
     Y2 = pt2[0][1][0]
 
     m = (Y2 - Y1) / (X2 - X1)
-    return(np.arctan(m))
+    if (X2-X1) == 0:
+        # print(X2-X1)
+        # print(ra_dec_1)
+        # print(ra_dec_2)
+        # pdb.set_trace()
+        return(90.)
+
+    else:
+        return(np.arctan(m))
 
 def cut_out_pair(pair, y_map, galaxy_catalogue):
     '''
     Takes an input pair and a Compton Y-Map, and extract the pair as a sub map
     '''
     first_point = pair[0]
-    # print("Index of first pair : " + str(first_point))
     second_point = pair[1]
-    # print("Index of second pair : " + str(second_point))
+
     ra_1 = galaxy_catalogue.loc[first_point]['RA']
     dec_1 = galaxy_catalogue.loc[first_point]['DEC']
 
@@ -151,14 +159,12 @@ def cut_out_pair(pair, y_map, galaxy_catalogue):
     dec_2 = galaxy_catalogue.loc[second_point]['DEC']
 
     point_1 = (ra_1, dec_1)
-    # print(point_1)
     point_2 = (ra_2, dec_2)
-    # print(point_2)
 
     midpoint = get_midpoint(point_1, point_2)
-    # print(np.array(midpoint).astype(int))
     midpoint = np.array(midpoint).astype(int)
-    return(galaxy_pairs.get_subarray(y_map, midpoint, 20))
+
+    return(get_subarray(y_map, midpoint, 20))
 
 def extract_ra_dec(galaxy_index,galaxy_catalogue):
     '''
@@ -173,8 +179,8 @@ def stack_pairs(y_map, galaxy_catalogue, pairs):
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
     '''
-    size_of_cutout = 60
-    output = np.ndarray([size_of_cutout / 2., size_of_cutout / 2.])
+    size_of_cutout = 80
+    output = np.ndarray([int(size_of_cutout / 2.), int(size_of_cutout / 2.)])
     for index, row in pairs.iterrows():
         galaxy_1 = row['galaxy_index_1']
         galaxy_2 = row['galaxy_index_2']
@@ -182,10 +188,10 @@ def stack_pairs(y_map, galaxy_catalogue, pairs):
 
         cut_array = cut_out_pair(pair, y_map, galaxy_catalogue)
 
-        gal_1_coords = extract_ra_dec(galaxy_1,galaxy_catalogue)
-        gal_2_coords = extract_ra_dec(galaxy_2,galaxy_catalogue)
+        gal_1_coords = extract_ra_dec(galaxy_1, galaxy_catalogue)
+        gal_2_coords = extract_ra_dec(galaxy_2, galaxy_catalogue)
 
-        angle = get_rotn_angle(gal_1_coords,gal_2_coords)
+        angle = get_rotn_angle(gal_1_coords, gal_2_coords)
         rot_array = sp.ndimage.rotate(cut_array, angle, reshape=False)
         output += rot_array
 
