@@ -134,7 +134,8 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
     Y1 = pt1[0][1][0]
     Y2 = pt2[0][1][0]
 
-    m = (Y2 - Y1) / (X2 - X1)
+    try:
+        m = (Y2 - Y1) / (X2 - X1)
     if (X2-X1) == 0:
         # print(X2-X1)
         # print(ra_dec_1)
