@@ -134,17 +134,15 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
     Y1 = pt1[0][1][0]
     Y2 = pt2[0][1][0]
 
-    try:
-        m = (Y2 - Y1) / (X2 - X1)
     if (X2-X1) == 0:
         # print(X2-X1)
         # print(ra_dec_1)
         # print(ra_dec_2)
         # pdb.set_trace()
         return(90.)
-
-    else:
-        return(np.arctan(m))
+    
+    m = (Y2 - Y1) / (X2 - X1)
+    return(np.arctan(m))
 
 def cut_out_pair(pair, y_map, galaxy_catalogue):
     '''
@@ -194,6 +192,13 @@ def stack_pairs(y_map, galaxy_catalogue, pairs):
 
         angle = get_rotn_angle(gal_1_coords, gal_2_coords)
         rot_array = sp.ndimage.rotate(cut_array, angle, reshape=False)
+        prev_cell = float()
+
         output += rot_array
+        for row in output:
+            for cell in row:
+                if abs(cell) > 1:
+                    pdb.set_trace()
+                prev_cell = cell
 
     return(output)

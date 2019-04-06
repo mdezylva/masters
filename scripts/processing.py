@@ -31,7 +31,7 @@ cwd = os.getcwd()
 import scipy.ndimage
 cosmo = Planck15
 
-# Correction Factors for sptPol
+# Correction Factors for sptPohl
 T_cmb = 2.725
 freqs_ghz = [93.2000, 147.700]
 beam_norm_correction = [1./0.99673, 1./0.99470, 1./1.]
