@@ -111,29 +111,45 @@ def get_midpoint(ra_dec_1, ra_dec_2):
     pt2 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
 
-    X1 = float(pt1[0][0])
-    X2 = float(pt2[0][0])
+    X1 = float(pt1[0][0][0])
+    X2 = float(pt2[0][0][0])
+    
+    Y1 = float(pt1[0][1][0])
+    Y2 = float(pt2[0][1][0])
 
-    Y1 = float(pt1[0][1])
-    Y2 = float(pt2[0][1])
-
+    print("X1 = " + str(X1))
+    print("X2 = " + str(X2))
+    print("Y1 = " + str(Y1))
+    print("Y2 = " + str(Y2))
     return((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
 
-def get_rotn_angle(ra_dec_1, ra_dec_2):
+def get_rotn_angle(ra_dec_1, ra_dec_2, debug = False):
     '''
     Return angle needed to rotate array based on gradient of ra_dec vectors
     '''
     pt1 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+    
     pt2 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
 
-    X1 = pt1[0][0][0]
-    X2 = pt2[0][0][0]
+    if debug:
+        print("Point 1 = " + str(pt1))
+        print("Point 2 = " + str(pt2))
 
-    Y1 = pt1[0][1][0]
-    Y2 = pt2[0][1][0]
+    if (not pt1[1][0][0]) or (not pt1[1][1][0]) or (not pt2[1][0][0]) or (not pt2[1][1][0]):
+        raise ValueError("Point not inside bounds of map")
 
+    X1 = float(pt1[0][0][0])
+    X2 = float(pt2[0][0][0])
+
+    Y1 = float(pt1[0][1][0])
+    Y2 = float(pt2[0][1][0])
+    if debug:
+        print("X1 = " + str(X1))
+        print("X2 = " + str(X2))
+        print("Y1 = " + str(Y1))
+        print("Y2 = " + str(Y2))
     if (X2-X1) == 0:
         # print(X2-X1)
         # print(ra_dec_1)
@@ -142,9 +158,11 @@ def get_rotn_angle(ra_dec_1, ra_dec_2):
         return(90.)
     
     m = (Y2 - Y1) / (X2 - X1)
-    return(np.arctan(m))
-
-def cut_out_pair(pair, y_map, galaxy_catalogue):
+    if debug:
+        print(m)
+    return(np.degrees(np.arctan(m)))
+ 
+def cut_out_pair(pair, y_map, galaxy_catalogue, debug = False):
     '''
     Takes an input pair and a Compton Y-Map, and extract the pair as a sub map
     '''
@@ -158,9 +176,12 @@ def cut_out_pair(pair, y_map, galaxy_catalogue):
     dec_2 = galaxy_catalogue.loc[second_point]['DEC']
 
     point_1 = (ra_1, dec_1)
+    print(point_1)
     point_2 = (ra_2, dec_2)
+    print(point_2)
 
     midpoint = get_midpoint(point_1, point_2)
+    print(midpoint)
     midpoint = np.array(midpoint).astype(int)
 
     return(get_subarray(y_map, midpoint, 20))
@@ -173,7 +194,7 @@ def extract_ra_dec(galaxy_index,galaxy_catalogue):
     dec = galaxy_catalogue.loc[galaxy_index]['DEC']
     return((ra,dec))
     
-def stack_pairs(y_map, galaxy_catalogue, pairs):
+def stack_pairs(y_map, galaxy_catalogue, pairs, debug = False):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
@@ -197,7 +218,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs):
         output += rot_array
         for row in output:
             for cell in row:
-                if abs(cell) > 1:
+                if abs(cell) > 1 and debug:
                     pdb.set_trace()
                 prev_cell = cell
 
