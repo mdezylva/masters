@@ -102,5 +102,5 @@ cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 output = galaxy_pairs.stack_pairs(y_map_array, cut_df, cut_pairs_df)
 
 print(output)
-plt.imshow(output)
+plt.imshow(output,vmax=1,vmin=-1)
 plt.show()

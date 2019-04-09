@@ -5,10 +5,13 @@ import scipy.spatial.distance as dist
 from scipy import sparse
 from scipy.spatial import cKDTree as KDTree
 import pdb
+import astropy.units as u 
+from mpdaf.obj import Image,WCS
 
 import sptpol_software
 import sptpol_software.observation as obs
 from sptpol_software import *
+
 
 
 def RaDec2XYZ(ra, dec):
@@ -117,10 +120,10 @@ def get_midpoint(ra_dec_1, ra_dec_2):
     Y1 = float(pt1[0][1][0])
     Y2 = float(pt2[0][1][0])
 
-    print("X1 = " + str(X1))
-    print("X2 = " + str(X2))
-    print("Y1 = " + str(Y1))
-    print("Y2 = " + str(Y2))
+  #  print("X1 = " + str(X1))
+  #  print("X2 = " + str(X2))
+  #  print("Y1 = " + str(Y1))
+  #  print("Y2 = " + str(Y2))
     return((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
 
 def get_rotn_angle(ra_dec_1, ra_dec_2, debug = False):
@@ -176,12 +179,12 @@ def cut_out_pair(pair, y_map, galaxy_catalogue, debug = False):
     dec_2 = galaxy_catalogue.loc[second_point]['DEC']
 
     point_1 = (ra_1, dec_1)
-    print(point_1)
+   # print(point_1)
     point_2 = (ra_2, dec_2)
-    print(point_2)
+   # print(point_2)
 
     midpoint = get_midpoint(point_1, point_2)
-    print(midpoint)
+   # print(midpoint)
     midpoint = np.array(midpoint).astype(int)
 
     return(get_subarray(y_map, midpoint, 20))
