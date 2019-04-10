@@ -165,7 +165,7 @@ def get_rotn_angle(ra_dec_1, ra_dec_2, debug = False):
         print(m)
     return(np.degrees(np.arctan(m)))
  
-def cut_out_pair(pair, y_map, galaxy_catalogue, debug = False):
+def cut_out_pair(pair, y_map, galaxy_catalogue, sqr_radius ,debug = False):
     '''
     Takes an input pair and a Compton Y-Map, and extract the pair as a sub map
     '''
@@ -187,7 +187,7 @@ def cut_out_pair(pair, y_map, galaxy_catalogue, debug = False):
    # print(midpoint)
     midpoint = np.array(midpoint).astype(int)
 
-    return(get_subarray(y_map, midpoint, 20))
+    return(get_subarray(y_map, midpoint, sqr_radius))
 
 def extract_ra_dec(galaxy_index,galaxy_catalogue):
     '''
@@ -203,13 +203,17 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, debug = False):
     returning a stacked array
     '''
     size_of_cutout = 80
-    output = np.ndarray([int(size_of_cutout / 2.), int(size_of_cutout / 2.)])
+    output = np.ndarray([size_of_cutout, size_of_cutout ])
+    #print("Output Array Shape = " + str(np.shape(output)))
+
     for index, row in pairs.iterrows():
         galaxy_1 = row['galaxy_index_1']
         galaxy_2 = row['galaxy_index_2']
         pair = [galaxy_1, galaxy_2]
 
-        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue)
+        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,int(size_of_cutout/2.))
+
+     #   print("Cut Array Shape = " + str(np.shape(cut_array)))
 
         gal_1_coords = extract_ra_dec(galaxy_1, galaxy_catalogue)
         gal_2_coords = extract_ra_dec(galaxy_2, galaxy_catalogue)
@@ -217,10 +221,12 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, debug = False):
         angle = get_rotn_angle(gal_1_coords, gal_2_coords)
         rot_array = sp.ndimage.rotate(cut_array, angle, reshape=False)
         prev_cell = float()
+      #  print("Rotated Array Shape = " + str(np.shape(rot_array)))
 
         output += rot_array
         for row in output:
-            for cell in row:
+            diff = np.diff(row)
+            for cell in diff:
                 if abs(cell) > 1 and debug:
                     pdb.set_trace()
                 prev_cell = cell
