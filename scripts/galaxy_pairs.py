@@ -199,7 +199,28 @@ def extract_ra_dec(galaxy_index,galaxy_catalogue):
     dec = galaxy_catalogue.loc[galaxy_index]['DEC']
     return((ra,dec))
     
-def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=40, debug = False):
+def calc_array_scale_factor(ra_dec_1,ra_dec_2, scaled_coords):
+    """
+
+    """
+    pt1 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+    pt2 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+
+    X1 = float(pt1[0][0][0])
+    X2 = float(pt2[0][0][0])
+    
+    Y1 = float(pt1[0][1][0])
+    Y2 = float(pt2[0][1][0])
+
+    sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
+
+    scale_fac = 100.0/sep
+    
+    return(scale_fac)
+
+def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
