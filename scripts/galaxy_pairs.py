@@ -37,7 +37,7 @@ def get_vec_distances(ra, dec, comoving_dist):
     vec_dist = (vec_unit.T * comoving_dist).T
     return vec_dist
 
-def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_frame=False, output='DES_REDMAGIC_Manipulated.csv'):
+def getPairs(data_frame, max_sep=20, query_type = 1,results_loc='PAIRS_sparse_dist.npz', save_frame=False, output='DES_REDMAGIC_Manipulated.csv'):
     '''
     Takes a data frame with RA, DEC, and COMOVING distances, and pairs
     up those vectors with the closest vector under a given maximum separation
@@ -69,9 +69,11 @@ def getPairs(data_frame, max_sep=20, results_loc='PAIRS_sparse_dist.npz', save_f
     vec_frame = vec_frame.T
 
     frame_tree = KDTree(vec_frame)
-    dist_matr = frame_tree.sparse_distance_matrix(
-        frame_tree, max_distance=max_sep, p=2.0, output_type='ndarray')
-
+    if query_type == 1:
+        dist_matr = frame_tree.sparse_distance_matrix(
+            frame_tree, max_distance=max_sep, p=2.0, output_type='ndarray')
+    elif query_type == 2:
+            dist_matr = frame_tree.query_pairs(r=max_sep, p=2.0, output_type='ndarray')
     dist_u = dist_matr[dist_matr['i'] < dist_matr['j']]
     result = sparse.coo_matrix(
         (dist_u['v'], (dist_u['i'], dist_u['j'])), (len(dist_u), len(dist_u)))
@@ -105,7 +107,7 @@ def get_subarray(array, centre, sqr_radius):
 
     return(array[sl_x, sl_y])
 
-def get_midpoint(ra_dec_1, ra_dec_2):
+def get_midpoint(ra_dec_1, ra_dec_2, debug = False):
     '''
     Find the midpoint between two points in array space
     '''
@@ -120,10 +122,10 @@ def get_midpoint(ra_dec_1, ra_dec_2):
     Y1 = float(pt1[0][1][0])
     Y2 = float(pt2[0][1][0])
 
-  #  print("X1 = " + str(X1))
-  #  print("X2 = " + str(X2))
-  #  print("Y1 = " + str(Y1))
-  #  print("Y2 = " + str(Y2))
+    if debug:
+        
+        pdb.set_trace()
+    print("Distance Between Pairs = ", str(np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)))
     return((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
 
 def get_rotn_angle(ra_dec_1, ra_dec_2, debug = False):
@@ -197,12 +199,11 @@ def extract_ra_dec(galaxy_index,galaxy_catalogue):
     dec = galaxy_catalogue.loc[galaxy_index]['DEC']
     return((ra,dec))
     
-def stack_pairs(y_map, galaxy_catalogue, pairs, debug = False):
+def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=40, debug = False):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
     '''
-    size_of_cutout = 80
     output = np.ndarray([size_of_cutout, size_of_cutout ])
     #print("Output Array Shape = " + str(np.shape(output)))
 
@@ -211,7 +212,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, debug = False):
         galaxy_2 = row['galaxy_index_2']
         pair = [galaxy_1, galaxy_2]
 
-        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,int(size_of_cutout/2.))
+        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,int(size_of_cutout/2.),debug=True)
 
      #   print("Cut Array Shape = " + str(np.shape(cut_array)))
 

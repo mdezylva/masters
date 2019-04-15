@@ -92,14 +92,14 @@ cut_df = df[((df.DEC < dec_range[0]) & (df.DEC > dec_range[1]))
 cut_df = cut_df.reset_index(drop=True)
 
 
-cut_pairs = galaxy_pairs.getPairs(cut_df, 20)
+cut_pairs = galaxy_pairs.getPairs(cut_df, max_sep=14,query_type=1)
 cut_pairs_df = pd.DataFrame(
     cut_pairs.T, columns=['galaxy_index_1', 'galaxy_index_2', 'Sep'])
 cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 
 
-output = galaxy_pairs.stack_pairs(y_map_array, cut_df, cut_pairs_df,debug=False)
+output = galaxy_pairs.stack_pairs(y_map_array, cut_df, cut_pairs_df,size_of_cutout=40)
 
 print(output)
 plt.imshow(output)#,vmax=1,vmin=-1)
