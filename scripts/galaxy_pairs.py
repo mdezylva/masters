@@ -236,6 +236,8 @@ def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,width_of_pairs=100.):
 
     sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
     scale_fact = width_of_pairs/sep
+    if sep == 0:
+        return(np.zeros(shape=np.shape(array)))
     rescaled_array = sp.ndimage.zoom(array,scale_fact)
 
     centre = [len(rescaled_array)/2,len(rescaled_array)/2]
@@ -272,11 +274,12 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False
         prev_cell = float()
         if debug:
             print("Rotated Array Shape = " + str(np.shape(rot_array)))
-        scaled_array = rescale_array(rot_array,gal_1_coords,gal_2_coords,size_of_cutout)
+        scaled_array = rescale_array(rot_array,gal_1_coords,gal_2_coords,len(output)/2)
         if debug:
             print("Scaled Array Shape = " + str(np.shape(scaled_array)))
         output += scaled_array
         for row in output:
+        print("Added pair " + str(index))
             diff = np.diff(row)
             for cell in diff:
                 if abs(cell) > 1 and debug:
