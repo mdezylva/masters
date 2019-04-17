@@ -123,9 +123,8 @@ def get_midpoint(ra_dec_1, ra_dec_2, debug = False):
     Y2 = float(pt2[0][1][0])
 
     if debug:
-        
+        print("Distance Between Pairs = ", str(np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)))
         pdb.set_trace()
-    print("Distance Between Pairs = ", str(np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)))
     return((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
 
 def get_rotn_angle(ra_dec_1, ra_dec_2, debug = False):
@@ -201,7 +200,7 @@ def extract_ra_dec(galaxy_index,galaxy_catalogue):
     
 def calc_array_scale_factor(ra_dec_1,ra_dec_2, scaled_coords):
     """
-
+    Calculates the factor by which to scale the array
     """
     pt1 = sptpol_software.observation.sky.ang2Pix(
         ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
@@ -220,22 +219,50 @@ def calc_array_scale_factor(ra_dec_1,ra_dec_2, scaled_coords):
     
     return(scale_fac)
 
+def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,width_of_pairs=100.):
+    '''
+    Rescales Array 
+    '''
+    pt1 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_1, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+    pt2 = sptpol_software.observation.sky.ang2Pix(
+        ra_dec_2, [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+
+    X1 = float(pt1[0][0][0])
+    X2 = float(pt2[0][0][0])
+    
+    Y1 = float(pt1[0][1][0])
+    Y2 = float(pt2[0][1][0])
+
+    sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
+    scale_fact = width_of_pairs/sep
+    rescaled_array = sp.ndimage.zoom(array,scale_fact)
+
+    centre = [len(rescaled_array)/2,len(rescaled_array)/2]
+
+    new_array = get_subarray(array=rescaled_array,centre = centre,sqr_radius = sqr_radius)
+
+    return(new_array)
+
 def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
     '''
-    output = np.ndarray([size_of_cutout, size_of_cutout ])
-    #print("Output Array Shape = " + str(np.shape(output)))
+
+    output = np.ndarray(shape = (size_of_cutout*2, size_of_cutout*2))
+    if debug:
+        print("Output Array Shape = " + str(np.shape(output)))
 
     for index, row in pairs.iterrows():
         galaxy_1 = row['galaxy_index_1']
         galaxy_2 = row['galaxy_index_2']
         pair = [galaxy_1, galaxy_2]
 
-        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,int(size_of_cutout/2.),debug=True)
+        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,size_of_cutout,debug=True)
 
-     #   print("Cut Array Shape = " + str(np.shape(cut_array)))
+        if debug:
+            print("Cut Array Shape = " + str(np.shape(cut_array)))
 
         gal_1_coords = extract_ra_dec(galaxy_1, galaxy_catalogue)
         gal_2_coords = extract_ra_dec(galaxy_2, galaxy_catalogue)
@@ -243,9 +270,12 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False
         angle = get_rotn_angle(gal_1_coords, gal_2_coords)
         rot_array = sp.ndimage.rotate(cut_array, angle, reshape=False)
         prev_cell = float()
-      #  print("Rotated Array Shape = " + str(np.shape(rot_array)))
-
-        output += rot_array
+        if debug:
+            print("Rotated Array Shape = " + str(np.shape(rot_array)))
+        scaled_array = rescale_array(rot_array,gal_1_coords,gal_2_coords,size_of_cutout)
+        if debug:
+            print("Scaled Array Shape = " + str(np.shape(scaled_array)))
+        output += scaled_array
         for row in output:
             diff = np.diff(row)
             for cell in diff:
