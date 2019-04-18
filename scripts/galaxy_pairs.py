@@ -246,7 +246,7 @@ def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,width_of_pairs=100.):
 
     return(new_array)
 
-def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False):
+def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=100, debug = False):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other
     returning a stacked array
@@ -261,7 +261,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False
         galaxy_2 = row['galaxy_index_2']
         pair = [galaxy_1, galaxy_2]
 
-        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,size_of_cutout,debug=True)
+        cut_array = cut_out_pair(pair, y_map, galaxy_catalogue,30,debug=True)
 
         if debug:
             print("Cut Array Shape = " + str(np.shape(cut_array)))
@@ -278,12 +278,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=60, debug = False
         if debug:
             print("Scaled Array Shape = " + str(np.shape(scaled_array)))
         output += scaled_array
-        for row in output:
+
         print("Added pair " + str(index))
-            diff = np.diff(row)
-            for cell in diff:
-                if abs(cell) > 1 and debug:
-                    pdb.set_trace()
-                prev_cell = cell
 
     return(output)
