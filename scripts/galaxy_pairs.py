@@ -219,7 +219,7 @@ def calc_array_scale_factor(ra_dec_1,ra_dec_2, scaled_coords):
     
     return(scale_fac)
 
-def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,width_of_pairs=100.):
+def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,scaled_width=100.):
     '''
     Rescales Array 
     '''
@@ -235,9 +235,9 @@ def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,width_of_pairs=100.):
     Y2 = float(pt2[0][1][0])
 
     sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
-    scale_fact = width_of_pairs/sep
+    scale_fact = scaled_width/sep
     if sep == 0:
-        return(np.zeros(shape=np.shape(array)))
+        return(0)
     rescaled_array = sp.ndimage.zoom(array,scale_fact)
 
     centre = [len(rescaled_array)/2,len(rescaled_array)/2]
