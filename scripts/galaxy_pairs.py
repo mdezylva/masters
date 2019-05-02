@@ -102,10 +102,14 @@ def get_subarray(array, centre, sqr_radius):
     '''
     x_cen = centre[0]
     y_cen = centre[1]
-    sl_x = slice(x_cen - sqr_radius, x_cen + sqr_radius)
-    sl_y = slice(y_cen - sqr_radius, y_cen + sqr_radius)
+    if len(array)< x_cen + sqr_radius:
+        padded_array = np.pad(array,abs(len(array)-(x_cen + sqr_radius)),mode="constant")        
+        return(padded_array)
+    else:    
+        sl_x = slice(x_cen - sqr_radius, x_cen + sqr_radius)
+        sl_y = slice(y_cen - sqr_radius, y_cen + sqr_radius)
 
-    return(array[sl_x, sl_y])
+        return(array[sl_x, sl_y])
 
 def get_midpoint(ra_dec_1, ra_dec_2, debug = False):
     '''
@@ -270,7 +274,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=100, debug = Fals
         gal_2_coords = extract_ra_dec(galaxy_2, galaxy_catalogue)
 
         angle = get_rotn_angle(gal_1_coords, gal_2_coords)
-        rot_array = sp.ndimage.rotate(cut_array, angle, reshape=False)
+        rot_array = sp.ndimage.rotate(cut_array, 90-angle, reshape=True)
         prev_cell = float()
         if debug:
             print("Rotated Array Shape = " + str(np.shape(rot_array)))
