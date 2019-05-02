@@ -246,7 +246,7 @@ def rescale_array(array,ra_dec_1,ra_dec_2,sqr_radius,scaled_width=100.):
 
     centre = [len(rescaled_array)/2,len(rescaled_array)/2]
 
-    new_array = get_subarray(array=rescaled_array,centre = centre,sqr_radius = sqr_radius)
+    new_array = get_subarray(array=rescaled_array,centre = centre,sqr_radius = min(len(rescaled_array)/2,sqr_radius))
 
     return(new_array)
 
@@ -281,6 +281,8 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=100, debug = Fals
         scaled_array = rescale_array(rot_array,gal_1_coords,gal_2_coords,len(output)/2)
         if debug:
             print("Scaled Array Shape = " + str(np.shape(scaled_array)))
+            if np.shape(scaled_array) != np.shape(output) and np.shape(scaled_array) != ():
+                pdb.set_trace()
         output += scaled_array
 
         print("Added pair " + str(index))
