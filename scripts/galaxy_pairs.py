@@ -288,3 +288,72 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=100, debug = Fals
         print("Added pair " + str(index))
 
     return(output)
+
+def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False):
+    '''
+    Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
+    '''
+    output = np.ndarray(shape = (size_of_cutout+20, size_of_cutout+20))
+
+    for index, row in pairs.iterrows():
+        galaxy_1 = row['galaxy_index_1']
+        galaxy_2 = row['galaxy_index_2']
+        pair = [galaxy_1, galaxy_2]
+
+        ra_1 = galaxy_catalogue.loc[galaxy_1]['RA']
+        dec_1 = galaxy_catalogue.loc[galaxy_1]['DEC']
+
+        ra_2 = galaxy_catalogue.loc[galaxy_2]['RA']
+        dec_2 = galaxy_catalogue.loc[galaxy_2]['DEC']
+
+        pt1 = sptpol_software.observation.sky.ang2Pix(
+        (ra_1,dec_1), [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+        pt2 = sptpol_software.observation.sky.ang2Pix(
+        (ra_2,dec_2), [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+
+        X1 = float(pt1[0][0][0])
+        X2 = float(pt2[0][0][0])
+    
+        Y1 = float(pt1[0][1][0])
+        Y2 = float(pt2[0][1][0])
+
+        if debug:
+            print("x1 = " + str(X1))
+            print("-x1 = " + str(len(array_1)-X1))
+            print("y1 = " + str(Y1))
+            print("-y1 = " + str(len(array_1)-Y1))
+            print("x2 = " + str(X2))
+            print("-x2 = " + str(len(array_1)-X2))
+            print("y2 = " + str(Y2))
+            print("-y2 = " + str(len(array_1)-Y2))
+
+    
+        midpoint = ((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
+        cut_array = get_subarray(y_map, midpoint, 30)
+
+
+        angle = np.degrees(np.arctan((float(len(cut_array)-Y1)-float(Y1))/(float(len(cut_array)-X1)-float(X1))))
+
+        if debug:
+            print("Angle = " + str(angle))
+
+        rot_array =  sp.ndimage.rotate(cut_array, 90-angle, reshape=True)
+
+        sep = np.sqrt(((len(array_1)-X1)-X1)**2 + ((len(array_1)-Y1) - Y1)**2)
+        scale_fac = 100.0/sep
+
+        if debug:
+            print("Separation = " + str(sep))
+            print("Scale Factor = " + str(scale_fac))
+        
+        rescaled_array = sp.ndimage.zoom(rot_array,scale_fac)
+
+        centre = [len(rescaled_array)/2,len(rescaled_array)/2]
+
+        re_cut_array = galaxy_pairs.get_subarray(rescaled_array,centre,min(len(rescaled_array_1),70))
+
+        output += re_cut_array
+
+        print("Added pair " + str(index))
+
+    return(output)
