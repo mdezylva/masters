@@ -294,7 +294,8 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
     '''
     output = np.ndarray(shape = (size_of_cutout+20, size_of_cutout+20))
-
+    if debug:
+        print("Initial Output Shape : " + str(np.shape(output)))
     for index, row in pairs.iterrows():
         galaxy_1 = row['galaxy_index_1']
         galaxy_2 = row['galaxy_index_2']
@@ -317,29 +318,35 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
         Y1 = float(pt1[0][1][0])
         Y2 = float(pt2[0][1][0])
 
-        if debug:
-            print("x1 = " + str(X1))
-            print("-x1 = " + str(len(array_1)-X1))
-            print("y1 = " + str(Y1))
-            print("-y1 = " + str(len(array_1)-Y1))
-            print("x2 = " + str(X2))
-            print("-x2 = " + str(len(array_1)-X2))
-            print("y2 = " + str(Y2))
-            print("-y2 = " + str(len(array_1)-Y2))
+    
 
     
-        midpoint = ((abs(X1 + X2) / 2, (abs(Y1 + Y2) / 2)))
+        midpoint = (int(abs(X1 + X2) / 2), int((abs(Y1 + Y2) / 2)))
+        if debug:
+            print("Midpoint = " +str(midpoint))
         cut_array = get_subarray(y_map, midpoint, 30)
-
-
-        angle = np.degrees(np.arctan((float(len(cut_array)-Y1)-float(Y1))/(float(len(cut_array)-X1)-float(X1))))
+        if debug:
+            print("x1 = " + str(X1))
+            # print("-x1 = " + str(len(cut_array)-X1))
+            print("y1 = " + str(Y1))
+            # print("-y1 = " + str(len(cut_array)-Y1))
+            print("x2 = " + str(X2))
+            # print("-x2 = " + str(len(cut_array)-X2))
+            print("y2 = " + str(Y2))
+            # print("-y2 = " + str(len(cut_array)-Y2))
+        if (float(X2)-float(X1) == 0):
+            angle = 90
+        else:
+            angle = np.degrees(np.arctan((float(Y2)-float(Y1))/(float(X2)-float(X1))))
 
         if debug:
-            print("Angle = " + str(angle))
+            print("Angle = " + str(angle) + ' or ' + str(90-angle))
 
         rot_array =  sp.ndimage.rotate(cut_array, 90-angle, reshape=True)
 
-        sep = np.sqrt(((len(array_1)-X1)-X1)**2 + ((len(array_1)-Y1) - Y1)**2)
+        sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
+        if sep == 0:
+            continue
         scale_fac = 100.0/sep
 
         if debug:
@@ -350,7 +357,13 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         centre = [len(rescaled_array)/2,len(rescaled_array)/2]
 
-        re_cut_array = galaxy_pairs.get_subarray(rescaled_array,centre,min(len(rescaled_array_1),70))
+        
+
+        re_cut_array = get_subarray(rescaled_array,centre,int(len(output)/2))
+
+        if debug:
+            print("Output Shape: " + str(np.shape(output)))
+            print("Re Cut Array:" + str(np.shape(re_cut_array)))
 
         output += re_cut_array
 
