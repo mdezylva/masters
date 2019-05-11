@@ -12,6 +12,7 @@ import sptpol_software
 import sptpol_software.observation as obs
 from sptpol_software import *
 
+import matplotlib.pyplot as plt
 
 
 def RaDec2XYZ(ra, dec):
@@ -293,7 +294,7 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
     '''
-    output = np.ndarray(shape = (size_of_cutout+20, size_of_cutout+20))
+    output = np.ndarray(shape = (120, 120))
     if debug:
         print("Initial Output Shape : " + str(np.shape(output)))
     for index, row in pairs.iterrows():
@@ -334,6 +335,7 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
             # print("-x2 = " + str(len(cut_array)-X2))
             print("y2 = " + str(Y2))
             # print("-y2 = " + str(len(cut_array)-Y2))
+            pdb.set_trace()
         if (float(X2)-float(X1) == 0):
             angle = 90
         else:
@@ -345,13 +347,14 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
         rot_array =  sp.ndimage.rotate(cut_array, 90-angle, reshape=True)
 
         sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
-        if sep == 0:
+        if sep < 4:
             continue
         scale_fac = 100.0/sep
 
         if debug:
             print("Separation = " + str(sep))
             print("Scale Factor = " + str(scale_fac))
+            pdb.set_trace()
         
         rescaled_array = sp.ndimage.zoom(rot_array,scale_fac)
 
@@ -359,14 +362,24 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         
 
-        re_cut_array = get_subarray(rescaled_array,centre,int(len(output)/2))
+        re_cut_array = get_subarray(rescaled_array,centre,60)
 
         if debug:
             print("Output Shape: " + str(np.shape(output)))
             print("Re Cut Array:" + str(np.shape(re_cut_array)))
+            pdb.set_trace()
 
-        output += re_cut_array
+        if np.shape(output) != np.shape(re_cut_array):
+            pdb.set_trace()
+
+        output = np.add(output,re_cut_array)
 
         print("Added pair " + str(index))
 
+        if index%1000 == 0:
+            plt.imshow(output)
+            plt.show()
+            plt.imshow(re_cut_array)
+            plt.show()
+            pdb.set_trace()
     return(output)
