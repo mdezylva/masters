@@ -97,14 +97,14 @@ def euclideanDistance(instance1, instance2, length):
         distance += pow((instance1[x] - instance2[x]), 2)
     return np.sqrt(distance)
 
-def get_subarray(array, centre, sqr_radius):
+def get_subarray(array, centre, sqr_radius,max_size = 120):
     '''
     Gets Sub Array with with an input centre in array space and half width from an input Array
     '''
     x_cen = centre[0]
     y_cen = centre[1]
     if len(array)< x_cen + sqr_radius:
-        padded_array = np.pad(array,abs(len(array)-(x_cen + sqr_radius)),mode="constant")        
+        padded_array = np.pad(array,max(abs(np.shape(array)[0]-(x_cen + sqr_radius)),np.shape(array)[0]-max_size/2),mode="constant")        
         return(padded_array)
     else:    
         sl_x = slice(x_cen - sqr_radius, x_cen + sqr_radius)
@@ -294,7 +294,8 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
     '''
-    output = np.ndarray(shape = (120, 120))
+    output = np.zeros(shape = (120,120))
+    num_rejected = 0 
     if debug:
         print("Initial Output Shape : " + str(np.shape(output)))
     for index, row in pairs.iterrows():
@@ -347,9 +348,10 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
         rot_array =  sp.ndimage.rotate(cut_array, 90-angle, reshape=True)
 
         sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
-        if sep < 4:
+        if sep < 2:
+            num_rejected += 1
             continue
-        scale_fac = 100.0/sep
+        scale_fac = 80.0/sep
 
         if debug:
             print("Separation = " + str(sep))
@@ -370,7 +372,12 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
             pdb.set_trace()
 
         if np.shape(output) != np.shape(re_cut_array):
-            pdb.set_trace()
+            num_rejected += 1
+            continue
+
+        if abs(np.mean(re_cut_array)) > 1e-4:
+            num_rejected += 1
+            continue
 
         output = np.add(output,re_cut_array)
 
@@ -378,8 +385,13 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         if index%1000 == 0:
             plt.imshow(output)
-            plt.show()
-            plt.imshow(re_cut_array)
-            plt.show()
-            pdb.set_trace()
+            # plt.title("Output")
+            # plt.show()
+            # plt.imshow(re_cut_array)
+            # plt.show()
+            filename = "output_" + str(index) + ".png"
+            plt.savefig(filename)
+            # np.savetxt(filename,output,delimiter = ',')
+            # pdb.set_trace()
+    print("Number of Cut Pairs = " + str(num_rejected))
     return(output)
