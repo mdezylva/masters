@@ -290,7 +290,7 @@ def stack_pairs(y_map, galaxy_catalogue, pairs, size_of_cutout=100, debug = Fals
 
     return(output)
 
-def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False):
+def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False,save= False):
     '''
     Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
     '''
@@ -383,7 +383,7 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         print("Added pair " + str(index))
 
-        if index%1000 == 0:
+        if index%1000 == 0 and save:
             plt.imshow(output)
             # plt.title("Output")
             # plt.show()

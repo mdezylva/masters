@@ -87,19 +87,19 @@ dec_range = np.array([edges_ang[1][1], edges_ang[2][1]])
 # print(dec_range)
 
 
-cut_df = df[((df.DEC < dec_range[0]-0.03) & (df.DEC > dec_range[1]+0.03))
-            & ((df.RA > ra_range[0] +0.03 ) & (df.RA < ra_range[1] -0.03))]
+cut_df = df[((df.DEC < dec_range[0]-0.04) & (df.DEC > dec_range[1]+0.04))
+            & ((df.RA > ra_range[0] +0.04 ) & (df.RA < ra_range[1] -0.04))]
 cut_df = cut_df.reset_index(drop=True)
 
 
-cut_pairs = galaxy_pairs.getPairs(cut_df, max_sep=14,query_type=1)
+cut_pairs = galaxy_pairs.getPairs(cut_df, max_sep=20,query_type=1)
 cut_pairs_df = pd.DataFrame(
     cut_pairs.T, columns=['galaxy_index_1', 'galaxy_index_2', 'Sep'])
 cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 
 print("Number of Pairs = " +str(len(cut_pairs_df.index)))
-output = galaxy_pairs.stack_pairs_V2(y_map_array, cut_df, cut_pairs_df,debug=False)
+output = galaxy_pairs.stack_pairs_V2(y_map_array, cut_df, cut_pairs_df,debug=False,save=True)
 
 print(output)
 plt.imshow(output)#,vmax=1,vmin=-1)
