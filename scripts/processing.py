@@ -87,8 +87,8 @@ dec_range = np.array([edges_ang[1][1], edges_ang[2][1]])
 # print(dec_range)
 
 
-cut_df = df[((df.DEC < dec_range[0]-0.05) & (df.DEC > dec_range[1]+0.05))
-            & ((df.RA > ra_range[0] +0.05 ) & (df.RA < ra_range[1] -0.05))]
+cut_df = df[((df.DEC < dec_range[0]-0.03) & (df.DEC > dec_range[1]+0.03))
+            & ((df.RA > ra_range[0] +0.03 ) & (df.RA < ra_range[1] -0.03))]
 cut_df = cut_df.reset_index(drop=True)
 
 
