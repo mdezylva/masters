@@ -104,7 +104,8 @@ def get_subarray(array, centre, sqr_radius,max_size = 120):
     x_cen = centre[0]
     y_cen = centre[1]
     if len(array)< x_cen + sqr_radius:
-        padded_array = np.pad(array,max(abs(np.shape(array)[0]-(x_cen + sqr_radius)),np.shape(array)[0]-max_size/2),mode="constant")        
+        padded_array = np.pad(array,min(abs(np.shape(array)[0]-(x_cen + sqr_radius)),np.shape(array)[0]-max_size/2),mode="constant")   
+
         return(padded_array)
     else:    
         sl_x = slice(x_cen - sqr_radius, x_cen + sqr_radius)
