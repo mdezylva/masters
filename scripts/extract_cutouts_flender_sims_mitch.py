@@ -46,9 +46,9 @@ def fn_load_halo(fname, Mmin=1e14, Mmax=1e15, zmin=0., zmax=1., nobj=None, like_
 	return ra, dec, zs, v_los, M200
 
 # Params 'n' stuff
-flenders_cat    = 'catalog_fullsky_zsm1.fits.gz'
-tsz_map_file    = 'tsz150_R13.fits.gz'
-cutout_dic_name = 'kSZ_tSZ_SPTSZ_footprint_zsm1.pkl.gz'
+flenders_cat    = '/home/mitchell/Documents/masters/masters/data/simulated/catalog_fullsky_zsm1.fits'
+tsz_map_file    = 'data/simulated/tsz150_R13.fits'
+# cutout_dic_name = 'kSZ_tSZ_SPTSZ_footprint_zsm1.pkl.gz'
 nside           = 8192
 boxsize         = 50   # arcmin
 reso            = 0.25 #arcmin
