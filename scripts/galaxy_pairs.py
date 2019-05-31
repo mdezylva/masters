@@ -378,11 +378,12 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         if abs(np.mean(re_cut_array)) > 1e-5:
             num_rejected += 1
-            pdb.set_trace()
             continue
 
         output = np.add(output,re_cut_array)
-
+        flipped = np.fliplr(re_cut_array)
+        output = np.add(output,flipped)
+        
         if index%1000 == 0:
             print("Added pair " + str(index))
 
