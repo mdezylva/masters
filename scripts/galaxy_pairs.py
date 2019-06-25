@@ -104,7 +104,9 @@ def get_subarray(array, centre, sqr_radius,max_size = 120):
     x_cen = centre[0]
     y_cen = centre[1]
     if len(array)< x_cen + sqr_radius:
-        padded_array = np.pad(array,min(abs(np.shape(array)[0]-(x_cen + sqr_radius)),np.shape(array)[0]-max_size/2),mode="constant")   
+        if len(array) < 0:
+            return(np.zeros(shape=(max_size,max_size) ))
+        padded_array = np.pad(array,min(abs(np.shape(array)[0]-(x_cen + sqr_radius)),np.shape(array)[0]-max_size/2,0),mode="constant")   
 
         return(padded_array)
     else:    
@@ -384,11 +386,12 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
         flipped = np.fliplr(re_cut_array)
         output = np.add(output,flipped)
         
-        if index%1000 == 0:
-            print("Added pair " + str(index))
+        #if index%1000 == 0:
+        print("Added pair " + str(index))
 
         if index%1000 == 0 and save:
             plt.imshow(output)
+            plt.show()
             # plt.title("Output")
             # plt.show()
             # plt.imshow(re_cut_array)

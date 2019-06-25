@@ -95,7 +95,7 @@ cut_df = df[((df.DEC < dec_range[0]-0.04) & (df.DEC > dec_range[1]+0.04))
             & ((df.RA > ra_range[0] +0.04 ) & (df.RA < ra_range[1] -0.04))]
 cut_df = cut_df.reset_index(drop=True)
 
-
+print("...constructing pairs...")
 cut_pairs = galaxy_pairs.getPairs(cut_df, max_sep=20,query_type=1)
 cut_pairs_df = pd.DataFrame(
     cut_pairs.T, columns=['galaxy_index_1', 'galaxy_index_2', 'Sep'])
@@ -103,6 +103,7 @@ cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 
 print("Number of Pairs = " +str(len(cut_pairs_df.index)))
+print("...stacking pairs...")
 output = galaxy_pairs.stack_pairs_V2(k_map_rot, cut_df, cut_pairs_df,debug=False,save=True)
 
 print(output)
