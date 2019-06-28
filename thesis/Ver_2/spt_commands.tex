@@ -1,0 +1,134 @@
+% Misc commands
+\newcommand{\tbd}{{\bf \textcolor{red}{TBD}}}
+\newcommand{\sze}{Sunyaev-Zel'dovich effect }
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\simleq}{{\raise.0ex\hbox{$\mathchar"013C$}\mkern-14mu \lower1.2ex\hbox{$\mathchar"0218$}}}
+\newcommand{\simgeq}{{\raise.0ex\hbox{$\mathchar"013E$}\mkern-14mu \lower1.2ex\hbox{$\mathchar"0218$}}}
+\newcommand{\newcolor}{blue}
+ 
+ %amplitudes
+%% ---- begin copy-paste ----
+%% Systematic Uncertainties:
+\newcommand{\mvSysTcal}{\ensuremath{0.017}}
+\newcommand{\mvSysPcal}{\ensuremath{0.012}} %what is this?
+\newcommand{\mvSysXtalk}{\ensuremath{0.05}}
+\newcommand{\mvSysAmp}{\ensuremath{0.036}}
+
+\newcommand{\ppSysTcal}{\ensuremath{0.017}}
+\newcommand{\ppSysPcal}{\ensuremath{0.025}}
+\newcommand{\ppSysXtalk}{\ensuremath{0.06}}
+\newcommand{\ppSysAmp}{\ensuremath{0.038}}
+
+%% Measured Amplitudes:
+\newcommand{\mvAmp}{\ensuremath{0.94}}
+\newcommand{\mvAmpStat}{\ensuremath{0.05}}
+\newcommand{\mvAmpSys}{\ensuremath{0.04}} %0.041
+\newcommand{\mvAmpUnlStat}{\ensuremath{0.02}}
+
+\newcommand{\ppAmp}{\ensuremath{0.99}}
+\newcommand{\ppAmpStat}{\ensuremath{0.09}}
+\newcommand{\ppAmpSys}{\ensuremath{0.05}} %0.048
+\newcommand{\ppAmpUnlStat}{\ensuremath{0.05}}
+
+%% Measured Significances:
+\newcommand{\mvSig}{\ensuremath{17.1 \sigma}} % 0.94/0.05
+\newcommand{\mvSigUnl}{\ensuremath{41 \sigma}} % 0.94/0.02
+\newcommand{\mvPercent}{\ensuremath{ 6 \%}} % 0.05/0.94
+\newcommand{\ppSig}{\ensuremath{11.1 \sigma}} % 0.99/0.09
+\newcommand{\ppSigUnl}{\ensuremath{19.8 \sigma}} % 0.99/0.05
+\newcommand{\ppPercent}{\ensuremath{ 9 \%}} % 0.09/0.99
+
+%% Total Amplitude Errors:
+\newcommand{\mvDampTot}{\ensuremath{0.10}} % sqrt(0.0830**2 + 0.0546**2)
+\newcommand{\ppDampTot}{\ensuremath{0.14}} % sqrt(0.1134**2 + 0.0884**2)
+
+%% Clpp significances:
+\newcommand{\mvTotPercent}{\ensuremath{11 \%}} % 0.10/0.94
+\newcommand{\ppTotPercent}{\ensuremath{15 \%}} % 0.14/0.99
+\newcommand{\mvTotSig}{\ensuremath{9.4 \sigma}} % 0.94/0.10
+\newcommand{\ppTotSig}{\ensuremath{6.9 \sigma}} % 0.99/0.14
+
+%% Spectrum PTE's:
+\newcommand{\mvPTE}{\ensuremath{0.92}}
+\newcommand{\ppPTE}{\ensuremath{0.71}}
+
+\newcommand{\mvLCDMSig}{\ensuremath{0.65 \sigma}}
+\newcommand{\ppLCDMSig}{\ensuremath{0.10 \sigma}}
+
+
+%% ---- end copy-paste ----
+
+\newcommand{\nbin}{\ensuremath{10}}
+
+
+\newcommand{\nhat}{\ensuremath{\mathbf{\hat{n}}}}
+\newcommand{\aalpha}{\ensuremath{\vec{\bf \alpha}}}
+ \newcommand{\sigT}{\mbox{$\sigma_{\mbox{\tiny T}}$}}
+ \newcommand{\Tcmb}{\mbox{$T_{\mbox{\tiny CMB}}$}}
+ \newcommand{\neff}{\ensuremath{N_\mathrm{eff}}\xspace}
+ \newcommand{\yhe}{\ensuremath{Y_p}}
+ \newcommand{\As}{\ensuremath{A_s}}
+ \newcommand{\deltaR}{\ensuremath{\Delta_R^2}}
+ \newcommand{\nrun}{\ensuremath{dn_s/d\ln k}\xspace}
+ \newcommand{\alens}{\ensuremath{A_{L}}}
+ \newcommand{\ns}{\ensuremath{n_{s}}}
+ \newcommand{\ho}{\ensuremath{H_{0}}\xspace}
+ \newcommand{\muksq}{\ensuremath{\mu{\rm K}^2}}
+ \newcommand{\sumnu}{\ensuremath{\Sigma m_{\nu}}}
+ \def\microKsq{\mu{\mbox{K}}^2}
+ \def\muKarcmin{\mu K . {\rm arcmin}}
+ \def\mb{\mathbf}
+ \newcommand{\sqdeg}{\ensuremath{\rm deg^2~}}
+ \newcommand{\kappam}{\ensuremath{\kappa~}}
+ \def\deg{^\circ}
+
+% experiments
+ \newcommand{\wmap}{\textit{WMAP}}
+ \newcommand{\wseven}{\textit{WMAP}7}
+ \newcommand{\sptpol}{SPTpol~}
+ \newcommand{\planck}{\textit{Planck}}
+ \newcommand{\polarbear}{POLARBEAR}
+ \newcommand{\bicep}{BICEP2}
+ \newcommand{\keck}{KECK Array}
+ \hyphenation{BICEP}
+ \hyphenation{POLAR-BEAR}
+
+\def\microKsq{\mu{\mbox{K}}^2}
+ \def\muKarcmin{$\mu{\mbox{K}}$-arcmin}
+
+ \def\mb{\mathbf}     % ``math-bold''
+ \def\mbL{\mathbf{L}} % math-bold L
+ \def\mbell{\pmb{\ell}} % math-bold ell
+ \def\tbd{\textcolor{red}{TBD}}
+
+ \def\cl{$C_{\ell}$\xspace}
+ \def\clnospace{\ensuremath{C_{\ell}}}
+ \def\dl{$D_{\ell}$}
+
+ % power spectrum expressions
+ \def\clpp{\ensuremath{C^{\phi \phi}_L}}
+ \def\clppHat{\ensuremath{C^{\hat{\phi} \hat{\phi}}_L}}
+ \def\clppHatUVXYL{\ensuremath{C^{\hat{\phi}^{UV} \hat{\phi}^{XY}}_{\mbL}}}
+ \def\cmbLppHat{\ensuremath{C^{\hat{\phi} \hat{\phi}}_{\mbL}}}
+ \def\hatcmbLpp{\ensuremath{\hat{C}^{\phi \phi}_{\mbL}}}
+ \def\hatclppUVXYb{\ensuremath{\hat{C}^{\phi^{UV} \phi^{XY}}_b}}
+ \def\hatclppUVXYL{\ensuremath{\hat{C}^{\phi^{UV} \phi^{XY}}_{\mbL}}}
+
+ \def\hatclkkUVXYb{\ensuremath{\hat{C}^{\kappa^{UV} \kappa^{XY}}_b}}
+ \def\hatclkkUVXYL{\ensuremath{\hat{C}^{\kappa^{UV} \kappa^{XY}}_{\mbL}}}
+
+ % bias terms
+ \def\dclNzero{\ensuremath{\left. \Delta C_{\mbL}^{\phi \phi}\right|_{\rm N0}}}
+ \def\dclRDNzero{\ensuremath{\left. \Delta C_{\mbL}^{\phi \phi}\right|_{\rm RDN0}}}
+ \def\dclNone{\ensuremath{\left. \Delta C_{\mbL}^{\phi \phi}\right|_{\rm N1}}}
+ \def\dclMC{\ensuremath{\left. \Delta C_{\mbL}^{\phi \phi}\right|_{\rm MC}}}
+ 
+ \def\mv{MV}
+ \def\pp{POL}
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
+\def\nn{\nonumber}

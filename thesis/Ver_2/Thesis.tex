@@ -1,0 +1,102 @@
+\documentclass[useAMS,usenatbib,12pt,twoside]{report}
+\usepackage[margin=2.0cm]{geometry}
+%\usepackage{geometry}                  
+%\geometry{a4paper}
+%\oddsidemargin=0.5cm %these margins aren't defined as you expect
+%\evensidemargin=0.5cm
+%\topmargin=0.5cm
+\NeedsTeXFormat{LaTeX2e}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{MnSymbol}
+
+\usepackage[round]{natbib}
+
+\usepackage[compact]{titlesec}
+%\titlespacing{\section}{0pt}{*0}{*0}
+%\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+\begin{document}
+
+\include{MacroAstroJour}
+\include{spt_commands}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is in my opinion a way better way of writing any large work in latex. You can work on each chapter individually without getting lost this way. I also found seeing all the chapter headings with to-do's under them helped me keep a good overview of where I was up to. I haven't included all my chapters, but I've left them in below, commented out, to give you an idea of how it looks.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+  \include{cover}
+  \include{Stmt_of_cont}
+	\include{Abstract} % This is a separate file. See example
+\pagestyle{plain}
+ 	\setcounter{page}{4} %the cover page doesn't count as a page
+ 	\tableofcontents
+% 	\listoffigures  % you probably don't need this	
+ 	
+	\include{Introduction}
+ 	
+ 	% Motivation
+ 	% Basic Grav lensing 
+	%etc 
+	 
+	%\include{Ellipse_fitting}
+	
+	% Making galaxies or importing them 
+	% Shearing galaxies
+	% Determining the shear
+	% Velocity curve and inclination angle
+	% Fitting ellipses
+	
+	\include{Results}
+
+	% Reproduction of the shear signal
+	% Effect of varying spatial and velocity resolution
+	% Recovery of the shear signal from real data
+	% Discussion of problems with the results
+
+	%\include{Prob_of_lensing}
+	
+	% Analysis of lensing probability
+
+
+  %\include{Science_for_SKA}
+
+	% Need for better quality data
+	% Probability of lensing out to a given z
+	% Science case for SKA based on this and results stuff
+	
+	%Further work:
+	%app to real gals
+	%complimentarity with current methods
+	%h alpha 
+	%prob of lensing
+	%science case for SKA
+	%fit for centroid later
+
+ 	\include{Conclusion}
+
+	% Shown it can be done
+	% Will be detectable when high enough resolution data becomes available
+	
+
+\small %You want your bibliography to be small! That way your page limit will last you longer.
+%\scriptsize
+\setlength{\bibsep}{1.0mm}
+\bibliographystyle{avebib}
+%\bibliographystyle{plainnat}
+\bibliography{bibliography}
+\normalsize
+	
+	\renewcommand{\chaptermark}[1]{
+  \markboth{\MakeUppercase{%
+  Appendix \thechapter:%
+  \ #1}}{}}
+\include{appendix}
+\end{document}
+
+
+	
