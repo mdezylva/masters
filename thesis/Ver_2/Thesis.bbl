@@ -1,5 +1,18 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
+
+\bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
+{Bristow}, P.~D. \& {Phillipps}, S., 1994, {On the Baryon Content of the
+  Universe}, \emph{\mnras} 267, 13
+
+\bibitem[{{Fukugita} et~al.(1998){Fukugita}, {Hogan} \&
+  {Peebles}}]{1998ApJ...503..518F}
+{Fukugita}, M.; {Hogan}, C.~J. \& {Peebles}, P.~J.~E., 1998, {The Cosmic Baryon
+  Budget}, \emph{\apj} 503, 2, 518
+
+\bibitem[{{Persic} \& {Salucci}(1992)}]{1992MNRAS.258P..14P}
+{Persic}, M. \& {Salucci}, P., 1992, {The baryon content of the universe},
+  \emph{\mnras} 258, 1, 14P
 
 \bibitem[{{Planck Collaboration} et~al.(2018){Planck Collaboration}, {Aghanim},
   {Akrami}, {Ashdown}, {Aumont}, {Baccigalupi}, {Ballardini}, {Banday},
@@ -8,6 +21,18 @@
   J.; {Baccigalupi}, C.; {Ballardini}, M.; {Banday}, A.~J.; {Barreiro}, R.~B.
   \& {Bartolo}, N., 2018, {Planck 2018 results. VI. Cosmological parameters},
   \emph{arXiv e-prints} arXiv:1807.06209
+
+\bibitem[{{Spergel} et~al.(2007){Spergel}, {Bean}, {Dor{\'e}}, {Nolta},
+  {Bennett}, {Dunkley}, {Hinshaw}, {Jarosik}, {Komatsu}, {Page}
+  et~al.}]{2007ApJS..170..377S}
+{Spergel}, D.~N.; {Bean}, R.; {Dor{\'e}}, O.; {Nolta}, M.~R.; {Bennett}, C.~L.;
+  {Dunkley}, J.; {Hinshaw}, G.; {Jarosik}, N.; {Komatsu}, E.; {Page}, L.
+  et~al., 2007, {Three-Year Wilkinson Microwave Anisotropy Probe (WMAP)
+  Observations: Implications for Cosmology}, \emph{\apjs} 170, 2, 377
+
+\bibitem[{{Steigman}(2007)}]{2007ARNPS..57..463S}
+{Steigman}, G., 2007, {Primordial Nucleosynthesis in the Precision Cosmology
+  Era}, \emph{Annual Review of Nuclear and Particle Science} 57, 1, 463
 
 \bibitem[{{Weinberg} et~al.(1997){Weinberg}, {Miralda-Escud{\'e}}, {Hernquist}
   \& {Katz}}]{1997ApJ...490..564W}

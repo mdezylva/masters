@@ -1,4 +1,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}
 \contentsline {section}{\numberline {1.1}Motivation}{5}
-\contentsline {chapter}{\numberline {2}Results}{6}
-\contentsline {chapter}{\numberline {3}Conclusion}{7}
+\contentsline {subsection}{\numberline {1.1.1}Optical Searches for Baryons}{6}
+\contentsline {subsection}{\numberline {1.1.2}Warm-Hot Intergalactic Medium}{6}
+\contentsline {section}{\numberline {1.2}Sunayev-Zeldovich Effect}{6}
+\contentsline {chapter}{\numberline {2}Results}{7}
+\contentsline {chapter}{\numberline {3}Conclusion}{8}

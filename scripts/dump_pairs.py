@@ -39,14 +39,14 @@ beam_norm_correction = [1./0.99673, 1./0.99470, 1./1.]
 cal_factors = [0.9097, 0.7765]  # no 220 is why last is zero.
 #pol_cal_factors = pol_cal_factors_800 * beam_norm_correction
 
-# Read in signal maps
-map_150ghz = files.read("ra0dec-57p5_sum5000_150ghz.h5")
-map_90ghz = files.read("ra0dec-57p5_sum5000_090ghz.h5")
+# # Read in signal maps
+# map_150ghz = files.read("ra0dec-57p5_sum5000_150ghz.h5")
+# map_90ghz = files.read("ra0dec-57p5_sum5000_090ghz.h5")
 
-# Produce Y Map from Signal Maps
-y_map_array = cmb.get_y_map([map_150ghz, map_90ghz], cal_factors, freqs_ghz)
+# # Produce Y Map from Signal Maps
+# y_map_array = cmb.get_y_map([map_150ghz, map_90ghz], cal_factors, freqs_ghz)
 
-plt.imshow(y_map_array, vmax=0.00001, vmin=-0.00001)
+# plt.imshow(y_map_array, vmax=0.00001, vmin=-0.00001)
 
 # Read in Galaxy Catalogue as a dataframe 
 dat = Table.read('DES_Y1A1_3x2pt_redMaGiC_zerr_CATALOG.fits', format='fits')
@@ -99,6 +99,6 @@ cut_pairs_df = pd.DataFrame(
     cut_pairs.T, columns=['galaxy_index_1', 'galaxy_index_2', 'Sep'])
 cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
-# print("Saving Cut Data Frame to Pickle")
-# cut_pairs_df.to_pickle('cut_pairs.pickle')
-# print("Done!")
+print("Saving Cut Data Frame to Pickle")
+cut_pairs_df.to_pickle('cut_pairs.pickle')
+print("Done!")
