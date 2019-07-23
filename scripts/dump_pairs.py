@@ -58,7 +58,15 @@ df['COMOVING'] = pd.Series(
 df['COMOVING_E'] = pd.Series(
     cosmo.comoving_distance(df['ZREDMAGIC_E']).to_value(u.Mpc))
 print("Pickling Data Frame with Comoving Coords")
-df.to_pickle("data_frame.pickle")
+
+#df.__module__ = "pandas"
+#df.to_pickle("data_frame.pickle")
+
+#uncut_dict = df.to_dict()
+#pickle_out = open("data_frame.pickle","wb")
+#pickle.dump(uncut_dict, pickle_out)
+#pickle_out.close()
+
 print("Done")
 # Establish Cuts 
 
@@ -93,6 +101,10 @@ cut_df = df[((df.DEC < dec_range[0]-0.04) & (df.DEC > dec_range[1]+0.04))
             & ((df.RA > ra_range[0] +0.04 ) & (df.RA < ra_range[1] -0.04))]
 cut_df = cut_df.reset_index(drop=True)
 
+cut_dict = cut_df.to_dict()
+pickle_out = open("cut_df.pickle","wb")
+pickle.dump(cut_dict, pickle_out)
+pickle_out.close()
 
 cut_pairs = galaxy_pairs.getPairs(cut_df, max_sep=20,query_type=1)
 cut_pairs_df = pd.DataFrame(
@@ -100,5 +112,10 @@ cut_pairs_df = pd.DataFrame(
 cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 print("Saving Cut Data Frame to Pickle")
-cut_pairs_df.to_pickle('cut_pairs.pickle')
+#cut_pairs_df.__module__ = 'pandas'
+#cut_pairs_df.to_pickle('cut_pairs.pickle')
+cut_dict = cut_pairs_df.to_dict()
+pickle_out = open("cut_pairs.pickle","wb")
+pickle.dump(cut_dict, pickle_out)
+pickle_out.close()
 print("Done!")

@@ -7,53 +7,58 @@ A level-1 auxiliary file: cover.aux
 A level-1 auxiliary file: Stmt_of_cont.aux
 A level-1 auxiliary file: Abstract.aux
 A level-1 auxiliary file: Introduction.aux
+A level-1 auxiliary file: MissingBaryons.aux
+A level-1 auxiliary file: WHIM.aux
+A level-1 auxiliary file: SZ.aux
+A level-1 auxiliary file: Method.aux
 A level-1 auxiliary file: Results.aux
 A level-1 auxiliary file: Conclusion.aux
 The style file: avebib.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: bibliography.bib
+Warning--I didn't find a database entry for "Penzias:65"
 Warning--I didn't find a database entry for "1959HDP....53..275D"
 Warning--I didn't find a database entry for "2008IAUS..244...53S"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 7 entries,
+You've used 8 entries,
             3108 wiz_defined-function locations,
-            711 strings with 6345 characters,
-and the built_in function-call counts, 5413 in all, are:
-= -- 389
-> -- 356
+            725 strings with 6624 characters,
+and the built_in function-call counts, 6149 in all, are:
+= -- 443
+> -- 399
 < -- 3
-+ -- 340
-- -- 100
-* -- 376
-:= -- 743
++ -- 380
+- -- 112
+* -- 429
+:= -- 842
 add.period$ -- 0
-call.type$ -- 7
-change.case$ -- 61
-chr.to.int$ -- 8
-cite$ -- 7
-duplicate$ -- 352
-empty$ -- 311
-format.name$ -- 122
-if$ -- 1050
+call.type$ -- 8
+change.case$ -- 69
+chr.to.int$ -- 9
+cite$ -- 8
+duplicate$ -- 402
+empty$ -- 357
+format.name$ -- 137
+if$ -- 1195
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 88
-newline$ -- 25
-num.names$ -- 28
-pop$ -- 216
+missing$ -- 100
+newline$ -- 28
+num.names$ -- 32
+pop$ -- 248
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 69
 quote$ -- 0
-skip$ -- 257
+skip$ -- 288
 stack$ -- 0
-substring$ -- 134
-swap$ -- 206
+substring$ -- 158
+swap$ -- 236
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 63
+type$ -- 72
 warning$ -- 0
-while$ -- 27
+while$ -- 31
 width$ -- 0
-write$ -- 80
-(There were 2 warnings)
+write$ -- 91
+(There were 3 warnings)

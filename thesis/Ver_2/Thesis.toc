@@ -1,7 +1,16 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}
-\contentsline {section}{\numberline {1.1}Motivation}{5}
-\contentsline {subsection}{\numberline {1.1.1}Optical Searches for Baryons}{6}
-\contentsline {subsection}{\numberline {1.1.2}Warm-Hot Intergalactic Medium}{6}
-\contentsline {section}{\numberline {1.2}Sunayev-Zeldovich Effect}{6}
-\contentsline {chapter}{\numberline {2}Results}{7}
-\contentsline {chapter}{\numberline {3}Conclusion}{8}
+\contentsline {section}{\numberline {1.1}The Cosmic Microwave Background}{5}
+\contentsline {section}{\numberline {1.2}Cosmological Parameters}{5}
+\contentsline {chapter}{\numberline {2}The Missing Baryon Problem}{7}
+\contentsline {section}{\numberline {2.1}Stellar Baryons}{7}
+\contentsline {section}{\numberline {2.2}Cold Interstellar Medium}{7}
+\contentsline {section}{\numberline {2.3}Lyman $\alpha $}{7}
+\contentsline {section}{\numberline {2.4}OVI and BLA Absorbers}{7}
+\contentsline {section}{\numberline {2.5}Hot Gas in Clusters}{7}
+\contentsline {chapter}{\numberline {3}The Warm-Hot Interstellar Medium}{8}
+\contentsline {chapter}{\numberline {4}The Sunayev-Zeldovich Effect}{9}
+\contentsline {section}{\numberline {4.1}Atomic Physics}{9}
+\contentsline {section}{\numberline {4.2}CMB Signal}{9}
+\contentsline {chapter}{\numberline {5}Stacking Methodology}{10}
+\contentsline {chapter}{\numberline {6}Results}{11}
+\contentsline {chapter}{\numberline {7}Conclusion}{12}

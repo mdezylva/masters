@@ -1,9 +1,15 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
 {Bristow}, P.~D. \& {Phillipps}, S., 1994, {On the Baryon Content of the
   Universe}, \emph{\mnras} 267, 13
+
+\bibitem[{{Clampitt} et~al.(2016){Clampitt}, {Miyatake}, {Jain} \&
+  {Takada}}]{2016MNRAS.457.2391C}
+{Clampitt}, J.; {Miyatake}, H.; {Jain}, B. \& {Takada}, M., 2016, {Detection of
+  stacked filament lensing between SDSS luminous red galaxies}, \emph{\mnras}
+  457, 3, 2391
 
 \bibitem[{{Fukugita} et~al.(1998){Fukugita}, {Hogan} \&
   {Peebles}}]{1998ApJ...503..518F}

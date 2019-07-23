@@ -12,6 +12,13 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{MnSymbol}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[final]{pdfpages}
+\usepackage{physics}
 
 \usepackage[round]{natbib}
 
@@ -41,21 +48,25 @@
 	%  - Introduction 
 			%- 	CMB 
 			%- 	Cosmological Parameters
+	\include{MissingBaryons}
 	%  - Missing Baryon Problem
 			%-  Stellar Baryons
 			%- 	Cold Interstellar Medium
 			%- 	Residual Lyman Alpha 
 			%- 	OVI and BLA Absorbers
 			%- 	Hot Gas in Clusters 
+	\include{WHIM}
 	%  - Warm Hot Intergalactic Medium
+	\include{SZ}
 	%  - Sunayev-Zeldovich Effect
 			%-	Atomic Physics
 			%- 	Signal in CMB 
+	\include{Method}
 	%  - Stacking Process
-	%  - Results
 	\include{Results}
-	%  - Implications and Conclusions
+	%  - Results
  	\include{Conclusion}
+	%  - Implications and Conclusions
 
 \small %You want your bibliography to be small! That way your page limit will last you longer.
 %\scriptsize
