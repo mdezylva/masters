@@ -6,7 +6,7 @@ from scipy import sparse
 from scipy.spatial import cKDTree as KDTree
 import pdb
 import astropy.units as u 
-from mpdaf.obj import Image,WCS
+from astropy.nddata import Cutout2D,block_replicate
 
 import sptpol_software
 import sptpol_software.observation as obs
@@ -302,8 +302,8 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     if debug:
         print("Initial Output Shape : " + str(np.shape(output)))
     for index, row in pairs.iterrows():
-        galaxy_1 = row['galaxy_index_1']
-        galaxy_2 = row['galaxy_index_2']
+        galaxy_1 = row['galaxy_index_1'].astype('int32')
+        galaxy_2 = row['galaxy_index_2'].astype('int32')
         pair = [galaxy_1, galaxy_2]
 
         ra_1 = galaxy_catalogue.loc[galaxy_1]['RA']
@@ -365,8 +365,6 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         centre = [len(rescaled_array)/2,len(rescaled_array)/2]
 
-        
-
         re_cut_array = get_subarray(rescaled_array,centre,60)
 
         if debug:
@@ -387,17 +385,127 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
         output = np.add(output,flipped)
         
         #if index%1000 == 0:
-        print("Added pair " + str(index))
 
-        if index%1000 == 0 and save:
+        if index%10000 == 0 and save:
+            print("Added pair " + str(index))
             plt.imshow(output)
             plt.show()
             # plt.title("Output")
             # plt.show()
             # plt.imshow(re_cut_array)
             # plt.show()
-            filename = "output_" + str(index) + ".png"
             plt.savefig(filename)
+            filename = "output_" + str(index) + ".png"
+            # np.savetxt(filename,output,delimiter = ',')
+            # pdb.set_trace()
+    print("Number of Cut Pairs = " + str(num_rejected))
+    return(output)
+
+def stack_pairs_V3(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False,save= False):
+    '''
+    Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
+    '''
+    output = np.zeros(shape = (120,120))
+    num_rejected = 0 
+    if debug:
+        print("Initial Output Shape : " + str(np.shape(output)))
+    for index, row in pairs.iterrows():
+        galaxy_1 = row['galaxy_index_1'].astype('int32')
+        galaxy_2 = row['galaxy_index_2'].astype('int32')
+        pair = [galaxy_1, galaxy_2]
+
+        ra_1 = galaxy_catalogue.loc[galaxy_1]['RA']
+        dec_1 = galaxy_catalogue.loc[galaxy_1]['DEC']
+
+        ra_2 = galaxy_catalogue.loc[galaxy_2]['RA']
+        dec_2 = galaxy_catalogue.loc[galaxy_2]['DEC']
+
+        pt1 = sptpol_software.observation.sky.ang2Pix(
+        (ra_1,dec_1), [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+        pt2 = sptpol_software.observation.sky.ang2Pix(
+        (ra_2,dec_2), [0, -57.5], reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+
+        X1 = float(pt1[0][0][0])
+        X2 = float(pt2[0][0][0])
+    
+        Y1 = float(pt1[0][1][0])
+        Y2 = float(pt2[0][1][0])
+
+    
+
+    
+        midpoint = (int(abs(X1 + X2) / 2), int((abs(Y1 + Y2) / 2)))
+        if debug:
+            print("Midpoint = " +str(midpoint))
+
+        cut_array = Cutout2D(y_map,midpoint,size_of_cutout).data
+
+        if debug:
+            print("x1 = " + str(X1))
+            # print("-x1 = " + str(len(cut_array)-X1))
+            print("y1 = " + str(Y1))
+            # print("-y1 = " + str(len(cut_array)-Y1))
+            print("x2 = " + str(X2))
+            # print("-x2 = " + str(len(cut_array)-X2))
+            print("y2 = " + str(Y2))
+            # print("-y2 = " + str(len(cut_array)-Y2))
+            pdb.set_trace()
+        if (float(X2)-float(X1) == 0):
+            angle = 90
+        else:
+            angle = np.degrees(np.arctan((float(Y2)-float(Y1))/(float(X2)-float(X1))))
+
+        if debug:
+            print("Angle = " + str(angle) + ' or ' + str(90-angle))
+
+        rot_array =  sp.ndimage.rotate(cut_array, 90-angle, reshape=True)
+
+        sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
+        if sep < 2:
+            num_rejected += 1
+            continue
+        scale_fac = 80.0/sep
+
+        if debug:
+            print("Separation = " + str(sep))
+            print("Scale Factor = " + str(scale_fac))
+            pdb.set_trace()
+        
+        rescaled_array = block_replicate(rot_array,scale_fac)
+
+        centre = [len(rescaled_array)/2,len(rescaled_array)/2]
+
+        re_cut_array = Cutout2D(rescaled_array,centre,120)
+
+        if debug:
+            print("Output Shape: " + str(np.shape(output)))
+            print("Re Cut Array:" + str(np.shape(re_cut_array)))
+            pdb.set_trace()
+
+        if np.shape(output) != np.shape(re_cut_array):
+            num_rejected += 1
+            continue
+
+        if abs(np.mean(re_cut_array)) > 1e-5:
+            num_rejected += 1
+            continue
+
+        output = np.add(output,re_cut_array)
+        flipped = np.fliplr(re_cut_array)
+        output = np.add(output,flipped)
+        
+        #if index%1000 == 0:
+
+        if index%10000 == 0 and save:
+            print("Added pair " + str(index))
+            plt.imshow(output)
+            plt.show()
+            # plt.title("Output")
+            # plt.show()
+            # plt.imshow(re_cut_array)
+            # plt.show()
+            plt.savefig(filename)
+            filename = "output_" + str(index) + ".png"
             # np.savetxt(filename,output,delimiter = ',')
             # pdb.set_trace()
     print("Number of Cut Pairs = " + str(num_rejected))

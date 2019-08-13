@@ -99,7 +99,7 @@ cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 
 print("Number of Pairs = " +str(len(cut_pairs_df.index)))
-output = galaxy_pairs.stack_pairs_V2(y_map_array, cut_df, cut_pairs_df,debug=False,save=True)
+output = galaxy_pairs.stack_pairs_V3(y_map_array, cut_df, cut_pairs_df,debug=False,save=True)
 
 print(output)
 plt.imshow(output)#,vmax=1,vmin=-1)
