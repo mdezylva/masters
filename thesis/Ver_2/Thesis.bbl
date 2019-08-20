@@ -1,15 +1,25 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
 {Bristow}, P.~D. \& {Phillipps}, S., 1994, {On the Baryon Content of the
   Universe}, \emph{\mnras} 267, 13
 
+\bibitem[{{Cen} \& {Ostriker}(1999)}]{1999ApJ...514....1C}
+{Cen}, R. \& {Ostriker}, J.~P., 1999, {Where Are the Baryons?}, \emph{\apj}
+  514, 1, 1
+
 \bibitem[{{Clampitt} et~al.(2016){Clampitt}, {Miyatake}, {Jain} \&
   {Takada}}]{2016MNRAS.457.2391C}
 {Clampitt}, J.; {Miyatake}, H.; {Jain}, B. \& {Takada}, M., 2016, {Detection of
   stacked filament lensing between SDSS luminous red galaxies}, \emph{\mnras}
   457, 3, 2391
+
+\bibitem[{{Dav{\'e}} et~al.(2001){Dav{\'e}}, {Cen}, {Ostriker}, {Bryan},
+  {Hernquist}, {Katz}, {Weinberg}, {Norman} \& {O'Shea}}]{2001ApJ...552..473D}
+{Dav{\'e}}, R.; {Cen}, R.; {Ostriker}, J.~P.; {Bryan}, G.~L.; {Hernquist}, L.;
+  {Katz}, N.; {Weinberg}, D.~H.; {Norman}, M.~L. \& {O'Shea}, B., 2001,
+  {Baryons in the Warm-Hot Intergalactic Medium}, \emph{\apj} 552, 2, 473
 
 \bibitem[{{Fukugita} et~al.(1998){Fukugita}, {Hogan} \&
   {Peebles}}]{1998ApJ...503..518F}

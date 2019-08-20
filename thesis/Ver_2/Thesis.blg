@@ -20,45 +20,45 @@ Warning--I didn't find a database entry for "Penzias:65"
 Warning--I didn't find a database entry for "1959HDP....53..275D"
 Warning--I didn't find a database entry for "2008IAUS..244...53S"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 8 entries,
+You've used 10 entries,
             3108 wiz_defined-function locations,
-            725 strings with 6624 characters,
-and the built_in function-call counts, 6149 in all, are:
-= -- 443
-> -- 399
-< -- 3
-+ -- 380
-- -- 112
-* -- 429
-:= -- 842
+            739 strings with 7029 characters,
+and the built_in function-call counts, 7825 in all, are:
+= -- 563
+> -- 518
+< -- 4
++ -- 496
+- -- 145
+* -- 548
+:= -- 1063
 add.period$ -- 0
-call.type$ -- 8
-change.case$ -- 69
-chr.to.int$ -- 9
-cite$ -- 8
-duplicate$ -- 402
-empty$ -- 357
-format.name$ -- 137
-if$ -- 1195
+call.type$ -- 10
+change.case$ -- 88
+chr.to.int$ -- 11
+cite$ -- 10
+duplicate$ -- 508
+empty$ -- 448
+format.name$ -- 178
+if$ -- 1520
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 100
-newline$ -- 28
-num.names$ -- 32
-pop$ -- 248
+missing$ -- 127
+newline$ -- 34
+num.names$ -- 40
+pop$ -- 327
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 88
 quote$ -- 0
-skip$ -- 288
+skip$ -- 358
 stack$ -- 0
-substring$ -- 158
-swap$ -- 236
+substring$ -- 194
+swap$ -- 302
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 90
 warning$ -- 0
-while$ -- 31
+while$ -- 39
 width$ -- 0
-write$ -- 91
+write$ -- 113
 (There were 3 warnings)
