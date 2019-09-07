@@ -8,9 +8,9 @@
 \contentsline {section}{\numberline {2.4}OVI and BLA Absorbers}{8}
 \contentsline {section}{\numberline {2.5}Hot Gas in Clusters}{8}
 \contentsline {chapter}{\numberline {3}The Warm-Hot Interstellar Medium}{9}
-\contentsline {chapter}{\numberline {4}The Sunayev-Zeldovich Effect}{10}
-\contentsline {section}{\numberline {4.1}Atomic Physics}{10}
-\contentsline {section}{\numberline {4.2}CMB Signal}{10}
-\contentsline {chapter}{\numberline {5}Stacking Methodology}{11}
-\contentsline {chapter}{\numberline {6}Results}{12}
-\contentsline {chapter}{\numberline {7}Conclusion}{13}
+\contentsline {chapter}{\numberline {4}The Sunayev-Zeldovich Effect}{11}
+\contentsline {section}{\numberline {4.1}Atomic Physics}{11}
+\contentsline {section}{\numberline {4.2}CMB Signal}{11}
+\contentsline {chapter}{\numberline {5}Stacking Methodology}{12}
+\contentsline {chapter}{\numberline {6}Results}{13}
+\contentsline {chapter}{\numberline {7}Conclusion}{14}

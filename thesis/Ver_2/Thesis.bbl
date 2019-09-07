@@ -1,9 +1,13 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
 {Bristow}, P.~D. \& {Phillipps}, S., 1994, {On the Baryon Content of the
   Universe}, \emph{\mnras} 267, 13
+
+\bibitem[{{Cen} \& {Fang}(2006)}]{2006ApJ...650..573C}
+{Cen}, R. \& {Fang}, T., 2006, {Where Are the Baryons? III. Nonequilibrium
+  Effects and Observables}, \emph{\apj} 650, 2, 573
 
 \bibitem[{{Cen} \& {Ostriker}(1999)}]{1999ApJ...514....1C}
 {Cen}, R. \& {Ostriker}, J.~P., 1999, {Where Are the Baryons?}, \emph{\apj}
@@ -14,6 +18,10 @@
 {Clampitt}, J.; {Miyatake}, H.; {Jain}, B. \& {Takada}, M., 2016, {Detection of
   stacked filament lensing between SDSS luminous red galaxies}, \emph{\mnras}
   457, 3, 2391
+
+\bibitem[{{Danforth} \& {Shull}(2005)}]{2005ApJ...624..555D}
+{Danforth}, C.~W. \& {Shull}, J.~M., 2005, {The Low-z Intergalactic Medium. I.
+  O VI Baryon Census}, \emph{\apj} 624, 2, 555
 
 \bibitem[{{Dav{\'e}} et~al.(2001){Dav{\'e}}, {Cen}, {Ostriker}, {Bryan},
   {Hernquist}, {Katz}, {Weinberg}, {Norman} \& {O'Shea}}]{2001ApJ...552..473D}
@@ -37,6 +45,12 @@
   J.; {Baccigalupi}, C.; {Ballardini}, M.; {Banday}, A.~J.; {Barreiro}, R.~B.
   \& {Bartolo}, N., 2018, {Planck 2018 results. VI. Cosmological parameters},
   \emph{arXiv e-prints} arXiv:1807.06209
+
+\bibitem[{{Richter} et~al.(2006){Richter}, {Savage}, {Sembach} \&
+  {Tripp}}]{2006A&A...445..827R}
+{Richter}, P.; {Savage}, B.~D.; {Sembach}, K.~R. \& {Tripp}, T.~M., 2006,
+  {Tracing baryons in the warm-hot intergalactic medium with broad Ly
+  {\ensuremath{\alpha}} absorption}, \emph{\aap} 445, 3, 827
 
 \bibitem[{{Spergel} et~al.(2007){Spergel}, {Bean}, {Dor{\'e}}, {Nolta},
   {Bennett}, {Dunkley}, {Hinshaw}, {Jarosik}, {Komatsu}, {Page}
