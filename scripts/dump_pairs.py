@@ -77,39 +77,49 @@ print("Done in " + str(end-start) + " seconds")
 # Establish Cuts 
 start = end
 
-top_left_corner = np.array([330, 52])
-top_right_corner = np.array([330, 2468])
-bottom_right_corner = np.array([1275, 2000])
-bottom_left_corner = np.array([1275, 2520-2000])
+norm_ra = []
+for i in range(len(df)):
+   norm_ra.append(galaxy_pairs.normalize(df['RA'][i],-180,180))
+df['NORM_RA'] = pd.Series(norm_ra)
+#top_left_corner = np.array([330, 52])
+#top_right_corner = np.array([330, 2468])
+#bottom_right_corner = np.array([1275, 2000])
+#bottom_left_corner = np.array([1275, 2520-2000])
 
-edges = np.vstack((top_left_corner, top_right_corner,
-                   bottom_left_corner, bottom_right_corner))
+#edges = np.vstack((top_left_corner, top_right_corner,
+#                   bottom_left_corner, bottom_right_corner))
 
 # Convert Edges into Angles 
-temp1 = sptpol_software.observation.sky.pix2Ang(top_left_corner, np.array(
-    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-temp2 = sptpol_software.observation.sky.pix2Ang(top_right_corner, np.array(
-    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-temp3 = sptpol_software.observation.sky.pix2Ang(bottom_left_corner, np.array(
-    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-temp4 = sptpol_software.observation.sky.pix2Ang(bottom_right_corner, np.array(
-    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+#temp1 = sptpol_software.observation.sky.pix2Ang(top_left_corner, np.array(
+#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+#temp2 = sptpol_software.observation.sky.pix2Ang(top_right_corner, np.array(
+#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+#temp3 = sptpol_software.observation.sky.pix2Ang(bottom_left_corner, np.array(
+#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
+#temp4 = sptpol_software.observation.sky.pix2Ang(bottom_right_corner, np.array(
+#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
 
 
-edges_ang = np.array([temp1, temp2, temp3, temp4])
-edges_ang = edges_ang.astype(int)
-ra_range = np.array([edges_ang[0][0], edges_ang[1][0]])
-dec_range = np.array([edges_ang[1][1], edges_ang[2][1]])
+#edges_ang = np.array([temp1, temp2, temp3, temp4])
+#edges_ang = edges_ang.astype(int)
+#ra_range = np.array([edges_ang[0][0], edges_ang[1][0]])
+#dec_range = np.array([edges_ang[1][1], edges_ang[2][1]])
+
+#### INSERT CUSTOM RA AND DEC RANGE HERE! ####
+
+ra_range = np.array([-32,32])
+dec_range = np.array([-52,-67])
+
 # print(ra_range)
 # print(dec_range)
 
 
-cut_df = df[((df.DEC < dec_range[0]-0.04) & (df.DEC > dec_range[1]+0.04))
-            & ((df.RA > ra_range[0] +0.04 ) & (df.RA < ra_range[1] -0.04))]
+cut_df = df[((df.DEC < dec_range[0]) & (df.DEC > dec_range[1]))
+            & ((df.NORM_RA > ra_range[0] ) & (df.NORM_RA < ra_range[1]))]
 cut_df = cut_df.reset_index(drop=True)
 
 print("Saving Cut Galaxy Catalogue to Pickle")
-cut_df.to_pickle('cut_catalogue.pkl')
+#cut_df.to_pickle('cut_catalogue.pkl')
 
 # cut_dict = cut_df.to_dict()
 # pickle_out = open("cut_df.pickle","wb")
@@ -240,7 +250,7 @@ cut_pairs_df = cut_pairs_df[ (cut_pairs_df.SEP_TRV < max_trsv) & (cut_pairs_df.S
 cut_pairs_df = cut_pairs_df.reset_index()
 
 print("Pickling List of Pairs...")
-cut_pairs_df.to_pickle('galaxy_pairs.pkl')
+#cut_pairs_df.to_pickle('galaxy_pairs.pkl')
 
 cut_pairs_df.head()
 
