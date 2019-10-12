@@ -17,7 +17,6 @@ import healpy as hp
 
 
 def RaDec2XYZ(ra, dec):
-
     """
     From (ra,dec) -> unit vector on the sphere
     """
@@ -31,111 +30,6 @@ def RaDec2XYZ(ra, dec):
     vec = np.array([x, y, z]).T
 
     return vec
-
-def normalize(num, lower=0, upper=360, b=False):
-    """Normalize number to range [lower, upper) or [lower, upper].
-    Parameters
-    ----------
-    num : float
-        The number to be normalized.
-    lower : int
-        Lower limit of range. Default is 0.
-    upper : int
-        Upper limit of range. Default is 360.
-    b : bool
-        Type of normalization. Default is False. See notes.
-    Returns
-    -------
-    n : float
-        A number in the range [lower, upper) or [lower, upper].
-    Raises
-    ------
-    ValueError
-      If lower >= upper.
-    Notes
-    -----
-    If the keyword `b == False`, then the normalization is done in the
-    following way. Consider the numbers to be arranged in a circle,
-    with the lower and upper ends sitting on top of each other. Moving
-    past one limit, takes the number into the beginning of the other
-    end. For example, if range is [0 - 360), then 361 becomes 1 and 360
-    becomes 0. Negative numbers move from higher to lower numbers. So,
-    -1 normalized to [0 - 360) becomes 359.
-    If the keyword `b == True`, then the given number is considered to
-    "bounce" between the two limits. So, -91 normalized to [-90, 90],
-    becomes -89, instead of 89. In this case the range is [lower,
-    upper]. This code is based on the function `fmt_delta` of `TPM`.
-    Range must be symmetric about 0 or lower == 0.
-    Examples
-    --------
-    >>> normalize(-270,-180,180)
-    90.0
-    >>> import math
-    >>> math.degrees(normalize(-2*math.pi,-math.pi,math.pi))
-    0.0
-    >>> normalize(-180, -180, 180)
-    -180.0
-    >>> normalize(180, -180, 180)
-    -180.0
-    >>> normalize(180, -180, 180, b=True)
-    180.0
-    >>> normalize(181,-180,180)
-    -179.0
-    >>> normalize(181, -180, 180, b=True)
-    179.0
-    >>> normalize(-180,0,360)
-    180.0
-    >>> normalize(36,0,24)
-    12.0
-    >>> normalize(368.5,-180,180)
-    8.5
-    >>> normalize(-100, -90, 90)
-    80.0
-    >>> normalize(-100, -90, 90, b=True)
-    -80.0
-    >>> normalize(100, -90, 90, b=True)
-    80.0
-    >>> normalize(181, -90, 90, b=True)
-    -1.0
-    >>> normalize(270, -90, 90, b=True)
-    -90.0
-    >>> normalize(271, -90, 90, b=True)
-    -89.0
-    """
-    from math import floor, ceil
-    # abs(num + upper) and abs(num - lower) are needed, instead of
-    # abs(num), since the lower and upper limits need not be 0. We need
-    # to add half size of the range, so that the final result is lower +
-    # <value> or upper - <value>, respectively.
-    res = num
-    if not b:
-        if lower >= upper:
-            raise ValueError("Invalid lower and upper limits: (%s, %s)" %
-                             (lower, upper))
-
-        res = num
-        if num > upper or num == lower:
-            num = lower + abs(num + upper) % (abs(lower) + abs(upper))
-        if num < lower or num == upper:
-            num = upper - abs(num - lower) % (abs(lower) + abs(upper))
-
-        res = lower if num == upper else num
-    else:
-        total_length = abs(lower) + abs(upper)
-        if num < -total_length:
-            num += ceil(num / (-2 * total_length)) * 2 * total_length
-        if num > total_length:
-            num -= floor(num / (2 * total_length)) * 2 * total_length
-        if num > upper:
-            num = total_length - num
-        if num < lower:
-            num = -total_length - num
-
-        res = num
-
-    res *= 1.0  # Make all numbers float, to be consistent
-
-    return res
 
 def get_vec_distances(ra, dec, comoving_dist):
     '''
@@ -179,7 +73,7 @@ def getPairs(data_frame, max_sep=20, query_type = 1,results_loc='PAIRS_sparse_di
     frame_tree = KDTree(vec_frame)
     if query_type == 1:
         dist_matr = frame_tree.sparse_distance_matrix(
-            frame_tree, max_distance=max_sep, p=2.0, output_type='ndarray')
+            frame_tree, max_distance=max_sep, p=2.0)#, output_type='ndarray')
     elif query_type == 2:
             dist_matr = frame_tree.query_pairs(r=max_sep, p=2.0, output_type='ndarray')
     dist_u = dist_matr[dist_matr['i'] < dist_matr['j']]
@@ -194,30 +88,6 @@ def getPairs(data_frame, max_sep=20, query_type = 1,results_loc='PAIRS_sparse_di
     pairs_matrix = np.vstack((dist_u['i'], dist_u['j'], dist_u['v']))
 
     return(pairs_matrix)
-
-def getUnPairs(data_frame, max_sep=20):
-    '''
-    Takes a data frame with RA, DEC, and COMOVING distances, and pairs
-    up those vectors with the closest vector under a given maximum separation
-    and store the results in an array where:
-    results[0] = First Item
-    results[1] = Second Item
-    results[2] = Distance between First Item and Second Item
-    '''
-    if 'NORM_RA' not in data_frame.columns:
-        return("Error: Normalised (-180,180] RA not in Data Frame")
-    if 'DEC' not in data_frame.columns:
-        return("Error: DEC not in Data Frame")
-
-    np.asarray([df['NORM_RA'].as_matrix().T,df['DEC'].as_matrix().T]).T
-
-    frame_tree = scipy.spatial.cKDTree(sky_locs, leafsize=100)
-
-    for item in frame_tree:
-        Result = YourTreeName.query(item, k=1, distance_upper_bound=6)
-
-    return(pairs_matrix)
-
 
 def euclideanDistance(instance1, instance2, length):
     '''
@@ -435,11 +305,6 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     shape_cut = 0
     mean_cut = 0
     pairs = pairs.reset_index()
-
-    cuts = []
-    rotations  = []
-    rescales = []
-    recuts = []
  
     if debug:
         print("Initial Output Shape : " + str(np.shape(output)))
@@ -471,11 +336,12 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 	#midpoint_coord = [midpoint.ra.degree,midpoint.dec.degree]
 	
 	#midpoint = [np.mean([ra_1,ra_2]),np.mean([dec_1,dec_2])]
-		
+	
 	if debug:
             print("Midpoint = " +str(midpoint))
-        cut_array = get_subarray(y_map, midpoint, 200)
-
+        cut_array = get_subarray(y_map, midpoint, 100)
+        #cut_array_masked = hp.gnomview(y_map, rot=midpoint,  xsize=100, reso=1, return_projected_map=True)
+	#cut_array = cut_array_masked.data
 	if debug:
             print("x1 = " + str(X1))
             # print("-x1 = " + str(len(cut_array)-X1))
@@ -495,9 +361,8 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
             print("Angle = " + str(angle) + ' or ' + str(90-angle))
 
         rot_array =  sp.ndimage.rotate(cut_array,90-angle, reshape=True)
-       
-
-	sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
+	# 90 - angle 
+        sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
         #sep_cut = 0
 	#ang_sep = points[0].separation(points[1]).arcmin
 	
@@ -521,11 +386,10 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 
         re_cut_array = get_subarray(rescaled_array,centre,85)
 
-
         if debug:
             print("Output Shape: " + str(np.shape(output)))
             print("Re Cut Array:" + str(np.shape(re_cut_array)))
-            pdb.set_trace()
+            #pdb.set_trace()
 
 	#shape_cut = 0
         if np.shape(output) != np.shape(re_cut_array):
@@ -547,25 +411,19 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
             mean_cut += 1
             continue
 
+        output = np.add(output,re_cut_array)
         flipped = np.fliplr(re_cut_array)
-        av = np.add(flipped,re_cut_array)/2
-        #flipped2 = np.flipud(re_cut_array)
-	output = np.add(output,av)
-        #output = np.add(output,flipped2)
+        flipped2 = np.flipud(re_cut_array)
+	output = np.add(output,flipped)
+        output = np.add(output,flipped2)
 
         #if index%10000 == 0:
         #    print("Added pair " + str(index))
-	#plt.switch_backend('Agg')
+	plt.switch_backend('Agg')
 	#print("Added pair " + str(index))
 	if index < 100:
-	    
-	    cuts.append(cut_array)
-	    rescales.append(rescaled_array)
-	    recuts.append(re_cut_array)
-	    rotations.append(rot_array)
-#
 	    plt.imshow(output)
-	    filename = "fh_"+str(index)+"_pairs"
+	    filename = str(index)+"_pairs"
 	    plt.colorbar()
 	    plt.title(filename)
 	    plt.savefig(filename+'.png')
@@ -577,7 +435,7 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
 	    plt.savefig(filename+"_central_slice.png")
         if index%1000 == 0 and save:
             #plt.switch_backend('Agg')
-	    plt.imshow(output/index)
+	    plt.imshow(output)
             print("Added pair " + str(index))
 	    filename = 'output_' + str(index) + '_pairs'
             plt.title("Output")
@@ -588,7 +446,7 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
             plt.savefig(filename+".png")
 	    plt.close()
 	    centre = len(output)/2+1
-	    central_line = output[centre,:]/index
+	    central_line = output[centre,:]
 	    plt.plot(central_line)
 	    plt.title("Central Line: "+str(index))
 	    plt.savefig(filename+"_cen_slice.png")
@@ -597,12 +455,8 @@ def stack_pairs_V2(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     print("Number of Cut Pairs (Sep) = " + str(sep_cut))
     print("Number of Cut Pairs (Shape) = " + str(shape_cut))
     print("Number of Cut Pairs (Mean) = " + str(mean_cut))
-    dic = {}
-    dic['cuts'] = np.asarray(cuts)
-    dic['rotated'] = np.asarray(rotations)
-    dic['sep'] = np.asarray(rescales)
-    dic['recuts'] = np.asarray(recuts)
-    return(output,dic)
+    return(output)
+
 
 def stack_pairs_hp(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False,save= False):
     '''
@@ -738,181 +592,4 @@ def stack_pairs_hp(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = Fa
     print("Number of Cut Pairs (Sep) = " + str(sep_cut))
     print("Number of Cut Pairs (Shape) = " + str(shape_cut))
     print("Number of Cut Pairs (Mean) = " + str(mean_cut))
-
     return(output)
-def null_stack_rand_rot(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False,save= False):
-    '''
-    Take input Y-map, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
-    '''
-    output = np.zeros(shape = (169,169))
-    num_rejected = 0 
-
-    sep_cut = 0
-    shape_cut = 0
-    mean_cut = 0
-    pairs = pairs.reset_index()
-
-    cuts = []
-    rotations  = []
-    rescales = []
-    recuts = []
- 
-    if debug:
-        print("Initial Output Shape : " + str(np.shape(output)))
-    for index, row in pairs.iterrows():
-        galaxy_1 = row['galaxy_index_1'].astype('int32')
-        galaxy_2 = row['galaxy_index_2'].astype('int32')
-        pair = [galaxy_1, galaxy_2]
-
-        ra_1 = galaxy_catalogue.loc[galaxy_1]['RA']
-        dec_1 = galaxy_catalogue.loc[galaxy_1]['DEC']
-
-        ra_2 = galaxy_catalogue.loc[galaxy_2]['RA']
-        dec_2 = galaxy_catalogue.loc[galaxy_2]['DEC']
-
-        pt1 = sptpol_software.observation.sky.ang2Pix(
-        (ra_1,dec_1), [0, -57.5], reso_arcmin=0.25, map_pixel_shape=np.array([6000, 11280]))
-        pt2 = sptpol_software.observation.sky.ang2Pix(
-        (ra_2,dec_2), [0, -57.5], reso_arcmin=0.25, map_pixel_shape=np.array([6000, 11280]))
-
-        X1 = float(pt1[0][0][0])
-        X2 = float(pt2[0][0][0])
-    
-        Y1 = float(pt1[0][1][0])
-        Y2 = float(pt2[0][1][0])
-
-	midpoint = (int(abs(X1 + X2) / 2), int((abs(Y1 + Y2) / 2)))
-	#points = SkyCoord([(str(ra_1) + " " + str(dec_1)), (str(ra_2) + " " + str(dec_2))], unit=(u.deg, u.deg))        
-	#midpoint = SkyCoord(points.data.mean(), representation='unitspherical', frame=points)
-	#midpoint_coord = [midpoint.ra.degree,midpoint.dec.degree]
-	
-	#midpoint = [np.mean([ra_1,ra_2]),np.mean([dec_1,dec_2])]
-		
-	if debug:
-            print("Midpoint = " +str(midpoint))
-        cut_array = get_subarray(y_map, midpoint, 200)
-
-	if debug:
-            print("x1 = " + str(X1))
-            # print("-x1 = " + str(len(cut_array)-X1))
-            print("y1 = " + str(Y1))
-            # print("-y1 = " + str(len(cut_array)-Y1))
-            print("x2 = " + str(X2))
-            # print("-x2 = " + str(len(cut_array)-X2))
-            print("y2 = " + str(Y2))
-            # print("-y2 = " + str(len(cut_array)-Y2))
-            #pdb.set_trace()
-
-        angle = np.random.rand()*90.0
-        if debug:
-            print("Angle = " + str(angle) + ' or ' + str(90-angle))
-
-        rot_array =  sp.ndimage.rotate(cut_array,90-angle, reshape=True)
-       
-
-	sep = np.sqrt((X2-X1)**2 + (Y2 - Y1)**2)
-        #sep_cut = 0
-	#ang_sep = points[0].separation(points[1]).arcmin
-	
-	#if sep < 2:
-        #    sep_cut += 1
-        #    continue
-        scale_fac = 80.0/sep
-
-        
-        
-	if debug:
-            print("Separation = " + str(sep))
-            print("Scale Factor = " + str(scale_fac))
-            pdb.set_trace()
-        
-        rescaled_array = sp.ndimage.zoom(rot_array,scale_fac)
-
-        centre = [len(rescaled_array)/2,len(rescaled_array)/2]
-
-        
-
-        re_cut_array = get_subarray(rescaled_array,centre,85)
-
-
-        if debug:
-            print("Output Shape: " + str(np.shape(output)))
-            print("Re Cut Array:" + str(np.shape(re_cut_array)))
-            pdb.set_trace()
-
-	#shape_cut = 0
-        if np.shape(output) != np.shape(re_cut_array):
-
-	    re_cut_array = re_cut_array[:-1,:-1]
-            
-	    #print("Pair No: " + str(index))
-	    #print("Output Shape: ")
-	    #print(np.shape(output))
-	    #print("Re Cut Array Shape: ")
-	    #print(np.shape(re_cut_array))
-	    #pdb.set_trace()
-	    if np.shape(output) != np.shape(re_cut_array):
-	    	shape_cut += 1
-            	continue
-
-	#mean_cut = 0
-        if abs(np.mean(re_cut_array)) > 1e-5:
-            mean_cut += 1
-            continue
-
-        flipped = np.fliplr(re_cut_array)
-        av = np.add(flipped,re_cut_array)/2
-        #flipped2 = np.flipud(re_cut_array)
-	output = np.add(output,av)
-        #output = np.add(output,flipped2)
-
-        #if index%10000 == 0:
-        #    print("Added pair " + str(index))
-	#plt.switch_backend('Agg')
-	#print("Added pair " + str(index))
-	if index < 100:
-	    
-	    cuts.append(cut_array)
-	    rescales.append(rescaled_array)
-	    recuts.append(re_cut_array)
-	    rotations.append(rot_array)
-#
-	    plt.imshow(output)
-	    filename = "fh_"+str(index)+"_pairs"
-	    plt.colorbar()
-	    plt.title(filename)
-	    plt.savefig(filename+'.png')
-	    plt.close()
-	    centre = len(output)/2+1
-	    central_line = output[centre,:]
-	    plt.plot(central_line)
-	    plt.title(filename)
-	    plt.savefig(filename+"_central_slice.png")
-        if index%1000 == 0 and save:
-            #plt.switch_backend('Agg')
-	    plt.imshow(output/index)
-            print("Added pair " + str(index))
-	    filename = 'output_' + str(index) + '_pairs'
-            plt.title("Output")
-	    plt.colorbar()
-            # plt.imshow(re_cut_array)
-            # plt.show()
-            # filename = "output_" + str(index) + ".png"
-            plt.savefig(filename+".png")
-	    plt.close()
-	    centre = len(output)/2+1
-	    central_line = output[centre,:]/index
-	    plt.plot(central_line)
-	    plt.title("Central Line: "+str(index))
-	    plt.savefig(filename+"_cen_slice.png")
-            np.savetxt(filename+".txt",output,delimiter = ',')
-            # pdb.set_trace()
-    print("Number of Cut Pairs (Sep) = " + str(sep_cut))
-    print("Number of Cut Pairs (Shape) = " + str(shape_cut))
-    print("Number of Cut Pairs (Mean) = " + str(mean_cut))
-    dic = {}
-    dic['cuts'] = np.asarray(cuts)
-    dic['rotated'] = np.asarray(rotations)
-    dic['sep'] = np.asarray(rescales)
-    dic['recuts'] = np.asarray(recuts)
-    return(output,dic)

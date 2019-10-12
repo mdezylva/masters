@@ -1,0 +1,132 @@
+def stack_pairs_hp(y_map, galaxy_catalogue, pairs, size_of_cutout=70, debug = False,save= False):
+    '''
+    Take input Y-map in HEALPIX format, galaxy catalogue, and list of pairs, and stacks them on top of each other returning a stacked array
+    '''
+    output = np.zeros(shape = (169,169))
+    num_rejected = 0 
+    #Keep track of how many pairs are cut for what reason
+    sep_cut = 0
+    shape_cut = 0
+    mean_cut = 0
+    #Ensure the index of the DF isn't out of order due to cuts made 
+    pairs = pairs.reset_index()
+ 
+    if debug:
+        print("Initial Output Shape : " + str(np.shape(output)))
+    # Iterate over all indexes and rows
+    for index, row in pairs.iterrows():
+        galaxy_1 = row['galaxy_index_1'].astype('int32')
+        galaxy_2 = row['galaxy_index_2'].astype('int32')
+        pair = [galaxy_1, galaxy_2]
+	
+	# RAs and DECs are stored in the Row Now
+        ra_1 = row['RA_1']
+        dec_1 = row['DEC_1']
+
+        ra_2 = row['RA_2']
+        dec_2 = row['DEC_2']
+
+	#Operations to find the midpoint coordinate. Might need to move this into the Pair Creation Scripts
+	#Currently doesn't work due to Software Versioning on CLOUD!
+
+	points = SkyCoord([(str(ra_1) + " " + str(dec_1)), (str(ra_2) + " " + str(dec_2))], unit=(u.deg, u.deg))        
+	#midpoint = SkyCoord(points.data.mean(), representation='unitspherical', frame=points)
+	#midpoint_coord = [midpoint.ra.degree,midpoint.dec.degree]
+	
+	#Naive approach	
+	midpoint = [np.mean([ra_1,ra_2]),np.mean([dec_1,dec_2])]
+	# Work out the rotation angle before cutting out from HEALPIX array	
+	if debug:
+            print("RA 1 = " + str(ra_1))
+            # print("-x1 = " + str(len(cut_array)-X1))
+            print("DEC 1 = " + str(dec_1))
+            # print("-y1 = " + str(len(cut_array)-Y1))
+            print("RA 2 = " + str(ra_2))
+            # print("-x2 = " + str(len(cut_array)-X2))
+            print("DEC 2 = " + str(dec_2))
+            # print("-y2 = " + str(len(cut_array)-Y2))
+            #pdb.set_trace()
+        if (float(ra_2)-float(ra_1) == 0):
+            angle = 90
+        else:
+            angle = np.degrees(np.arctan((float(dec_2)-float(dec_1))/(float(ra_2)-float(ra_1))))
+
+        if debug:
+            print("Angle = " + str(angle) + ' or ' + str(90-angle))
+
+        #rot_array =  sp.ndimage.rotate(cut_array,90-angle, reshape=True)
+
+	#Append Angle to Midpoint Rotation variable
+	midpoint.append(angle)
+
+	if debug:
+            print("Midpoint = " +str(midpoint))
+	    pdb.set_trace()
+	
+	#Cut out array from HEALPIX Array, including midpoint and rotation angle
+        cut_array_masked = hp.gnomview(y_map, rot=midpoint,  xsize=100, reso=1, return_projected_map=True)
+	cut_array = cut_array_masked.data
+	plt.close()	
+
+	if debug:
+	    pdb.set_trace()
+	
+	#Calculate the Angular Separation of the two points
+	ang_sep = points[0].separation(points[1]).arcmin
+	
+	#Rescale the HALOs so they are 60 arcmins apart
+        scale_fac = 60.0/ang_sep
+        
+	if debug:
+            print("Separation = " + str(ang_sep))
+            print("Scale Factor = " + str(scale_fac))
+            pdb.set_trace()
+        
+	#Rescale Array
+        rescaled_array = sp.ndimage.zoom(cut_array,scale_fac)
+
+        centre = [len(rescaled_array)/2,len(rescaled_array)/2]
+
+        #Resclice for adding arrays
+        re_cut_array = get_subarray(rescaled_array,centre,85)
+
+        if debug:
+            print("Output Shape: " + str(np.shape(output)))
+            print("Re Cut Array:" + str(np.shape(re_cut_array)))
+
+        if np.shape(output) != np.shape(re_cut_array):
+
+	    re_cut_array = re_cut_array[:-1,:-1]
+            
+	    if np.shape(output) != np.shape(re_cut_array):
+	    	shape_cut += 1
+            	continue
+
+        if abs(np.mean(re_cut_array)) > 1e-5:
+            mean_cut += 1
+            continue
+
+        output = np.add(output,re_cut_array)
+        flipped = np.fliplr(re_cut_array)
+        flipped2 = np.flipud(re_cut_array)
+	output = np.add(output,flipped)
+        output = np.add(output,flipped2)
+
+	plt.switch_backend('Agg')
+	
+	#Processing operations
+        if index%1000 == 0 and save:
+	    plt.imshow(output)
+            print("Added pair " + str(index))
+	    filename = 'output_' + str(index) + '_pairs'
+            plt.title("Output")
+            plt.savefig(filename+".png")
+	    plt.close()
+	    centre = len(output)/2+1
+	    central_line = output[centre,:]
+	    plt.plot(central_line)
+	    plt.title("Central Line: "+str(index))
+	    plt.savefig(filename+"_cen_slice.png")
+            np.savetxt(filename+".txt",output,delimiter = ',')
+            # pdb.set_trace()
+    print("Number of Cut Pairs (Sep) = " + str(s

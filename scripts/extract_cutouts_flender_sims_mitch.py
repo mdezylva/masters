@@ -34,6 +34,10 @@ def fn_load_halo(fname, Mmin=1e14, Mmax=1e15, zmin=0., zmax=1., nobj=None, like_
 		cat = cat[(cat.RA >= RA_SPTSZ_min) & (cat.RA <= RA_SPTSZ_max)]
 		cat = cat[(cat.DEC >= DEC_SPTSZ_min) & (cat.DEC <= DEC_SPTSZ_max)]
 
+	else:
+		cat = cat[(cat.RA >= RA_SPTpol_min) & (cat.RA <= RA_SPTpol_max)]
+		cat = cat[(cat.DEC >= DEC_SPTpol_min) & (cat.DEC <= DEC_SPTpol_max)]
+
 	if nobj is not None:
 		cat = cat[np.random.randint(0,len(cat),size=nobj)]
 
@@ -46,9 +50,9 @@ def fn_load_halo(fname, Mmin=1e14, Mmax=1e15, zmin=0., zmax=1., nobj=None, like_
 	return ra, dec, zs, v_los, M200
 
 # Params 'n' stuff
-flenders_cat    = '/home/mitchell/Documents/masters/masters/data/simulated/catalog_fullsky_zsm1.fits'
-tsz_map_file    = 'data/simulated/tsz150_R13.fits'
-# cutout_dic_name = 'kSZ_tSZ_SPTSZ_footprint_zsm1.pkl.gz'
+flenders_cat    = 'catalog_fullsky_zsm1.fits.gz'
+tsz_map_file    = 'tsz150_R13.fits.gz'
+cutout_dic_name = 'kSZ_tSZ_SPTSZ_footprint_zsm1.pkl.gz'
 nside           = 8192
 boxsize         = 50   # arcmin
 reso            = 0.25 #arcmin
@@ -59,14 +63,14 @@ reso            = 0.25 #arcmin
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 print("...loading Flender's halo catalogue...")
-ra, dec, z, v_los, M200 = fn_load_halo(flenders_cat, like_SPTSZ=1, nobj=None)
+ra, dec, z, v_los, M200 = fn_load_halo(flenders_cat, like_SPTSZ=0, nobj=None)
 print("...# CLUSTERS = %d"%len(ra))
 print("...done...")
 
 
 print("...loading tSZ map...")
 tsz_map = hp.read_map(tsz_map_file)
-tsz_map_smooth = hp.smoothing(tsz_map, fwhm=np.radians(1.2/60.))
+#tsz_map_smooth = hp.smoothing(tsz_map, fwhm=np.radians(1.2/60.))
 print("...done...")
 
 cuts = {}

@@ -3,6 +3,7 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Thesis.aux
 A level-1 auxiliary file: MacroAstroJour.aux
 A level-1 auxiliary file: spt_commands.aux
+A level-1 auxiliary file: aasmacros.aux
 A level-1 auxiliary file: cover.aux
 A level-1 auxiliary file: Stmt_of_cont.aux
 A level-1 auxiliary file: Abstract.aux
@@ -20,45 +21,45 @@ Warning--I didn't find a database entry for "Penzias:65"
 Warning--I didn't find a database entry for "1959HDP....53..275D"
 Warning--I didn't find a database entry for "2008IAUS..244...53S"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 13 entries,
+You've used 20 entries,
             3108 wiz_defined-function locations,
-            762 strings with 7566 characters,
-and the built_in function-call counts, 9686 in all, are:
-= -- 704
-> -- 603
-< -- 6
-+ -- 568
-- -- 169
-* -- 678
-:= -- 1321
+            809 strings with 10770 characters,
+and the built_in function-call counts, 15115 in all, are:
+= -- 1092
+> -- 963
+< -- 10
++ -- 909
+- -- 269
+* -- 1057
+:= -- 2054
 add.period$ -- 0
-call.type$ -- 13
-change.case$ -- 108
-chr.to.int$ -- 14
-cite$ -- 13
-duplicate$ -- 650
-empty$ -- 579
-format.name$ -- 215
-if$ -- 1890
+call.type$ -- 20
+change.case$ -- 169
+chr.to.int$ -- 21
+cite$ -- 20
+duplicate$ -- 1022
+empty$ -- 893
+format.name$ -- 342
+if$ -- 2943
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 159
-newline$ -- 43
-num.names$ -- 52
-pop$ -- 403
+missing$ -- 249
+newline$ -- 64
+num.names$ -- 82
+pop$ -- 625
 preamble$ -- 1
-purify$ -- 108
+purify$ -- 169
 quote$ -- 0
-skip$ -- 432
+skip$ -- 686
 stack$ -- 0
-substring$ -- 257
-swap$ -- 384
-text.length$ -- 0
+substring$ -- 366
+swap$ -- 607
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 117
+type$ -- 180
 warning$ -- 0
-while$ -- 51
+while$ -- 76
 width$ -- 0
-write$ -- 146
+write$ -- 223
 (There were 3 warnings)

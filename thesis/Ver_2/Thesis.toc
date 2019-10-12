@@ -10,7 +10,7 @@
 \contentsline {chapter}{\numberline {3}The Warm-Hot Interstellar Medium}{9}
 \contentsline {chapter}{\numberline {4}The Sunayev-Zeldovich Effect}{11}
 \contentsline {section}{\numberline {4.1}Atomic Physics}{11}
-\contentsline {section}{\numberline {4.2}CMB Signal}{11}
-\contentsline {chapter}{\numberline {5}Stacking Methodology}{12}
-\contentsline {chapter}{\numberline {6}Results}{13}
-\contentsline {chapter}{\numberline {7}Conclusion}{14}
+\contentsline {section}{\numberline {4.2}CMB Signal}{12}
+\contentsline {chapter}{\numberline {5}Stacking Methodology}{13}
+\contentsline {chapter}{\numberline {6}Results}{15}
+\contentsline {chapter}{\numberline {7}Conclusion}{16}

@@ -1,9 +1,14 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
 {Bristow}, P.~D. \& {Phillipps}, S., 1994, {On the Baryon Content of the
   Universe}, \emph{\mnras} 267, 13
+
+\bibitem[{{Burles} \& {Tytler}(1998)}]{1998sese.conf..113B}
+{Burles}, S. \& {Tytler}, D., 1998, {Measurements of the deuterium abundance in
+  quasar absorption systems}, in {Mezzacappa}, A., editor, \emph{Stellar
+  Evolution, Stellar Explosions and Galactic Chemical Evolution}, p. 113
 
 \bibitem[{{Cen} \& {Fang}(2006)}]{2006ApJ...650..573C}
 {Cen}, R. \& {Fang}, T., 2006, {Where Are the Baryons? III. Nonequilibrium
@@ -29,10 +34,31 @@
   {Katz}, N.; {Weinberg}, D.~H.; {Norman}, M.~L. \& {O'Shea}, B., 2001,
   {Baryons in the Warm-Hot Intergalactic Medium}, \emph{\apj} 552, 2, 473
 
+\bibitem[{{Epps} \& {Hudson}(2017)}]{2017MNRAS.468.2605E}
+{Epps}, S.~D. \& {Hudson}, M.~J., 2017, {The Weak Lensing Masses of Filaments
+  between Luminous Red Galaxies}, \emph{\mnras} 468, 3, 2605
+
 \bibitem[{{Fukugita} et~al.(1998){Fukugita}, {Hogan} \&
   {Peebles}}]{1998ApJ...503..518F}
 {Fukugita}, M.; {Hogan}, C.~J. \& {Peebles}, P.~J.~E., 1998, {The Cosmic Baryon
   Budget}, \emph{\apj} 503, 2, 518
+
+\bibitem[{{Hill} \& {Spergel}(2014)}]{2014JCAP...02..030H}
+{Hill}, J.~C. \& {Spergel}, D.~N., 2014, {Detection of thermal SZ-CMB lensing
+  cross-correlation in Planck nominal mission data}, \emph{\jcap} 2014, 2, 030
+
+\bibitem[{{Hojjati} et~al.(2015){Hojjati}, {McCarthy}, {Harnois-Deraps}, {Ma},
+  {Van Waerbeke}, {Hinshaw} \& {Le Brun}}]{2015JCAP...10..047H}
+{Hojjati}, A.; {McCarthy}, I.~G.; {Harnois-Deraps}, J.; {Ma}, Y.-Z.; {Van
+  Waerbeke}, L.; {Hinshaw}, G. \& {Le Brun}, A. M.~C., 2015, {Dissecting the
+  thermal Sunyaev-Zeldovich-gravitational lensing cross-correlation with
+  hydrodynamical simulations}, \emph{\jcap} 2015, 10, 047
+
+\bibitem[{{Ma} et~al.(2015){Ma}, {Van Waerbeke}, {Hinshaw}, {Hojjati}, {Scott}
+  \& {Zuntz}}]{2015JCAP...09..046M}
+{Ma}, Y.-Z.; {Van Waerbeke}, L.; {Hinshaw}, G.; {Hojjati}, A.; {Scott}, D. \&
+  {Zuntz}, J., 2015, {Probing the diffuse baryon distribution with the
+  lensing-tSZ cross-correlation}, \emph{\jcap} 2015, 9, 046
 
 \bibitem[{{Persic} \& {Salucci}(1992)}]{1992MNRAS.258P..14P}
 {Persic}, M. \& {Salucci}, P., 1992, {The baryon content of the universe},
@@ -52,6 +78,14 @@
   {Tracing baryons in the warm-hot intergalactic medium with broad Ly
   {\ensuremath{\alpha}} absorption}, \emph{\aap} 445, 3, 827
 
+\bibitem[{{Rozo} et~al.(2016){Rozo}, {Rykoff}, {Abate}, {Bonnett}, {Crocce},
+  {Davis}, {Hoyle}, {Leistedt}, {Peiris}, {Wechsler}
+  et~al.}]{2016MNRAS.461.1431R}
+{Rozo}, E.; {Rykoff}, E.~S.; {Abate}, A.; {Bonnett}, C.; {Crocce}, M.; {Davis},
+  C.; {Hoyle}, B.; {Leistedt}, B.; {Peiris}, H.~V.; {Wechsler}, R.~H. et~al.,
+  2016, {redMaGiC: selecting luminous red galaxies from the DES Science
+  Verification data}, \emph{\mnras} 461, 2, 1431
+
 \bibitem[{{Spergel} et~al.(2007){Spergel}, {Bean}, {Dor{\'e}}, {Nolta},
   {Bennett}, {Dunkley}, {Hinshaw}, {Jarosik}, {Komatsu}, {Page}
   et~al.}]{2007ApJS..170..377S}
@@ -63,6 +97,13 @@
 \bibitem[{{Steigman}(2007)}]{2007ARNPS..57..463S}
 {Steigman}, G., 2007, {Primordial Nucleosynthesis in the Precision Cosmology
   Era}, \emph{Annual Review of Nuclear and Particle Science} 57, 1, 463
+
+\bibitem[{{Van Waerbeke} et~al.(2014){Van Waerbeke}, {Hinshaw} \&
+  {Murray}}]{2014PhRvD..89b3508V}
+{Van Waerbeke}, L.; {Hinshaw}, G. \& {Murray}, N., 2014, {Detection of warm and
+  diffuse baryons in large scale structure from the cross correlation of
+  gravitational lensing and the thermal Sunyaev-Zeldovich effect}, \emph{\prd}
+  89, 2, 023508
 
 \bibitem[{{Weinberg} et~al.(1997){Weinberg}, {Miralda-Escud{\'e}}, {Hernquist}
   \& {Katz}}]{1997ApJ...490..564W}
