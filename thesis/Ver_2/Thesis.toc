@@ -1,16 +1,16 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}
-\contentsline {section}{\numberline {1.1}The Cosmic Microwave Background}{5}
-\contentsline {section}{\numberline {1.2}Cosmological Parameters}{5}
-\contentsline {chapter}{\numberline {2}The Missing Baryon Problem}{7}
-\contentsline {section}{\numberline {2.1}Stellar Baryons}{7}
-\contentsline {section}{\numberline {2.2}Cold Interstellar Medium}{8}
-\contentsline {section}{\numberline {2.3}Lyman $\alpha $}{8}
-\contentsline {section}{\numberline {2.4}OVI and BLA Absorbers}{8}
-\contentsline {section}{\numberline {2.5}Hot Gas in Clusters}{8}
-\contentsline {chapter}{\numberline {3}The Warm-Hot Interstellar Medium}{9}
-\contentsline {chapter}{\numberline {4}The Sunayev-Zeldovich Effect}{11}
-\contentsline {section}{\numberline {4.1}Atomic Physics}{11}
-\contentsline {section}{\numberline {4.2}CMB Signal}{12}
-\contentsline {chapter}{\numberline {5}Stacking Methodology}{13}
-\contentsline {chapter}{\numberline {6}Results}{15}
-\contentsline {chapter}{\numberline {7}Conclusion}{16}
+\contentsline {section}{\numberline {1.1}Modern Cosmology, and the Cosmic Microwave Background}{5}
+\contentsline {section}{\numberline {1.2}Cosmological Parameters}{6}
+\contentsline {chapter}{\numberline {2}The Missing Baryon Problem}{8}
+\contentsline {section}{\numberline {2.1}Stellar Baryons}{8}
+\contentsline {section}{\numberline {2.2}Cold Interstellar Medium}{9}
+\contentsline {section}{\numberline {2.3}Photoionised Lyman $\alpha $}{10}
+\contentsline {subsection}{\numberline {2.3.1}OVI and BLA Absorbers}{10}
+\contentsline {section}{\numberline {2.4}Summary}{11}
+\contentsline {chapter}{\numberline {3}The Warm-Hot Interstellar Medium}{12}
+\contentsline {chapter}{\numberline {4}The Sunayev-Zeldovich Effect}{14}
+\contentsline {section}{\numberline {4.1}Atomic Physics}{14}
+\contentsline {section}{\numberline {4.2}CMB Signal}{15}
+\contentsline {chapter}{\numberline {5}Stacking Methodology}{18}
+\contentsline {chapter}{\numberline {6}Results}{25}
+\contentsline {chapter}{\numberline {7}Conclusion}{26}

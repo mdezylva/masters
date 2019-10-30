@@ -1,7 +1,7 @@
 from astropy.table import Table
 import scipy.spatial.distance as dist
 from astropy import units as u
-from astropy.cosmology import Planck15
+from astropy.cosmology import Planck13
 from astropy.io import fits
 from astropy.coordinates import SkyCoord
 import sptpol_software as sps
@@ -25,15 +25,15 @@ import numpy as np
 import os
 import time 
 import pdb
-os.chdir("/home/mitchell/Documents/masters/masters/scripts/")
+os.chdir("/home/mdz/scripts")
 import cmb
 import galaxy_pairs
 #data_location = input("Enter Path Location of data")
-os.chdir("/home/mitchell/Documents/masters/masters/data")
+os.chdir("/data53/cr/mitchell")
 cwd = os.getcwd()
 
 import scipy.ndimage
-cosmo = Planck15
+cosmo = Planck13
 
 # Correction Factors for sptPohl
 T_cmb = 2.725
@@ -52,16 +52,18 @@ cal_factors = [0.9097, 0.7765]  # no 220 is why last is zero.
 # plt.imshow(y_map_array, vmax=0.00001, vmin=-0.00001)
 
 # Read in Galaxy Catalogue as a dataframe 
-dat = Table.read('DES_Y1A1_3x2pt_redMaGiC_zerr_CATALOG.fits', format='fits')
-df = dat.to_pandas()
+#dat = Table.read('DES_Y1A1_3x2pt_redMaGiC_zerr_CATALOG.fits', format='fits')
+#df = dat.to_pandas()
+
+df = pd.read_pickle('DES_cat.pkl')
 
 # PreProcess DataFrame
 print("Computing Comoving Distances from Redshifts in Galaxy Catalogue ...")
 start = time.time()
 df['COMOVING'] = pd.Series(
-    cosmo.comoving_distance(df['ZREDMAGIC']).to_value(u.Mpc))
+    cosmo.comoving_distance(df['ZREDMAGIC']))
 df['COMOVING_E'] = pd.Series(
-    cosmo.comoving_distance(df['ZREDMAGIC_E']).to_value(u.Mpc))
+    cosmo.comoving_distance(df['ZREDMAGIC_E']))
 #print("Pickling Data Frame with Comoving Coords")
 
 #df.__module__ = "pandas"
@@ -79,75 +81,52 @@ start = end
 
 norm_ra = []
 for i in range(len(df)):
-   norm_ra.append(galaxy_pairs.normalize(df['RA'][i],-180,180))
+    norm_ra.append(galaxy_pairs.normalize(df['RA'][i],-180,180))
 df['NORM_RA'] = pd.Series(norm_ra)
 
-# top_left_corner = np.array([330, 52])
-# top_right_corner = np.array([330, 2468])
-# bottom_right_corner = np.array([1275, 2000])
-# bottom_left_corner = np.array([1275, 2520-2000])
-
-# edges = np.vstack((top_left_corner, top_right_corner,
-#                   bottom_left_corner, bottom_right_corner))
-
-# # Convert Edges into Angles 
-# temp1 = sptpol_software.observation.sky.pix2Ang(top_left_corner, np.array(
-#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-# temp2 = sptpol_software.observation.sky.pix2Ang(top_right_corner, np.array(
-#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-# temp3 = sptpol_software.observation.sky.pix2Ang(bottom_left_corner, np.array(
-#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-# temp4 = sptpol_software.observation.sky.pix2Ang(bottom_right_corner, np.array(
-#    [0, -57.5]), reso_arcmin=1, map_pixel_shape=np.array([1320, 2520]))
-
-
-# edges_ang = np.array([temp1, temp2, temp3, temp4])
-# edges_ang = edges_ang.astype(int)
-# ra_range = np.array([edges_ang[0][0], edges_ang[1][0]])
-# dec_range = np.array([edges_ang[1][1], edges_ang[2][1]])
-
-# #### INSERT CUSTOM RA AND DEC RANGE HERE! ####
 
 ### SPT POL
 ra_range = np.array([-32,32])
 dec_range = np.array([-52,-67])
 
-### SPT SZ
-#ra_range = np.array([-60,105])
-#dec_range = np.array([-40,-65])
-
-
-# print(ra_range)
-# print(dec_range)
 
 
 cut_df = df[((df.DEC < dec_range[0]) & (df.DEC > dec_range[1]))
-            & ((df.NORM_RA < ra_range[1] ) & (df.NORM_RA > ra_range[0]))]
+            & ((df.NORM_RA > ra_range[0]) & (df.NORM_RA < ra_range[1]))]
 cut_df = cut_df.reset_index(drop=True)
 
-print("Saving Cut Galaxy Catalogue to Pickle")
-cut_df.to_pickle('spt_pol_DES_catalogue.pkl')
+#print("Saving Cut Galaxy Catalogue to Pickle")
+#cut_df.to_pickle('DES_cat.pkl')
 
 # cut_dict = cut_df.to_dict()
 # pickle_out = open("cut_df.pickle","wb")
 # pickle.dump(cut_dict, pickle_out)
 # pickle_out.close()
 
-print("Constructing Pairs...")
+sky_locs = np.asarray([cut_df['NORM_RA'].as_matrix().T,cut_df['DEC'].as_matrix().T]).T
 
-cut_pairs = galaxy_pairs.getPairs(cut_df, max_sep=30,query_type=1)
+frame_tree = scipy.spatial.cKDTree(sky_locs, leafsize=100)
+
+result_set = frame_tree.query_pairs(r=0.5)
+
+result_list = list(result_set)
+
+result_array = np.asarray(result_list)
+
+cut_pairs_df = pd.DataFrame(data=result_array,columns = ['galaxy_index_1','galaxy_index_2'])
+
+#cut_pairs = galaxy_pairs.getUnPairs(cut_df, max_sep=0.5)
 #pdb.set_trace()
-cut_pairs_df = pd.DataFrame(
-    cut_pairs.T, columns=['galaxy_index_1', 'galaxy_index_2', 'Sep'])
+#cut_pairs_df = pd.DataFrame(
+#    cut_pairs.T, columns=['galaxy_index_1', 'galaxy_index_2', 'Sep'])
 cut_pairs_df['galaxy_index_1'] = cut_pairs_df.galaxy_index_1.astype(int)
 cut_pairs_df['galaxy_index_2'] = cut_pairs_df.galaxy_index_2.astype(int)
 
-print(str(len(cut_pairs_df)) + " pairs produced ")
-
+print("Num of Pairs Produced on Footprint = " + str(len(cut_pairs_df)))
 
 # print("Saving Cut Galaxy Catalogue to Pickle")
 #cut_pairs_df.__module__ = 'pandas'
-# cut_pairs_df.to_pickle('spt_sz_pairs_catalogue.pkl')
+# cut_pairs_df.to_pickle('cut_catalogue.pkl')
 
 
 # cut_dict = cut_pairs_df.to_dict()
@@ -165,6 +144,17 @@ start = end
 
 print("Calculating Comoving Separation...")
 cut_pairs_df['SEP_LOS'] = comov_sep
+
+
+min_los = 100/cosmo.h
+max_los = 200/cosmo.h
+
+
+cut_pairs_df = cut_pairs_df[(cut_pairs_df.SEP_LOS < max_los) & (cut_pairs_df.SEP_LOS > min_los)]
+
+cut_pairs_df = cut_pairs_df.reset_index()
+
+print("Num of Pairs after LOS Cuts = " + str(len(cut_pairs_df)))
 
 end = time.time()
 print("Done in " + str(end-start) + " seconds")
@@ -189,7 +179,7 @@ print("Done in " + str(end-start) + " seconds")
 start = end
 
 print("Computing Transverse Comoving Distance at this redshift...")
-transverse_comoving = cosmo.comoving_transverse_distance(avg_redshift).to_value(u.Mpc)
+transverse_comoving = cosmo.comoving_transverse_distance(avg_redshift)
 
 cut_pairs_df['COMOV_TRV'] = transverse_comoving
 
@@ -237,10 +227,6 @@ start = end
 print("Done!")
 
 print("Cutting Pairs based on separation criteria... ")
-max_trsv = 14/cosmo.h
-min_trsv = 6/cosmo.h 
-max_los = 10/cosmo.h
-
 print("Max Line of Sight Separation: " + str(max_los) + " Mpc" )
 print("Transverse Separation Range: " + str(max_trsv) + ' to ' + str(min_trsv) + " Mpc")
 
@@ -250,20 +236,19 @@ cut_pairs_df.reset_index()
 cut_pairs_df.head()
 
 
-max_trsv = 20/cosmo.h
-min_trsv = 3/cosmo.h
-max_los = 10/cosmo.h
+max_trsv = 14/cosmo.h
+min_trsv = 6/cosmo.h
 
 print(' Cutting pairs based on separation conditions')
-cut_pairs_df = cut_pairs_df[ (cut_pairs_df.SEP_TRV < max_trsv) & (cut_pairs_df.SEP_TRV > min_trsv) & (cut_pairs_df.SEP_LOS < max_los)]
+cut_pairs_df = cut_pairs_df[ (cut_pairs_df.SEP_TRV < max_trsv) & (cut_pairs_df.SEP_TRV > min_trsv)
+	& (cut_pairs_df.SEP_LOS < max_los) & (cut_pairs_df.SEP_LOS > min_los)]
 
 cut_pairs_df = cut_pairs_df.reset_index()
 
-print("Number of pairs after cuts = " + str(len(cut_pairs_df.index)))
 
+print("Num of Pairs after TRV Cuts = " + str(len(cut_pairs_df)))
 print("Pickling List of Pairs...")
-pdb.set_trace()
-cut_pairs_df.to_pickle('spt_pol_galaxy_pairs.pkl')
+cut_pairs_df.to_pickle('unphysical_pairs_pol_2.pkl')
 
 cut_pairs_df.head()
 

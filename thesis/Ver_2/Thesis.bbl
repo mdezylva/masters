@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
@@ -18,15 +18,27 @@
 {Cen}, R. \& {Ostriker}, J.~P., 1999, {Where Are the Baryons?}, \emph{\apj}
   514, 1, 1
 
+\bibitem[{{Cen} \& {Ostriker}(2006)}]{2006ApJ...650..560C}
+{Cen}, R. \& {Ostriker}, J.~P., 2006, {Where Are the Baryons? II. Feedback
+  Effects}, \emph{\apj} 650, 2, 560
+
 \bibitem[{{Clampitt} et~al.(2016){Clampitt}, {Miyatake}, {Jain} \&
   {Takada}}]{2016MNRAS.457.2391C}
 {Clampitt}, J.; {Miyatake}, H.; {Jain}, B. \& {Takada}, M., 2016, {Detection of
   stacked filament lensing between SDSS luminous red galaxies}, \emph{\mnras}
   457, 3, 2391
 
+\bibitem[{{Compton}(1923)}]{1923PhRv...21..483C}
+{Compton}, A.~H., 1923, {A Quantum Theory of the Scattering of X-rays by Light
+  Elements}, \emph{Physical Review} 21, 5, 483
+
 \bibitem[{{Danforth} \& {Shull}(2005)}]{2005ApJ...624..555D}
 {Danforth}, C.~W. \& {Shull}, J.~M., 2005, {The Low-z Intergalactic Medium. I.
   O VI Baryon Census}, \emph{\apj} 624, 2, 555
+
+\bibitem[{{Danforth} \& {Shull}(2008)}]{2008ApJ...679..194D}
+{Danforth}, C.~W. \& {Shull}, J.~M., 2008, {The Low-z Intergalactic Medium.
+  III. H I and Metal Absorbers at z \&lt; 0.4}, \emph{\apj} 679, 1, 194
 
 \bibitem[{{Dav{\'e}} et~al.(2001){Dav{\'e}}, {Cen}, {Ostriker}, {Bryan},
   {Hernquist}, {Katz}, {Weinberg}, {Norman} \& {O'Shea}}]{2001ApJ...552..473D}
@@ -43,6 +55,10 @@
 {Fukugita}, M.; {Hogan}, C.~J. \& {Peebles}, P.~J.~E., 1998, {The Cosmic Baryon
   Budget}, \emph{\apj} 503, 2, 518
 
+\bibitem[{{Fukugita} \& {Peebles}(2004)}]{2004ApJ...616..643F}
+{Fukugita}, M. \& {Peebles}, P.~J.~E., 2004, {The Cosmic Energy Inventory},
+  \emph{\apj} 616, 2, 643
+
 \bibitem[{{Hill} \& {Spergel}(2014)}]{2014JCAP...02..030H}
 {Hill}, J.~C. \& {Spergel}, D.~N., 2014, {Detection of thermal SZ-CMB lensing
   cross-correlation in Planck nominal mission data}, \emph{\jcap} 2014, 2, 030
@@ -54,11 +70,39 @@
   thermal Sunyaev-Zeldovich-gravitational lensing cross-correlation with
   hydrodynamical simulations}, \emph{\jcap} 2015, 10, 047
 
+\bibitem[{{Hurier} et~al.(2013){Hurier}, {Mac{\'\i}as-P{\'e}rez} \&
+  {Hildebrandt}}]{2013A&A...558A.118H}
+{Hurier}, G.; {Mac{\'\i}as-P{\'e}rez}, J.~F. \& {Hildebrandt}, S., 2013,
+  {MILCA, a modified internal linear combination algorithm to extract
+  astrophysical emissions from multifrequency sky maps}, \emph{\aap} 558, A118
+
+\bibitem[{{Kompaneets}(1957)}]{1957JETP....4..730K}
+{Kompaneets}, A.~S., 1957, {The Establishment of Thermal Equilibrium between
+  Quanta and Electrons}, \emph{Soviet Journal of Experimental and Theoretical
+  Physics} 4, 5, 730
+
 \bibitem[{{Ma} et~al.(2015){Ma}, {Van Waerbeke}, {Hinshaw}, {Hojjati}, {Scott}
   \& {Zuntz}}]{2015JCAP...09..046M}
 {Ma}, Y.-Z.; {Van Waerbeke}, L.; {Hinshaw}, G.; {Hojjati}, A.; {Scott}, D. \&
   {Zuntz}, J., 2015, {Probing the diffuse baryon distribution with the
   lensing-tSZ cross-correlation}, \emph{\jcap} 2015, 9, 046
+
+\bibitem[{{Penton} et~al.(2000){Penton}, {Shull} \&
+  {Stocke}}]{2000ApJ...544..150P}
+{Penton}, S.~V.; {Shull}, J.~M. \& {Stocke}, J.~T., 2000, {The Local
+  Ly{\ensuremath{\alpha}} Forest. II. Distribution of H I Absorbers,Doppler
+  Widths, and Baryon Content}, \emph{\apj} 544, 1, 150
+
+\bibitem[{{Penton} et~al.(2004){Penton}, {Stocke} \&
+  {Shull}}]{2004ApJS..152...29P}
+{Penton}, S.~V.; {Stocke}, J.~T. \& {Shull}, J.~M., 2004, {The Local
+  Ly{\ensuremath{\alpha}} Forest. IV. Space Telescope Imaging Spectrograph
+  G140M Spectra and Results on the Distribution and Baryon Content of H I
+  Absorbers}, \emph{\apjs} 152, 1, 29
+
+\bibitem[{{Penzias} \& {Wilson}(1965)}]{Penzias:65}
+{Penzias}, A.~A. \& {Wilson}, R.~W., 1965, {A Measurement of Excess Antenna
+  Temperature at 4080 Mc/s.}, \emph{\apj} 142, 419
 
 \bibitem[{{Persic} \& {Salucci}(1992)}]{1992MNRAS.258P..14P}
 {Persic}, M. \& {Salucci}, P., 1992, {The baryon content of the universe},
@@ -71,6 +115,20 @@
   J.; {Baccigalupi}, C.; {Ballardini}, M.; {Banday}, A.~J.; {Barreiro}, R.~B.
   \& {Bartolo}, N., 2018, {Planck 2018 results. VI. Cosmological parameters},
   \emph{arXiv e-prints} arXiv:1807.06209
+
+\bibitem[{{Rao} \& {Briggs}(1993)}]{1993ApJ...419..515R}
+{Rao}, S. \& {Briggs}, F., 1993, {Neutral Hydrogen in Galaxies at the Present
+  Epoch}, \emph{\apj} 419, 515
+
+\bibitem[{{Remazeilles} et~al.(2011){Remazeilles}, {Delabrouille} \&
+  {Cardoso}}]{2011MNRAS.410.2481R}
+{Remazeilles}, M.; {Delabrouille}, J. \& {Cardoso}, J.-F., 2011, {CMB and SZ
+  effect separation with constrained Internal Linear Combinations},
+  \emph{\mnras} 410, 4, 2481
+
+\bibitem[{{Rephaeli}(1995)}]{1995ARA&A..33..541R}
+{Rephaeli}, Y., 1995, {Comptonization Of The Cosmic Microwave Background: The
+  Sunyaev-Zeldovich Effect}, \emph{\araa} 33, 541
 
 \bibitem[{{Richter} et~al.(2006){Richter}, {Savage}, {Sembach} \&
   {Tripp}}]{2006A&A...445..827R}
@@ -85,6 +143,17 @@
   C.; {Hoyle}, B.; {Leistedt}, B.; {Peiris}, H.~V.; {Wechsler}, R.~H. et~al.,
   2016, {redMaGiC: selecting luminous red galaxies from the DES Science
   Verification data}, \emph{\mnras} 461, 2, 1431
+
+\bibitem[{{Schaye}(2001)}]{2001ApJ...559..507S}
+{Schaye}, J., 2001, {Model-independent Insights into the Nature of the
+  Ly{\ensuremath{\alpha}} Forest and the Distribution of Matter in the
+  Universe}, \emph{\apj} 559, 2, 507
+
+\bibitem[{{Smith} et~al.(2011){Smith}, {Hallman}, {Shull} \&
+  {O'Shea}}]{2011ApJ...731....6S}
+{Smith}, B.~D.; {Hallman}, E.~J.; {Shull}, J.~M. \& {O'Shea}, B.~W., 2011, {The
+  Nature of the Warm/Hot Intergalactic Medium. I. Numerical Methods,
+  Convergence, and O VI Absorption}, \emph{\apj} 731, 1, 6
 
 \bibitem[{{Spergel} et~al.(2007){Spergel}, {Bean}, {Dor{\'e}}, {Nolta},
   {Bennett}, {Dunkley}, {Hinshaw}, {Jarosik}, {Komatsu}, {Page}
@@ -109,5 +178,19 @@
   \& {Katz}}]{1997ApJ...490..564W}
 {Weinberg}, D.~H.; {Miralda-Escud{\'e}}, J.; {Hernquist}, L. \& {Katz}, N.,
   1997, {A Lower Bound on the Cosmic Baryon Density}, \emph{\apj} 490, 2, 564
+
+\bibitem[{{Wright}(2004)}]{2004mmu..symp..291W}
+{Wright}, E.~L., 2004, {Theoretical Overview of Cosmic Microwave Background
+  Anisotropy}, in {Freedman}, W.~L., editor, \emph{Measuring and Modeling the
+  Universe}, p. 291
+
+\bibitem[{{Zwaan} et~al.(2003){Zwaan}, {Staveley-Smith}, {Koribalski},
+  {Henning}, {Kilborn}, {Ryder}, {Barnes}, {Bhathal}, {Boyce}, {de Blok}
+  et~al.}]{2003AJ....125.2842Z}
+{Zwaan}, M.~A.; {Staveley-Smith}, L.; {Koribalski}, B.~S.; {Henning}, P.~A.;
+  {Kilborn}, V.~A.; {Ryder}, S.~D.; {Barnes}, D.~G.; {Bhathal}, R.; {Boyce},
+  P.~J.; {de Blok}, W.~J.~G. et~al., 2003, {The 1000 Brightest HIPASS Galaxies:
+  The H I Mass Function and {\ensuremath{\Omega}}$_{HI}$}, \emph{\aj} 125, 6,
+  2842
 
 \end{thebibliography}

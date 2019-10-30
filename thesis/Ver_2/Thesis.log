@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.21)  10 OCT 2019 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.21)  30 OCT 2019 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2103,24 +2103,96 @@ Package: physics
 . 
 . Defining command \homework with sig. '' on line 764.
 .................................................
-) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/verse/verse.sty
+Package: verse 2009/09/04 v2.4a verse typesetting
+\c@vslineno=\count307
+\c@poemline=\count308
+\c@fvsline=\count309
+\c@modulo@vs=\count310
+\c@verse@envctr=\count311
+\versewidth=\skip65
+\vgap=\skip66
+\vindent=\skip67
+\stanzaskip=\skip68
+\vleftskip=\skip69
+\vrightskip=\skip70
+\c@chrsinstr=\count312
+\beforepoemtitleskip=\skip71
+\afterpoemtitleskip=\skip72
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tikz-feynman/tikz-feynman.sty
+Package: tikz-feynman 2016/02/05v1.1.0Feynman diagrams with TikZ
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks48
+\pgfopts@list@add@b@toks=\toks49
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tikz-feynman/tikzlibraryfeynman.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex
+File: pgflibraryarrows.meta.code.tex 2015/05/13 v3.0.1a (rcs-revision 1.13)
+\pgfarrowinset=\dimen288
+\pgfarrowlength=\dimen289
+\pgfarrowwidth=\dimen290
+\pgfarrowlinewidth=\dimen291
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.markings.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.markings.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/gra
+phs/tikzlibrarygraphs.code.tex
+File: tikzlibrarygraphs.code.tex 2015/06/05 v3.0.1a (rcs-revision 1.44)
+\tikz@lib@auto@number=\count313
+\tikz@qnode@count=\count314
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.1a (rcs-revision 1.2)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.cod
+e.tex
+File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.1a (rcs-revision 1.13)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex
+))) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip65
-\bibsep=\skip66
+\bibhang=\skip73
+\bibsep=\skip74
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count307
+\c@NAT@ctr=\count315
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box66
-\beforetitleunit=\skip67
-\aftertitleunit=\skip68
-\ttl@plus=\dimen288
-\ttl@minus=\dimen289
-\ttl@toksa=\toks48
-\titlewidth=\dimen290
-\titlewidthlast=\dimen291
-\titlewidthfirst=\dimen292
+\beforetitleunit=\skip75
+\aftertitleunit=\skip76
+\ttl@plus=\dimen292
+\ttl@minus=\dimen293
+\ttl@toksa=\toks50
+\titlewidth=\dimen294
+\titlewidthlast=\dimen295
+\titlewidthfirst=\dimen296
 )
 
 LaTeX Warning: Unused global option(s):
@@ -2132,25 +2204,25 @@ LaTeX Warning: Unused global option(s):
 (./Conclusion.aux) (./appendix.aux))
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    ... okay on input line 32.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2188,17 +2260,17 @@ LaTeX Font Info:    ... okay on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
-\scratchdimen=\dimen293
+\scratchcounter=\count316
+\scratchdimen=\dimen297
 \scratchbox=\box67
-\nofMPsegments=\count309
-\nofMParguments=\count310
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count311
-\MPscratchDim=\dimen294
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
-\everyMPtoPDFconversion=\toks50
+\nofMPsegments=\count317
+\nofMParguments=\count318
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count319
+\MPscratchDim=\dimen298
+\MPnumerator=\count320
+\makeMPintoPDFobject=\count321
+\everyMPtoPDFconversion=\toks52
 )
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -2212,7 +2284,7 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
 your preamble.
- on input line 30.
+ on input line 32.
 
 \AtBeginShipoutBox=\box68
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
@@ -2223,18 +2295,26 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c__siunitx_mathsf_int=\count314
-LaTeX Font Info:    Try loading font information for U+msa on input line 30.
 
+Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices a
+utomatically placed. You can disable this warning by setting /tikzfeynman/warn 
+luatex=false on input line 32.
+
+
+Package tikz-feynman Warning: The preamble requested version 1.0.0, but the sys
+tem version is 1.1.0. This may change some diagrams. on input line 32.
+
+\c__siunitx_mathsf_int=\count322
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count315
+\c__siunitx_mathtt_int=\count323
 \openout2 = `MacroAstroJour.aux'.
 
 
@@ -2283,12 +2363,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--27
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--31
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
@@ -2313,10 +2393,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  (./Introduction.tex
 Chapter 1.
-
-Package natbib Warning: Citation `Penzias:65' on page 5 undefined on input line
- 13.
-
 </home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png, id=
 27, 1204.5pt x 752.8125pt>
 File: /home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png
@@ -2329,101 +2405,199 @@ Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Images
 [5
 
 
-]) [6 </home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.pn
-g>]
+]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018.png,
+ id=35, 955.57pt x 347.2975pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018
+.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018.
+png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/planck_2018.png  used on input line 29.
+(pdftex.def)             Requested size: 382.22122pt x 138.91653pt.
+ [6 </home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png>
+ </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018.png
+>]) [7]
 \openout2 = `MissingBaryons.aux'.
 
  (./MissingBaryons.tex
 Chapter 2.
-[7
+[8
 
 
 
-]) [8]
+] [9] [10]) [11]
 \openout2 = `WHIM.aux'.
 
  (./WHIM.tex
 Chapter 3.
-[9
+[12
 
 
 
-]) [10]
+]) [13]
 \openout2 = `SZ.aux'.
 
  (./SZ.tex
 Chapter 4.
-</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/320px-Compton-sc
-attering.png, id=55, 321.2pt x 189.70876pt>
-File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/320px-Compt
-on-scattering.png Graphic file (type png)
-<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/320px-Compto
-n-scattering.png>
+
+Package tikz-feynman Warning: The key you tried to use '/tikz/horizontal' requi
+res LuaTeX. It will be ignored. on input line 11.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/node dis
+tance' requires LuaTeX. It will be ignored. on input line 11.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/level di
+stance' requires LuaTeX. It will be ignored. on input line 11.
+
+
+Package tikz-feynman Warning: The key you tried to use '/graph drawing/sibling 
+distance' requires LuaTeX. It will be ignored. on input line 11.
+
+
+Package tikz-feynman Warning: The key you tried to use '/tikz/graphs/spring lay
+out' requires LuaTeX. It will be ignored. on input line 11.
+
+
+Package tikz-feynman Warning: The key you tried to use '/tikz/horizontal' requi
+res LuaTeX. It will be ignored. on input line 11.
+
+[14
+
+
+
+]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png, id=
+75, 722.7pt x 578.16pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png
+ Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png>
+
 Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
-figures/320px-Compton-scattering.png  used on input line 10.
-(pdftex.def)             Requested size: 160.59961pt x 94.85414pt.
-Missing character: There is no l in font MnSymbolS12!
-[11
+figures/sz_freq.png  used on input line 56.
+(pdftex.def)             Requested size: 505.88655pt x 404.70924pt.
+
+Overfull \hbox (5.40256pt too wide) in paragraph at lines 56--57
+ [][] 
+ []
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/320px-Compton-s
-cattering.png>]) [12]
+[15] [16 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq
+.png>]) [17]
 \openout2 = `Method.aux'.
 
  (./Method.tex
 Chapter 5.
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outlines.
+png, id=86, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outl
+ines.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outli
+nes.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/Survey_Outlines.png  used on input line 13.
+(pdftex.def)             Requested size: 303.53192pt x 202.35461pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Distrib
-ution.png, id=65, 433.62pt x 289.08pt>
+ution.png, id=87, 433.62pt x 289.08pt>
 File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Di
 stribution.png Graphic file (type png)
 <use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Dis
 tribution.png>
 Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
-figures/Redshift_Distribution.png  used on input line 11.
-(pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
+figures/Redshift_Distribution.png  used on input line 25.
+(pdftex.def)             Requested size: 303.53192pt x 202.35461pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [13
+[18
 
 
 
-] [14 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_D
-istribution.png>]
+]
+</home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_firstcut.p
+ng, id=91, 578.16pt x 433.62pt>
+File: /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_first
+cut.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_firstc
+ut.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/data/server/r
+un_42/steps/1_firstcut.png  used on input line 37.
+(pdftex.def)             Requested size: 462.52863pt x 346.89647pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_rotated.pn
+g, id=92, 578.16pt x 433.62pt>
+File: /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_rotat
+ed.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_rotate
+d.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/data/server/r
+un_42/steps/1_rotated.png  used on input line 46.
+(pdftex.def)             Requested size: 462.52863pt x 346.89647pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_rescaled.p
+ng, id=93, 578.16pt x 433.62pt>
+File: /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_resca
+led.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_rescal
+ed.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/data/server/r
+un_42/steps/1_rescaled.png  used on input line 55.
+(pdftex.def)             Requested size: 462.52863pt x 346.89647pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_secondcut.
+png, id=94, 578.16pt x 433.62pt>
+File: /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_secon
+dcut.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_second
+cut.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/data/server/r
+un_42/steps/1_secondcut.png  used on input line 63.
+(pdftex.def)             Requested size: 462.52863pt x 346.89647pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_average.pn
+g, id=95, 578.16pt x 433.62pt>
+File: /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_avera
+ge.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/data/server/run_42/steps/1_averag
+e.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/data/server/r
+un_42/steps/1_average.png  used on input line 72.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+
+Overfull \hbox (77.67459pt too wide) in paragraph at lines 72--73
+ [][] 
+ []
+
+[19 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outli
+nes.png> </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshif
+t_Distribution.png>]) [20 </home/mitchell/Documents/masters/masters/data/server
+/run_42/steps/1_firstcut.png>] [21 </home/mitchell/Documents/masters/masters/da
+ta/server/run_42/steps/1_rotated.png>] [22 </home/mitchell/Documents/masters/ma
+sters/data/server/run_42/steps/1_rescaled.png>] [23 </home/mitchell/Documents/m
+asters/masters/data/server/run_42/steps/1_secondcut.png>] [24 </home/mitchell/D
+ocuments/masters/masters/data/server/run_42/steps/1_average.png>]
 \openout2 = `Results.aux'.
 
- (./Results.tex
+
+(./Results.tex
 Chapter 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Package natbib Warning: Citation `1959HDP....53..275D' on page 15 undefined on 
-input line 11.
-
-
-Package natbib Warning: Citation `2008IAUS..244...53S' on page 15 undefined on 
-input line 12.
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 11--70
-
- []
-
-[15
+) [25
 
 
 
@@ -2432,59 +2606,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--70
 
  (./Conclusion.tex
 Chapter 7.
-) [16
+) [26
 
 
 
 ] (./Thesis.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17
+ [27
 
 
 ])
-[18]
+[28]
 \openout2 = `appendix.aux'.
 
 
 No file appendix.tex.
-
-Package natbib Warning: There were undefined citations.
-
 (./Thesis.aux (./MacroAstroJour.aux) (./spt_commands.aux) (./aasmacros.aux)
 (./cover.aux) (./Stmt_of_cont.aux) (./Abstract.aux) (./Introduction.aux)
 (./MissingBaryons.aux) (./WHIM.aux) (./SZ.aux) (./Method.aux) (./Results.aux)
 (./Conclusion.aux) (./appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 37440 strings out of 492982
- 876272 string characters out of 6134896
- 987378 words of memory out of 5000000
- 40369 multiletter control sequences out of 15000+600000
- 555958 words of font info for 114 fonts, out of 8000000 for 9000
+ 40086 strings out of 492982
+ 951608 string characters out of 6134896
+ 1076467 words of memory out of 5000000
+ 42956 multiletter control sequences out of 15000+600000
+ 557629 words of font info for 117 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 62i,11n,96p,10378b,770s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,100p,10378b,1616s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/
-dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mns
-ymbol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnS
+dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mns
+ymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnS
 ymbolC.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.en
 c}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfrm1200.pfb>
-Output written on Thesis.pdf (18 pages, 966200 bytes).
+xmf-dist/fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfrm1200.pfb>
+Output written on Thesis.pdf (28 pages, 3971861 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 199 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -17,49 +17,45 @@ A level-1 auxiliary file: Conclusion.aux
 The style file: avebib.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: bibliography.bib
-Warning--I didn't find a database entry for "Penzias:65"
-Warning--I didn't find a database entry for "1959HDP....53..275D"
-Warning--I didn't find a database entry for "2008IAUS..244...53S"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 20 entries,
+You've used 36 entries,
             3108 wiz_defined-function locations,
-            809 strings with 10770 characters,
-and the built_in function-call counts, 15115 in all, are:
-= -- 1092
-> -- 963
-< -- 10
-+ -- 909
-- -- 269
-* -- 1057
-:= -- 2054
+            911 strings with 14294 characters,
+and the built_in function-call counts, 24825 in all, are:
+= -- 1811
+> -- 1413
+< -- 21
++ -- 1286
+- -- 396
+* -- 1706
+:= -- 3433
 add.period$ -- 0
-call.type$ -- 20
-change.case$ -- 169
-chr.to.int$ -- 21
-cite$ -- 20
-duplicate$ -- 1022
-empty$ -- 893
-format.name$ -- 342
-if$ -- 2943
+call.type$ -- 36
+change.case$ -- 275
+chr.to.int$ -- 37
+cite$ -- 36
+duplicate$ -- 1772
+empty$ -- 1584
+format.name$ -- 517
+if$ -- 4871
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 249
-newline$ -- 64
-num.names$ -- 82
-pop$ -- 625
+missing$ -- 420
+newline$ -- 112
+num.names$ -- 148
+pop$ -- 995
 preamble$ -- 1
-purify$ -- 169
+purify$ -- 275
 quote$ -- 0
-skip$ -- 686
+skip$ -- 1113
 stack$ -- 0
-substring$ -- 366
-swap$ -- 607
-text.length$ -- 1
+substring$ -- 681
+swap$ -- 1020
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 180
+type$ -- 324
 warning$ -- 0
-while$ -- 76
+while$ -- 139
 width$ -- 0
-write$ -- 223
-(There were 3 warnings)
+write$ -- 399
