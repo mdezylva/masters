@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
@@ -31,6 +31,14 @@
 \bibitem[{{Compton}(1923)}]{1923PhRv...21..483C}
 {Compton}, A.~H., 1923, {A Quantum Theory of the Scattering of X-rays by Light
   Elements}, \emph{Physical Review} 21, 5, 483
+
+\bibitem[{{Crawford} et~al.(2016){Crawford}, {Chown}, {Holder}, {Aird},
+  {Benson}, {Bleem}, {Carlstrom}, {Chang}, {Cho}, {Crites}
+  et~al.}]{2016ApJS..227...23C}
+{Crawford}, T.~M.; {Chown}, R.; {Holder}, G.~P.; {Aird}, K.~A.; {Benson},
+  B.~A.; {Bleem}, L.~E.; {Carlstrom}, J.~E.; {Chang}, C.~L.; {Cho}, H.~M.;
+  {Crites}, A.~T. et~al., 2016, {Maps of the Magellanic Clouds from Combined
+  South Pole Telescope and PLANCK Data}, \emph{\apjs} 227, 2, 23
 
 \bibitem[{{Danforth} \& {Shull}(2005)}]{2005ApJ...624..555D}
 {Danforth}, C.~W. \& {Shull}, J.~M., 2005, {The Low-z Intergalactic Medium. I.

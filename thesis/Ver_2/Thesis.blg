@@ -9,8 +9,6 @@ A level-1 auxiliary file: Stmt_of_cont.aux
 A level-1 auxiliary file: Abstract.aux
 A level-1 auxiliary file: Introduction.aux
 A level-1 auxiliary file: MissingBaryons.aux
-A level-1 auxiliary file: WHIM.aux
-A level-1 auxiliary file: SZ.aux
 A level-1 auxiliary file: Method.aux
 A level-1 auxiliary file: Results.aux
 A level-1 auxiliary file: Conclusion.aux
@@ -18,44 +16,44 @@ The style file: avebib.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 36 entries,
+You've used 37 entries,
             3108 wiz_defined-function locations,
-            911 strings with 14294 characters,
-and the built_in function-call counts, 24825 in all, are:
-= -- 1811
-> -- 1413
+            915 strings with 15220 characters,
+and the built_in function-call counts, 26072 in all, are:
+= -- 1895
+> -- 1533
 < -- 21
-+ -- 1286
-- -- 396
-* -- 1706
-:= -- 3433
++ -- 1410
+- -- 429
+* -- 1793
+:= -- 3597
 add.period$ -- 0
-call.type$ -- 36
-change.case$ -- 275
-chr.to.int$ -- 37
-cite$ -- 36
-duplicate$ -- 1772
-empty$ -- 1584
-format.name$ -- 517
-if$ -- 4871
+call.type$ -- 37
+change.case$ -- 290
+chr.to.int$ -- 38
+cite$ -- 37
+duplicate$ -- 1836
+empty$ -- 1632
+format.name$ -- 553
+if$ -- 5106
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 420
-newline$ -- 112
-num.names$ -- 148
-pop$ -- 995
+missing$ -- 439
+newline$ -- 115
+num.names$ -- 152
+pop$ -- 1030
 preamble$ -- 1
-purify$ -- 275
+purify$ -- 290
 quote$ -- 0
-skip$ -- 1113
+skip$ -- 1195
 stack$ -- 0
-substring$ -- 681
-swap$ -- 1020
+substring$ -- 692
+swap$ -- 1062
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 324
+type$ -- 333
 warning$ -- 0
-while$ -- 139
+while$ -- 142
 width$ -- 0
-write$ -- 399
+write$ -- 410

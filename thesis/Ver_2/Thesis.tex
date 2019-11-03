@@ -20,7 +20,11 @@
 \usepackage[final]{pdfpages}
 \usepackage{physics}
 \usepackage{verse}
+\usepackage{placeins} % put this in your pre-amble
+\usepackage{flafter}  % put this in your pre-amble
 \usepackage[compat=1.0.0]{tikz-feynman}
+%\usepackage{chngcntr}
+%\counterwithin{figure}{section}
 
 \usepackage[round]{natbib}
 
@@ -28,6 +32,10 @@
 %\titlespacing{\section}{0pt}{*0}{*0}
 %\titlespacing{\subsection}{0pt}{*0}{*0}
 \titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+\DeclareSIUnit \h {\ensuremath{\mathit{h}}}
+\DeclareSIUnit \parsec {pc}
+\parskip 4pt
 
 \begin{document}
 
@@ -61,9 +69,9 @@
 			%- 	Residual Lyman Alpha 
 			%- 	OVI and BLA Absorbers
 			%- 	Hot Gas in Clusters 
-	\include{WHIM}
+	%\include{WHIM}
 	%  - Warm Hot Intergalactic Medium
-	\include{SZ}
+	%\include{SZ}
 	%  - Sunayev-Zeldovich Effect
 			%-	Atomic Physics
 			%- 	Signal in CMB 
