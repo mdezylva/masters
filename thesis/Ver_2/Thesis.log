@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.21)  3 NOV 2019 21:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.21)  8 NOV 2019 19:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2183,24 +2183,70 @@ File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
 
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex
-))) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+))) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count315
+\float@exts=\toks50
+\float@box=\box66
+\@float@everytoks=\toks51
+\@floatcapt=\box67
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/empheq.sty
+Package: empheq 2017/03/31 v2.15 Emphasizing equations
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count316
+\l_MT_multwidth_dim=\dimen292
+\origjot=\skip73
+\l_MT_shortvdotswithinadjustabove_dim=\dimen293
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen294
+\l_MT_above_intertext_sep=\dimen295
+\l_MT_below_intertext_sep=\dimen296
+\l_MT_above_shortintertext_sep=\dimen297
+\l_MT_below_shortintertext_sep=\dimen298
+)
+\l_EQ_equationtype_int=\count317
+\l_EQ_alignmentmode_int=\count318
+\l_EQ_totalwidth_dim=\dimen299
+\l_EQ_displaywidth_dim=\dimen300
+\l_EQ_temp_linewidth_dim=\dimen301
+\EmphEqdelimitershortfall=\dimen302
+\EmphEqdelimiterfactor=\count319
+\g_EQ_toptag_height_dim=\dimen303
+\g_EQ_bottomtag_depth_dim=\dimen304
+\g_EQ_toprow_height_dim=\dimen305
+\g_EQ_bottomrow_depth_dim=\dimen306
+\g_EQ_widesttag_dim=\dimen307
+\EQ_mathdisplay_box=\box68
+\EQ_tag_box=\box69
+\g_EQ_temprow_int=\count320
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip73
-\bibsep=\skip74
+\bibhang=\skip74
+\bibsep=\skip75
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count315
+\c@NAT@ctr=\count321
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
-\ttl@box=\box66
-\beforetitleunit=\skip75
-\aftertitleunit=\skip76
-\ttl@plus=\dimen292
-\ttl@minus=\dimen293
-\ttl@toksa=\toks50
-\titlewidth=\dimen294
-\titlewidthlast=\dimen295
-\titlewidthfirst=\dimen296
+\ttl@box=\box70
+\beforetitleunit=\skip76
+\aftertitleunit=\skip77
+\ttl@plus=\dimen308
+\ttl@minus=\dimen309
+\ttl@toksa=\toks52
+\titlewidth=\dimen310
+\titlewidthlast=\dimen311
+\titlewidthfirst=\dimen312
 )
 
 LaTeX Warning: Unused global option(s):
@@ -2208,28 +2254,32 @@ LaTeX Warning: Unused global option(s):
 
 (./Thesis.aux (./MacroAstroJour.aux) (./spt_commands.aux) (./aasmacros.aux)
 (./cover.aux) (./Stmt_of_cont.aux) (./Abstract.aux) (./Introduction.aux)
-(./MissingBaryons.aux) (./Method.aux) (./Results.aux) (./Conclusion.aux)
-(./appendix.aux))
+(./MissingBaryons.aux
+
+LaTeX Warning: Label `fig:compton_scattering' multiply defined.
+
+) (./Method.aux) (./Results.aux) (./Conclusion.aux) (./appendix.aux))
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 40.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 42.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    ... okay on input line 42.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2267,17 +2317,17 @@ LaTeX Font Info:    ... okay on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
-\scratchdimen=\dimen297
-\scratchbox=\box67
-\nofMPsegments=\count317
-\nofMParguments=\count318
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count319
-\MPscratchDim=\dimen298
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count322
+\scratchdimen=\dimen313
+\scratchbox=\box71
+\nofMPsegments=\count323
+\nofMParguments=\count324
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen314
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
+\everyMPtoPDFconversion=\toks54
 )
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -2291,9 +2341,9 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
 your preamble.
- on input line 40.
+ on input line 42.
 
-\AtBeginShipoutBox=\box68
+\AtBeginShipoutBox=\box72
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 
@@ -2305,23 +2355,24 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 
 Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices a
 utomatically placed. You can disable this warning by setting /tikzfeynman/warn 
-luatex=false on input line 40.
+luatex=false on input line 42.
 
 
 Package tikz-feynman Warning: The preamble requested version 1.0.0, but the sys
-tem version is 1.1.0. This may change some diagrams. on input line 40.
+tem version is 1.1.0. This may change some diagrams. on input line 42.
 
-\c__siunitx_mathsf_int=\count322
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
+\Hy@linkcounter=\count328
+\c__siunitx_mathsf_int=\count329
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count323
+\c__siunitx_mathtt_int=\count330
 \openout2 = `MacroAstroJour.aux'.
 
 
@@ -2375,7 +2426,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
@@ -2400,15 +2451,273 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  (./Introduction.tex
 Chapter 1.
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no ® in font cmr12!
 </home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png, id=
-27, 1204.5pt x 752.8125pt>
+26, 1204.5pt x 752.8125pt>
 File: /home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png
  Graphic file (type png)
 <use /home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png>
 
 Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Images
-/CMB_smica_tsig.png  used on input line 18.
+/CMB_smica_tsig.png  used on input line 19.
 (pdftex.def)             Requested size: 301.12427pt x 188.20265pt.
 [5
 
 
+]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018.png,
+ id=33, 955.57pt x 347.2975pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018
+.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018.
+png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/planck_2018.png  used on input line 32.
+(pdftex.def)             Requested size: 382.22122pt x 138.91653pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 </home/mitchell/Documents/masters/masters/thesis/Images/CMB_smica_tsig.png>]
+
+Underfull \vbox (badness 3364) has occurred while \output is active []
+
+ [7 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/planck_2018.
+png>])
+[8]
+\openout2 = `MissingBaryons.aux'.
+
+ (./MissingBaryons.tex
+Chapter 2.
+[9
+
+
+
+] [10] [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+Overfull \hbox (5.45358pt too wide) in paragraph at lines 80--81
+[]\OT1/cmr/m/n/12 If we in-clude some smaller con-tri-bu-tions, such as from cl
+us-ter con-tri-bu-tions ($
+[] \U/MnSymbolD/m/n/12 ^^B \OT1/cmr/m/n/12 4%$)(Fukugita
+ []
+
+[13] [14]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Feynman-diagrams
+-for-Compton-scattering.png, id=75, 843.15pt x 390.45876pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Feynman-dia
+grams-for-Compton-scattering.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Feynman-diag
+rams-for-Compton-scattering.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/Feynman-diagrams-for-Compton-scattering.png  used on input line 154.
+(pdftex.def)             Requested size: 500.484pt x 231.77473pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Feynman
+-diagrams-for-Compton-scattering.png>]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png, id=
+83, 722.7pt x 578.16pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png
+ Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png>
+
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/sz_freq.png  used on input line 206.
+(pdftex.def)             Requested size: 340.5733pt x 272.45943pt.
+ [17 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/sz_freq.png
+>]) [18]
+\openout2 = `Method.aux'.
+
+ (./Method.tex
+Chapter 3.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19
+
+
+
+]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outlines.
+png, id=95, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outl
+ines.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outli
+nes.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/Survey_Outlines.png  used on input line 17.
+(pdftex.def)             Requested size: 500.484pt x 333.67448pt.
+
+[20 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outli
+nes.png>] [21]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/simulated_stack.
+png, id=103, 1084.05pt x 722.7pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/simulated_s
+tack.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/simulated_st
+ack.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/simulated_stack.png  used on input line 111.
+(pdftex.def)             Requested size: 500.484pt x 333.65906pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22]
+Underfull \vbox (badness 3690) has occurred while \output is active []
+
+ [23 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/simulated_s
+tack.png>]
+
+LaTeX Warning: Reference `fig:fit_mask' on page 24 undefined on input line 147.
+
+
+[24]) [25]
+\openout2 = `Results.aux'.
+
+ (./Results.tex
+Chapter 4.
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Distrib
+ution.png, id=118, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Di
+stribution.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Dis
+tribution.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/Redshift_Distribution.png  used on input line 8.
+(pdftex.def)             Requested size: 300.29344pt x 200.20645pt.
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/LOS_Separation.p
+ng, id=119, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/LOS_Separat
+ion.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/LOS_Separati
+on.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/LOS_Separation.png  used on input line 17.
+(pdftex.def)             Requested size: 300.29344pt x 200.20645pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/TRV_Separation.p
+ng, id=120, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/TRV_Separat
+ion.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/TRV_Separati
+on.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/TRV_Separation.png  used on input line 25.
+(pdftex.def)             Requested size: 300.29344pt x 200.20645pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26
+
+
+
+ </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Redshift_Distri
+bution.png>]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Stack.png, id=12
+5, 722.7pt x 867.24pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Stack.png G
+raphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Stack.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/Stack.png  used on input line 42.
+(pdftex.def)             Requested size: 500.484pt x 600.57971pt.
+ [27 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/LOS_Separat
+ion.png> </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/TRV_Sep
+aration.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_shape.png, 
+id=131, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_shape.
+png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_shape.p
+ng>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/halo_shape.png  used on input line 51.
+(pdftex.def)             Requested size: 300.29344pt x 200.20645pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_basic
+.png, id=132, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_
+basic.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_b
+asic.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/halo_model_basic.png  used on input line 61.
+(pdftex.def)             Requested size: 500.484pt x 333.67448pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/filament_basic.p
+ng, id=133, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/filament_ba
+sic.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/filament_bas
+ic.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/filament_basic.png  used on input line 70.
+(pdftex.def)             Requested size: 500.484pt x 333.67448pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_compl
+ex.png, id=134, 578.16pt x 578.16pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_
+complex.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_c
+omplex.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/halo_model_complex.png  used on input line 83.
+(pdftex.def)             Requested size: 500.484pt x 500.48087pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28]
+
+LaTeX Warning: Text page 29 contains only floats.
+
+
+Overfull \vbox (3.25404pt too high) has occurred while \output is active []
+
+
+[29 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Stack.png>]
+[30 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_shape.p
+ng> </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_b
+asic.png>]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/2D_data_fitting.
+png, id=147, 722.7pt x 1445.4pt>
+File: /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/2D_data_fit
+ting.png Graphic file (type png)
+<use /home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/2D_data_fitt
+ing.png>
+Package pdftex.def Info: /home/mitchell/Documents/masters/masters/thesis/Ver_2/
+figures/2D_data_fitting.png  used on input line 104.
+(pdftex.def)             Requested size: 500.484pt x 1000.96617pt.
+
+
+LaTeX Warning: Float too large for page by 346.6405pt on input line 107.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/filament_ba
+sic.png>]
+[32 </home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_c
+omplex.png>]
+</home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/UnPhysical_Redsh
+ift_Distribution.png, id=157, 433.62pt x 289.08pt>
+File: /home/mitchell/Documents/master

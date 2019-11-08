@@ -1,2 +1,38 @@
-\chapter{Conclusion}
-All your Concluding.
+\chapter{Discussion and Conclusion}
+
+\section{Discussion}
+Our measure of the Compton $y$ parameter in the filament of $\bar{y} = 1.29 \times 10^{-8}$ at $2.05 \sigma$, is comparable to similar work done by \cite{2019A&A...625A..67T} (refered to as T17), and by \cite{2019A&A...624A..48D} (refered to as G17).
+
+\par T17 found 262,864 galaxy pairs at redshifts $z<0.4$ using the Sloan Digital Sky Survey LRG catalogue, detecting a mean Compton parameter of $y \approx 1 \times 10^{-8}$ in the \emph{Planck} $y$ map at a $5.3\sigma$ confidence level. 
+
+\par G17 found 1,020,334 galaxy pairs in a redshift range $0.43 < z < 0.75$ using the Sloan Digital Sky Survey CMASS catalogue, detecting a mean Compton parameter of $y \approx 0.6 \times 10^{-8}$ in the \emph{Planck} $y$ map at the $5.1\sigma$ confidence level. 
+
+\par The two catalogues used by T17 and G17 are both independent of each other, since they cover different redshift ranges, but the similar detection levels, and detection strengths lends strong evidence to the existence of filaments which can be detected by tracers in the CMB. 
+
+\par G17 directly calculated the baryon fraction from their residual Compton $y$ parameter as being $\sim 0.3 \Omega_b$. Our measurement of the Compton $y$ parameter is much higher than theirs, but there are a number of factors which differentiate our measurement from previous work. 
+
+\par Previous calculations operated on the \emph{Planck} $y$ map only, which has an effective beam size of $\SI{10}{\arcmin}$, which effectively acts to convolve any signal contained in the map. This introduces some error into the measurement, but mostly acts to smooth out the $y$ map. The choice has to be made then, to not consider pairs that are too close to each other, because if they fall within the width of the beam, they will be functionally indistinguishable, and it will be impossible to separate the contributions from their halos and the filament. The $y$ map we are using was produced primarily from the \emph{SPT-SZ} detection maps, and has a significantly smaller effective beam size than the \emph{Planck} map alone, of $\SI{2}{\arcmin}$. This means that we can make a choice to include more close pairs than previous work, because they will be able to be effectively resolved in our $y$ map. 
+
+\par There are also a number of significant differences between galaxy catalogues used by previous works, and this one. Both T17 and G17 made use of galaxy surveys with spectroscopic redshifts, as opposed to photometric redshifts. Spectroscopic redshifts are taken by directly measuring spectra for a given galaxy, and identifying known spectral features in it. This makes it very easy to get an accurate measure of the redshift of a galaxy, but the process of producing a spectrum takes a long time, since it requires receiving enough photons to fill an entire spectrum. For this reason, many surveys make the choice to use photometric redshifts instead.
+
+\par Photometric redshifts fundamentally measure the brightness of objects through various filters, and fits those to template objects with known redshifts. Often, this involves building a catalogue of spectroscopic objects from which a model can be constructed. Each new set of photometry is then applied to this model to detemine the redshift of each object. This is a much quicker process, because it doesn't require long integration times in order to get an measure of an objects redshift. Because it requires fewer photons to make a direct detection, it also allows for the calculation of redshifts for much dimmer objects than for spectroscopic redshifts. 
+
+\par Because the algorithm assumes that the redshifts are accurate, this introduces some measure of spread in the bounds on the line of sight separations in the galaxy pairs. Ultimately, this doesn't have too large an effect on the measurement, because if a galaxy pair doesn't contain a filament, it will simply not contribute to the underlying signal, but will contribute to the halo signals.  
+
+\par It also seems that we haven't managed to successfully construct galaxy halos that take the form of gaussians from our list of galaxy pairs. This may be due to the uneven distribution of galaxy pair separations on the sky, so we could possibly correct for this by selecting an even distribution of transverse separations. The other possible correction that could be made here is to sample more pairs, over a larger area. This would drive the distribution of scales closer to sampling from a gaussian by the central limit theorem, and so hopefully drive the shape of the rescaled halos to the same distribution. 
+
+\par One possible method of mitigating this effect is to make better use of the null tests when analysing our physical pairs. This could be done by constructing sets of unphysical pairs which contain the same number as the physical set. We could then subtract the unphysical stack from the physical stack. Doing this for a number of different bundles of unphysical pairs would allow us to take an average, and hopefully model the overarching halo structure as subject to our analysis pipeline. 
+
+\par The significance of the signal detected is lower than that of that of previous work ($\sim 2\sigma$ c.f. $\sim 5 \sigma$), due to the unreliability of our modelling, and the uncertainty introduced by uneven scaling factors. Despite this, the higher reading for our Compton $y$ parameter is considerably higher than previous work, which we attribute to the higher precision of the $y$ map we are using. 
+
+\par We performed our fit initially on the SPTpol footprint only, due to the expense in computation when constructing galaxy pairs. With less than a sixth of the original catalogue, over 700 000 pairs were produced. For the sake of edification, the pairing algorithm was run on the full SPT-SZ footprint, and it produced $\sim 5.8$ million physical pairs, and over $15.5$ million unphysical pairs. With this number of pairs, even the stacking algorithm becomes compuationally expensive. 
+
+\subsection{Further Work}
+
+\par Further work can be done to strengthen the conclusions drawn by this work. Improvements in model construction, and refinement of the algorithm are possible 
+
+\par Further work can apply this algorithm to other data sources. Any data source which acts as a tracer for large scale structure with known statistical information, can be used, since the algorithm doesn't discriminate based on input data type. This process was initially developed for $\kappa$ convergence maps \citep{2016MNRAS.457.2391C}, but it can equally be applied to the other form of \sze, Kinetic \sze , which acts as a tracer for bulk velocities in the intervening structure. 
+
+\par All previous work has been done with single data sources, but performing it with multiple allows for calculations of cross correlations between independant data sources, which have some major advantages over single source detections. Many of the systematics between the data types will be uncorrelated, and so improve the quality of our signal, whilst driving the noise assosciated with the detection down. 
+
+\par As it stands, there is strong evidence for the existence of galactic filaments from several independant teams. This work is the first to perform it with a high resolution CMB dataset, and provides strong support for previous measurements. 

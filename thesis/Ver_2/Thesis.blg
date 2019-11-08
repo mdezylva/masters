@@ -16,44 +16,44 @@ The style file: avebib.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 37 entries,
+You've used 43 entries,
             3108 wiz_defined-function locations,
-            915 strings with 15220 characters,
-and the built_in function-call counts, 26072 in all, are:
-= -- 1895
-> -- 1533
-< -- 21
-+ -- 1410
-- -- 429
-* -- 1793
-:= -- 3597
+            951 strings with 16290 characters,
+and the built_in function-call counts, 29598 in all, are:
+= -- 2153
+> -- 1714
+< -- 23
++ -- 1566
+- -- 480
+* -- 2032
+:= -- 4105
 add.period$ -- 0
-call.type$ -- 37
-change.case$ -- 290
-chr.to.int$ -- 38
-cite$ -- 37
-duplicate$ -- 1836
-empty$ -- 1632
-format.name$ -- 553
-if$ -- 5106
+call.type$ -- 43
+change.case$ -- 331
+chr.to.int$ -- 44
+cite$ -- 43
+duplicate$ -- 2110
+empty$ -- 1871
+format.name$ -- 618
+if$ -- 5788
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 439
-newline$ -- 115
-num.names$ -- 152
-pop$ -- 1030
+missing$ -- 503
+newline$ -- 133
+num.names$ -- 176
+pop$ -- 1182
 preamble$ -- 1
-purify$ -- 290
+purify$ -- 331
 quote$ -- 0
-skip$ -- 1195
+skip$ -- 1337
 stack$ -- 0
-substring$ -- 692
-swap$ -- 1062
+substring$ -- 775
+swap$ -- 1210
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 333
+type$ -- 387
 warning$ -- 0
-while$ -- 142
+while$ -- 162
 width$ -- 0
-write$ -- 410
+write$ -- 476

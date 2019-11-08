@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
@@ -28,6 +28,11 @@
   stacked filament lensing between SDSS luminous red galaxies}, \emph{\mnras}
   457, 3, 2391
 
+\bibitem[{{Colberg} et~al.(2005){Colberg}, {Krughoff} \&
+  {Connolly}}]{2005MNRAS.359..272C}
+{Colberg}, J.~M.; {Krughoff}, K.~S. \& {Connolly}, A.~J., 2005, {Intercluster
+  filaments in a {\ensuremath{\Lambda}}CDM Universe}, \emph{\mnras} 359, 1, 272
+
 \bibitem[{{Compton}(1923)}]{1923PhRv...21..483C}
 {Compton}, A.~H., 1923, {A Quantum Theory of the Scattering of X-rays by Light
   Elements}, \emph{Physical Review} 21, 5, 483
@@ -54,6 +59,12 @@
   {Katz}, N.; {Weinberg}, D.~H.; {Norman}, M.~L. \& {O'Shea}, B., 2001,
   {Baryons in the Warm-Hot Intergalactic Medium}, \emph{\apj} 552, 2, 473
 
+\bibitem[{{de Graaff} et~al.(2019){de Graaff}, {Cai}, {Heymans} \&
+  {Peacock}}]{2019A&A...624A..48D}
+{de Graaff}, A.; {Cai}, Y.-C.; {Heymans}, C. \& {Peacock}, J.~A., 2019,
+  {Probing the missing baryons with the Sunyaev-Zel'dovich effect from
+  filaments}, \emph{\aap} 624, A48
+
 \bibitem[{{Epps} \& {Hudson}(2017)}]{2017MNRAS.468.2605E}
 {Epps}, S.~D. \& {Hudson}, M.~J., 2017, {The Weak Lensing Masses of Filaments
   between Luminous Red Galaxies}, \emph{\mnras} 468, 3, 2605
@@ -70,6 +81,10 @@
 \bibitem[{{Hill} \& {Spergel}(2014)}]{2014JCAP...02..030H}
 {Hill}, J.~C. \& {Spergel}, D.~N., 2014, {Detection of thermal SZ-CMB lensing
   cross-correlation in Planck nominal mission data}, \emph{\jcap} 2014, 2, 030
+
+\bibitem[{{Hogg}(1999)}]{1999astro.ph..5116H}
+{Hogg}, D.~W., 1999, {Distance measures in cosmology}, \emph{arXiv e-prints}
+  astro-ph/9905116
 
 \bibitem[{{Hojjati} et~al.(2015){Hojjati}, {McCarthy}, {Harnois-Deraps}, {Ma},
   {Van Waerbeke}, {Hinshaw} \& {Le Brun}}]{2015JCAP...10..047H}
@@ -88,6 +103,10 @@
 {Kompaneets}, A.~S., 1957, {The Establishment of Thermal Equilibrium between
   Quanta and Electrons}, \emph{Soviet Journal of Experimental and Theoretical
   Physics} 4, 5, 730
+
+\bibitem[{{Levi}(1992)}]{1992PhT....45f..17L}
+{Levi}, B.~G., 1992, {COBE measures anisotropy in cosmic microwave background
+  radiation.}, \emph{Physics Today} 45, 6, 17
 
 \bibitem[{{Ma} et~al.(2015){Ma}, {Van Waerbeke}, {Hinshaw}, {Hojjati}, {Scott}
   \& {Zuntz}}]{2015JCAP...09..046M}
@@ -157,6 +176,12 @@
   Ly{\ensuremath{\alpha}} Forest and the Distribution of Matter in the
   Universe}, \emph{\apj} 559, 2, 507
 
+\bibitem[{{Shull} et~al.(2012){Shull}, {Smith} \&
+  {Danforth}}]{2012ApJ...759...23S}
+{Shull}, J.~M.; {Smith}, B.~D. \& {Danforth}, C.~W., 2012, {The Baryon Census
+  in a Multiphase Intergalactic Medium: 30\% of the Baryons May Still be
+  Missing}, \emph{\apj} 759, 1, 23
+
 \bibitem[{{Smith} et~al.(2011){Smith}, {Hallman}, {Shull} \&
   {O'Shea}}]{2011ApJ...731....6S}
 {Smith}, B.~D.; {Hallman}, E.~J.; {Shull}, J.~M. \& {O'Shea}, B.~W., 2011, {The
@@ -174,6 +199,12 @@
 \bibitem[{{Steigman}(2007)}]{2007ARNPS..57..463S}
 {Steigman}, G., 2007, {Primordial Nucleosynthesis in the Precision Cosmology
   Era}, \emph{Annual Review of Nuclear and Particle Science} 57, 1, 463
+
+\bibitem[{{Tanimura} et~al.(2019){Tanimura}, {Aghanim}, {Douspis}, {Beelen} \&
+  {Bonjean}}]{2019A&A...625A..67T}
+{Tanimura}, H.; {Aghanim}, N.; {Douspis}, M.; {Beelen}, A. \& {Bonjean}, V.,
+  2019, {Detection of intercluster gas in superclusters using the thermal
+  Sunyaev-Zel'dovich effect}, \emph{\aap} 625, A67
 
 \bibitem[{{Van Waerbeke} et~al.(2014){Van Waerbeke}, {Hinshaw} \&
   {Murray}}]{2014PhRvD..89b3508V}
