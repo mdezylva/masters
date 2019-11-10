@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{Bristow} \& {Phillipps}(1994)}]{1994MNRAS.267...13B}
@@ -93,6 +93,11 @@
   thermal Sunyaev-Zeldovich-gravitational lensing cross-correlation with
   hydrodynamical simulations}, \emph{\jcap} 2015, 10, 047
 
+\bibitem[{{Hubble}(1929)}]{1929PNAS...15..168H}
+{Hubble}, E., 1929, {A Relation between Distance and Radial Velocity among
+  Extra-Galactic Nebulae}, \emph{Proceedings of the National Academy of
+  Science} 15, 3, 168
+
 \bibitem[{{Hurier} et~al.(2013){Hurier}, {Mac{\'\i}as-P{\'e}rez} \&
   {Hildebrandt}}]{2013A&A...558A.118H}
 {Hurier}, G.; {Mac{\'\i}as-P{\'e}rez}, J.~F. \& {Hildebrandt}, S., 2013,
@@ -113,6 +118,9 @@
 {Ma}, Y.-Z.; {Van Waerbeke}, L.; {Hinshaw}, G.; {Hojjati}, A.; {Scott}, D. \&
   {Zuntz}, J., 2015, {Probing the diffuse baryon distribution with the
   lensing-tSZ cross-correlation}, \emph{\jcap} 2015, 9, 046
+
+\bibitem[{Peacock \& Peacock(1998)}]{peacock_peacock_1998}
+Peacock \& Peacock, 1998, p.~66, Cambridge University Press
 
 \bibitem[{{Penton} et~al.(2000){Penton}, {Shull} \&
   {Stocke}}]{2000ApJ...544..150P}
@@ -135,13 +143,22 @@
 {Persic}, M. \& {Salucci}, P., 1992, {The baryon content of the universe},
   \emph{\mnras} 258, 1, 14P
 
-\bibitem[{{Planck Collaboration} et~al.(2018){Planck Collaboration}, {Aghanim},
-  {Akrami}, {Ashdown}, {Aumont}, {Baccigalupi}, {Ballardini}, {Banday},
-  {Barreiro} \& {Bartolo}}]{2018arXiv180706209P}
+\bibitem[{{Planck Collaboration} et~al.(2018{\natexlab{a}}){Planck
+  Collaboration}, {Aghanim}, {Akrami}, {Ashdown}, {Aumont}, {Baccigalupi},
+  {Ballardini}, {Banday}, {Barreiro} \& {Bartolo}}]{2018arXiv180706209P}
 {Planck Collaboration}; {Aghanim}, N.; {Akrami}, Y.; {Ashdown}, M.; {Aumont},
   J.; {Baccigalupi}, C.; {Ballardini}, M.; {Banday}, A.~J.; {Barreiro}, R.~B.
-  \& {Bartolo}, N., 2018, {Planck 2018 results. VI. Cosmological parameters},
-  \emph{arXiv e-prints} arXiv:1807.06209
+  \& {Bartolo}, N., 2018{\natexlab{a}}, {Planck 2018 results. VI. Cosmological
+  parameters}, \emph{arXiv e-prints} arXiv:1807.06209
+
+\bibitem[{{Planck Collaboration} et~al.(2018{\natexlab{b}}){Planck
+  Collaboration}, {Akrami}, {Arroja}, {Ashdown}, {Aumont}, {Baccigalupi},
+  {Ballardini}, {Banday}, {Barreiro}, {Bartolo} et~al.}]{2018arXiv180706205P}
+{Planck Collaboration}; {Akrami}, Y.; {Arroja}, F.; {Ashdown}, M.; {Aumont},
+  J.; {Baccigalupi}, C.; {Ballardini}, M.; {Banday}, A.~J.; {Barreiro}, R.~B.;
+  {Bartolo}, N. et~al., 2018{\natexlab{b}}, {Planck 2018 results. I. Overview
+  and the cosmological legacy of Planck}, \emph{arXiv e-prints}
+  arXiv:1807.06205
 
 \bibitem[{{Rao} \& {Briggs}(1993)}]{1993ApJ...419..515R}
 {Rao}, S. \& {Briggs}, F., 1993, {Neutral Hydrogen in Galaxies at the Present

@@ -10,15 +10,13 @@
 			%-	Atomic Physics
 			%- 	Signal in CMB 
 
-The Missing Baryon problem is that we see more baryons at high redshift, than at low redshift. At high redshift ($z>2$), the Lyman-$\alpha$ forest provides a good measure of the proportion of baryons, since at these redshifts the majority of baryons in the universe are contained in diffuse, low-density gas. These analyses give a reported value 
-$$\Omega_{b} \geq 0.035 $$ 
+The \emph{Missing Baryon problem} is that we see more baryons at high redshift, than at low redshift. At high redshift ($z>2$), the Lyman-$\alpha$ forest provides a good measure of the proportion of baryons, since at these redshifts the majority of baryons in the universe are contained in diffuse, low-density gas. These analyses give a reported value of
+$$\Omega_{b} \geq 0.035. $$ 
 
-Observed light-element ratios and standard nucleosynthesis allows for direct computation of the expected baryon densities, which is in agreement with the above figure \citep{1998sese.conf..113B}
-$$\Omega_{b} = (0.019\pm 0.001)h^{-2} = 0.039 \pm 0.002 $$
+Observed light-element ratios and standard nucleosynthesis allows for direct computation of the expected baryon densities \citep{1998sese.conf..113B}, which is in agreement with the above figure, giving a result of 
+$$\Omega_{b} = (0.019\pm 0.001)h^{-2} = 0.039 \pm 0.002. $$
 
-The $\sim 2-3 \sigma$ agreement between these two measures of baryon density, and the measurement obtained from the CMB ($\Omega_{b} = (0.0224 \pm 0.0001) h^{-2}$) lends confidence to the value obtained by Planck. The CMB measurement is far more precise than the other measurements due to it requiring inherently fewer assumptions, and so the systematics for a CMB measurement are often much easier to quantify. 
-
-\par However, at low redshifts, all analysis indicates that the summing over all observed contributions gives a value of 
+The $\sim 2-3 \sigma$ agreement between these two measures of baryon density, and the measurement obtained from the CMB ($\Omega_{b} = (0.0224 \pm 0.0001) h^{-2}$) lends confidence to the value obtained by Planck. The CMB measurement is far more precise than the other measurements due to it requiring inherently fewer assumptions, and so the systematics for a CMB measurement are often much easier to quantify. In contrast, at low redshifts all analysis indicates that the summing over all observed contributions gives a value of 
 
 $$\Omega_\star + \Omega_{HI} + \Omega_{H_2} + \Omega_{X-Ray,cl} \approx 0.0068 \leq 0.011, $$
 
@@ -29,7 +27,7 @@ where $\Omega_\star$ refers to the density of stars, $\Omega_{HI}$ is the densit
 \subsection{Stellar Baryons}
 The most obvious location to search for baryons are in the stellar populations of galaxies. At a broad level, we can imagine that there are two distinct stellar populations which can be considered to be found in high density galaxies; a class of old stars which exists in the bulge of a galaxy ($\Omega_{\star,\text{Bulge}}$), and a class of young stars in the disk ($\Omega_{\star,\text{Disk}} $), as well as a third population existing in irregular galaxies ($\Omega_{\star,\text{Irr}}$).
 
-\par Estimating the proportion of stellar baryons therfore becomes an exercise in galactic morphology and luminosity density function computation. Perfoming this calculation gives mean mass density numbers for these three classes of stars of
+\par Estimating the proportion of stellar baryons therfore becomes an exercise in galactic morphology and luminosity density function computation \citep{1998ApJ...503..518F}. Perfoming this calculation gives mean mass density numbers for these three classes of stars of
 \begin{align*}
 \Omega_{\star,\text{Bulge}} &= (0.00180^{+0.00121}_{-0.00085}) h^{-1} \\
 \Omega_{\star,\text{Disk}} &= (0.00060^{+0.00030}_{-0.00024}) h^{-1} \\
@@ -47,16 +45,17 @@ Adding all the contributions for all morphological types will therefore give an 
 
 $$\Omega_{HI} = (2.5 \pm 0.6) \times 10^{-4} h_{75}^{-1} $$
 
-Later surveys, such as the HI Parkes All-Sky Survey (HIPASS), refined this measurement further \citep{2003AJ....125.2842Z}. HIPASS is a blind survey of the southern sky south consisting of approximately 7000 galaxies. The much higher number of galaxies in this survey necessitated a different method of computing the neutral hydrogen fraction. Taking a statistical approach the probability that a galaxy with a given HI mass is
+Later surveys, such as the \emph{HI Parkes All-Sky Survey} (HIPASS), refined this measurement further \citep{2003AJ....125.2842Z}. HIPASS is a blind survey of the southern sky south consisting of approximately 7000 galaxies. The much higher number of galaxies in this survey necessitated a different method of computing the neutral hydrogen fraction. Taking a statistical approach the probability that a galaxy with a given HI mass is
 $$ p(M_{HI,i}|D) = \frac{\theta(M_{HI,i})}{\int_{M_{HI,\lim(D_i)}}^\infty \theta(M_{HI}) dM_{HI}}, $$
-where $M_{HI,\lim(D_1)}$ is the minimum detectable HI mass at some distance $D_i$. This essentially gives the fraction of galaxies in the survey with a given HI mass sufficient to be detected. The parent distribution $\theta$ can then be maximised by finding which product of probabilities is also maximal. The statistical nature of this method requires accounting for various forms of bias, such as selection bias in the survey, the Eddington effect, self-absorption of the neutral hydrogen, and cosmic variance. This methodology gives a measure of the mass density as 
+where $M_{HI,\lim(D_1)}$ is the minimum detectable HI mass at some distance $D_i$. This essentially gives the fraction of galaxies in the survey with a given HI mass sufficient to be detected. The parent distribution, $\theta$, can then be maximised by finding which product of probabilities is also maximal. The statistical nature of this method requires accounting for various forms of bias, such as selection bias in the survey, the Eddington effect, self-absorption of the neutral hydrogen, and cosmic variance \citep{2012ApJ...759...23S}. This methodology gives a measure of the mass density as 
 $$\Omega_{HI} = (3.8 \pm 0.6) \times 10^{-4} h_{75}^{-1} $$
 \subsection{Quasar Absorbers}
+One source that can act as a tracer for intervening matter at all redshifts is quasar absorption spectra. Quasars are extremely bright active galactic nuclei that emit light when matter falls into the potential of a black hole, and is ripped apart. The photons that result from this then propogate outwards, until they intersect with some intervening structure. As such, we can look for known absorption lines in their spectra, and determine the redshift at which they interacted.
 \subsubsection{Photoionised Lyman $\alpha$}
 At higher redshifts, essentially the entirety of the baryon content in the universe can be found in large quanties of gas that have not yet collapsed into galaxies, which shows up very clearly in the Lyman $\alpha$ (Ly$\alpha$) forest. 
 \par The Lyman $\alpha$ forest is a series of absorption lines that are visible in the spectra of distant quasars, which intersect with clouds of neutral hydrogen along their line of sight to us. Since the light emmitted by the quasar passes through many hydrogen clouds, and is redshifted by cosmological expansion, there will be a characteristic absorption signal in the spectrum which corresponds to the position of the clouds relative to the quasar. These absorption signals make the Quasar spectrum look like a forest, hence, the name Lyman $\alpha$ forest. 
 
-\par At low redshifts, we can search for the residual Ly$\alpha$ signal using HI absorber frequencies in distant quasars. By making the assumption that these absorbers are isothermal spheres, and choosing a given impact parameter, the total cloud mass can be essentially inferred from the HI column density. 
+\par At low redshifts, we can search for the residual Ly$\alpha$ signal using neutral hydrogen (HI) absorber frequencies in distant quasars. By making the assumption that these absorbers are isothermal spheres, and choosing a given impact parameter, the total cloud mass can be essentially inferred from the HI column density. 
 
 \par One model for estimating the contribution of the local Lyman $\alpha$ forest is outlined by \cite{2000ApJ...544..150P}. From big bang nucleosynthesis, the total baryons contributed from the low-$z$ Ly$\alpha$ is given by 
 $$\Omega_{Ly\alpha} = \int_{N_{min}}^{N_{max}} \frac{ \phi_0(N_{HI},p) M_{cl}(N_{HI}, p, J_0)}{\rho_{crit}} dN_{HI} ,$$
@@ -68,7 +67,7 @@ where $\alpha_s$ is the spectral index of the radiation field, $J_{-23}= J_0/10^
 \par Further accounting for the fact that the clouds are gravitationally bound, and that their densities are typical over a characteristic Jeans length allows for further refinement of this number \citep{2001ApJ...559..507S}. Doing so yields a measure of the number of baryons in the residual Lyman $\alpha$ forest of $\Omega_{Ly\alpha} = 29 \% \pm 4\%$ \citep{ 2004ApJS..152...29P,2008ApJ...679..194D}  
 \subsubsection{OVI and BLA Absorbers}
 
-Because gas at low redshift exists at a large range of temperatures, and at a higher metalicity than the same gas at higher redshifts, distant quasars will exhibit absorption from higher Lyman alpha lines, such as oxygen (OVI), and broad Lyman $\alpha$ lines (BLA). The OVI absorption line probes gas in temperature ranges from $10^5$ - $10^6$ K, which has been shock heated as a result of gravitational instability during structure formation. Gas hotter than this is only sensitive to very weak absorption lines from higher ions, such as OVII, OVIII, NeX, NVI, and NVII, which are only detectable in weak X-Rays \citep{2005ApJ...624..555D}. 
+Because gas at low redshift exists at a large range of temperatures, and at a higher metalicity than the same gas at higher redshifts, distant quasars will exhibit absorption from higher Lyman alpha lines, such as oxygen (OVI), and broad Lyman $\alpha$ lines (BLA). The OVI absorption line probes gas in temperature ranges from $10^5$ - $10^6$ K, which has been shock heated as a result of gravitational instability during structure formation. Gas hotter than this is only sensitive to very weak absorption lines from higher ions of oxygen, neon, or nitrogen (such as OVII, OVIII, NeX, NVI, and NVII), which are only detectable in weak X-Rays \citep{2005ApJ...624..555D}. 
 \par Broad Lyman $\alpha$ also act as a tracer of the gas in these temperature ranges. Theory suggests that the ionisation equilibrium of gas should contain a very small portion of neutral gas, typically $f \sim 10^{-5} - 10^{-6}$, so there should be some Ly $\alpha$ emission, thermally broadened by the intervening gas \citep{2006A&A...445..827R}. It is not entirely clear if the OVI and BLA absorbers trace the same underlying gas phase, so they have been included here together. 
 \par The method of calculating these numbers is a comparatively simply integral, over the number of absorbers per redshift bin. This does make several assumptions which are sensitive to the visibility, as well as the number of absorbers in a given survey. \par \cite{2005ApJ...624..555D} found the proportion of matter contained in OVI absorbers to be approximately $5\%$, extrapolated from $\sim 50$ absorbers. However, this number is highly dependant on the model chosen to describe the spread of oxygen/hydrogen metalicities, the redshift range of the survey, and OVI ionisation fractions, leading to large errors on this measurement. 
 \par \cite{2006A&A...445..827R} found the proportion from BLAs to be $\sim 15 \% - 150 \%$ of the total baryon fraction, from a sample of between 20 and 50 sources. The reason for the large uncertainty is the inherent uncertainty in the detection of BLA sources. In fact, the unreasonably high measurement of the baryon fraction says that this method is inherently counting sources which are not actually good tracers of the free baryons. There is also some confusion regarding sources which appear as both OVI and BLA absorbers, since the connection between the two types is not clear. 
@@ -102,7 +101,7 @@ These methods all carry some sources of error with them, some so large that they
  Missing & $29 \% $ & $\pm 13\%$ \\
  \hline
 \end{tabular}
-\caption{}
+\caption{Table of Current Baryon Census}
 \label{table:baryon_census}
 \end{table}
 
@@ -158,21 +157,21 @@ Compton Scattering is a form of inelastic scattering between light and free char
 %  f3 -- [photon] p2 [particle=\(\gamma\)],
 %};
 \label{fig:compton_scattering}
-\caption{(a) S-Channel Feynmann Diagram, and (b) T-Channel Feynmann Diagram for Compton Scattering }
+\caption{Leading order diagrams for Compton Scattering }
 \label{fig:compton_scattering}
 \end{figure}
 
 
 It was first described in the context of X-rays interacting with electrons in atoms \citep{1923PhRv...21..483C}, and so regular Compton Scattering is taken to describe the interaction between a high energy photon, and a low energy particle. By applying principles of conservation of momentum, and conservation of energy,  the formula for the shift in wavelength as a result of this scattering is given by
 \begin{equation}
-	\Delta \lambda = \frac{h}{m_ec}\left(1-\cos\theta\right)
+	\Delta \lambda = \frac{h}{m_ec}\left(1-\cos\theta\right),
 	\label{eqn:compton_shift}
 \end{equation}
 where $m_e$ is the mass of the electron, and $\theta$ is the angle between the incident and scattered trajectories. 
 
 However, for the SZ effect that is observed in the CMB, the energies of the photons in question are much lower than the energies of the electrons involved, so the frequency shift is parametrised by something called the Compton-$y$ parameter. The expression given by \eqref{eqn:compton_shift} is functional for a single interaction, but given the number of interactions and the statistical nature of the CMB, we have to consider the more broad Compton-$y$ parameter, which is given by:
 \begin{equation}
-y = \int \frac{k_B T_e}{m_e c^2} n_e \sigma_T d \mathit{l}
+y = \int \frac{k_B T_e}{m_e c^2} n_e \sigma_T d \mathit{l},
 \label{eqn:y_param}
 \end{equation}
 where $m_e c^2$, $k_B$, and $\sigma_T$ are the electron rest mass energy, Boltzmann constant, and Thompson Cross Section respectively. These are all well defined constants, and so have no effect on the integration. 
@@ -210,7 +209,7 @@ The shape of \eqref{eq:spec_form_y} is shown in Figure \ref{fig:sz}, illustratin
 
 \subsection{CMB Signal}
 
-The method for constructing a map of the SZ effect is given by variants on the 'Internal Linear Combination' (ILC) method \citep{2011MNRAS.410.2481R}. This method presumes very little about the form of the data itself, assuming that it can be written in the form 
+The method for constructing a map of the SZ effect is given by variants on the `Internal Linear Combination' (ILC) method \citep{2011MNRAS.410.2481R}. This method presumes very little about the form of the data itself, assuming that it can be written in the form 
 \begin{equation}
 \vec{x}(p) = \vec{a} s(p) + \vec{n}(p),
 \label{eq:ilc_1}
@@ -230,7 +229,7 @@ An updated version of the algorithm, known as the modified internal linear combi
 
 Now, this technique can be applied to both the CMB as a whole, as well as the SZ effect specifically, because the characteristic scale and frequency dependance of the SZ is well known.  The size of the anisotropy caused by the SZ effect can be determined from the number of clusters sampled from the observational beam. A detector beam is essentially an instrument's response to the patch of sky it is measuring. It is unique to each instrument, and is a function which convolves everything within its detecting area, effectively smoothing out areas of the sky smaller than its characteristic size.
 
-\par The size of the anisotropy is therefore highly dependant on the constraints on cluster evolution and their subsequent properties. The range of angular scales depends on the angular extent of the clusters, but ultimately sits within ranges of approximately $\SI{1}{\arcmin} - \SI{10}{\arcmin}$ , for a typical cluster with a radial extent of approximately $0.5 h_{-1} $Mpc, and a mass of $2\times 10^{15} M_\odot$. For this system, we expect that the size of the anisotropy to be roughly $\Delta T/T \approx 10^{-6} - 10^{-5}$ \citep{1995ARA&A..33..541R}. This makes sense, since the upper measure for the total comptonisation of the CMB is only $y \approx 4\times 10^{-3}$. However, it does pose an issue for detecting the WHIM, since the average density of a filament is so much lower than the density of a cluster. Since the $y$ parameter is sensitive to the temperature of the gas and the number density, reducing the number density by a factor of $10^5-10^8$ and the gas temperature by $\sim 10^2$, will result in a corresponding reduction in the measured $y$ parameter. 
+\par The size of the anisotropy is therefore highly dependant on the constraints on cluster evolution and their subsequent properties. The range of angular scales of this anisotropy depends on the angular extent of the clusters, but ultimately sits within ranges of approximately $\SI{1}{\arcmin} - \SI{10}{\arcmin}$  for a typical cluster with a radial extent of approximately $0.5 h_{-1} $Mpc, and a mass of $2\times 10^{15} M_\odot$. For this system, we expect that the size of the anisotropy to be roughly $\Delta T/T \approx 10^{-6} - 10^{-5}$ \citep{1995ARA&A..33..541R}. This makes sense, since the upper measure for the total \emph{comptonisation} of the CMB is only $y \approx 4\times 10^{-3}$. However, it does pose an issue for detecting the WHIM, since the average density of a filament is so much lower than the density of a cluster. Since the $y$ parameter is sensitive to the temperature of the gas and the number density, reducing the number density by a factor of $10^5-10^8$ and the gas temperature by $\sim 10^2$, will result in a corresponding reduction in the measured $y$ parameter. 
 
 Given the signal-to-noise ratio expected for the thermal \sze of a single filament, many such filaments must be co-added, so as to drive the signal-to-noise to a detectable level. Initially outlined in \cite{2016MNRAS.457.2391C} for application to weak gravitational lensing maps, it was found that stacking $\sim 135,000$ pairs yielded a filament mass at $\sim 4.5 \sigma$ confidence. Further follow up using the Canada France Hawaii Telescope Lensing Survey (CFHTLenS), and the Sloan Digital Sky Survey's (SDSS) Luminous Red Galaxy (LRG) catalogue by \cite{2017MNRAS.468.2605E} detected the weak lensing signal from stacked filaments at 5$\sigma$ confidence.
 

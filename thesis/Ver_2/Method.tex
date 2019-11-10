@@ -12,7 +12,7 @@ Given the signal from a single filament is well below the level of noise in a gi
 
 \par The DES catalogue has a larger footprint than the SPTpol viewing footprint, so we first have to exclude any galaxies that lie outside of the SPTpol area. The SPTpol observing area consists of a 500 square degree patch of sky, extending from an Right Acension (RA) of 22h to 2h, and a Declination (Dec) of -52 degrees to -67 degrees, shown in Figure \ref{fig:surveys}. This is done in order to test the algorithms without excessive computation burden. Excluding any galaxies outside this region yields approximately 100,000 galaxies. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering 
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Survey_Outlines.png}
 \caption{Outlines of SPTpol, SPT-SZ, and DES surveys}
@@ -76,6 +76,8 @@ Functionally, this algorithm follows some elementary primary operations:
 %\label{fig:first_cut}
 %\end{figure}
 
+We perform operations \ref{alg:stack:step:4} and \ref{alg:stack:step:5} because we make the assumption that the dark matter halos that host the LRGs we are considering are spherically symmetric. Mirroring the halos about two axes essentially allows us to stack multiple versions of each individual halo. Doing so reduces irregularities introduced by any halos that happen to be non-symmetric, whilst correlating their spherical structure. 
+
 Steps \ref{alg:stack:step:5} and \ref{alg:stack:step:6} are done by applying an affine transformation to the array of values, because we are seeking to preserve the functional position of all points, straight lines, and ratios in the array, as close to the original as possible. This transformation effectively involves applying a transformation matrix to a given image or array, and applying a spline interpolation if there isn't a perfect transformation between the inital and final state.
 
 %\begin{figure}[h!]
@@ -101,15 +103,15 @@ Steps \ref{alg:stack:step:5} and \ref{alg:stack:step:6} are done by applying an 
 %\label{fig:second_cut}
 %\end{figure}
 
-We perform operations \ref{alg:stack:step:4} and \ref{alg:stack:step:5} because we make the assumption that the dark matter halos that host the LRGs we are considering are spherically symmetric. Mirroring the halos about two axes essentially allows us to stack multiple versions of each individual halo. Doing so reduces irregularities introduced by any halos that happen to be non-symmetric, whilst correlating their spherical structure. 
 
-We tested this algorithm by creating dummy simulated datasets, where an artifical signal inserted in noise that is 3 to 4 orders of magnitude higher than it. 
 
-\begin{figure}[h!]
+We tested this algorithm by creating mock simulated datasets, where an artifical signal inserted in noise that is 3 to 4 orders of magnitude higher than it. 
+
+\begin{figure}[H]
 \begin{center}
 
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/simulated_stack.png}
-\caption{Stacking Algorithm as applied to Dummy Data. (a) Slice is taken of a given pair, (b) Slice is rotated, aligning both elements of the pair with the $x$ axis, (c) Slice is rescaled. Axes scales have been left in to illustrate the relative scaling between (b) and (c), (d) Second slice is taken of the manipulated data}
+\caption{Stacking Algorithm as applied to Dummy Data. Top Left:Slice is taken of a given pair, Top Right:Slice is rotated, aligning both elements of the pair with the $x$ axis, Bottom Left:Slice is rescaled. Axes scales have been left in to illustrate the relative scaling between Top Right and Bottom Left, Bottom Right:Second slice is taken of the manipulated data}
 \end{center}
 \end{figure}
 

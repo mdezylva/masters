@@ -12,7 +12,7 @@ From the process outlined above, 787,058 galaxy pairs were constructed with a me
 
 Figure \ref{fig:physical:redshifts} shows the overall PDF of galaxy pairs as a function of redshift. It shows that the mean redshift for the pairs is $z=0.468$, with a minimum redshift of $z= 0.15$, and a maximum redshift of $z= 0.90$. There is a rather drastic drop in the galaxy population after redshift $z \sim 0.58$. This is due to there being fewer galaxies in the higher redshift bins in the DES Year 1 Catalogue. Figures \ref{fig:physical:lineofsight} and \ref{fig:physical:transverse} show the line-of-sight and transverse separation PDFs of the pairs.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/LOS_Separation.png}
 \caption{Histogram of Line of Sight Separations of Galaxy Pairs. The distribution is relatively flat, with a minimum separation of $\SI{0}{\mega\parsec}$, and a maximum separation of $\SI{14.8}{\mega\parsec}$.}
@@ -20,7 +20,7 @@ Figure \ref{fig:physical:redshifts} shows the overall PDF of galaxy pairs as a f
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/TRV_Separation.png}
 \caption{Histogram of Transverse Separations of Galaxy Pairs. The distribution climbs steadily, with a minimum seperation of $\SI{8.85}{\mega\parsec}$ and a maximum separation $\SI{20.7}{\mega\parsec}$. }
@@ -37,7 +37,7 @@ We performed the stack on a map with a resolution of $\SI{0.25}{\arcmin}$ per pi
 Stacking these pairs returns an average $y$ map, which is shown in figure \ref{fig:physical:stack}. The signal is dominated by the contribution of the galaxy halos, and so these will need to be effectively subtracted in order to evaluate the significance of the filament signal. To the eye, there appears to be some residual signal in between the two halos, which has not been driven to zero as a result of the stacking process. 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Stack.png}
 \caption{Stacked Image of galaxy pairs. The upper panel shows the slice through the centre of the stack. The left panel displays a vertical slice through the left halo, which by the mirroring procedurce, will be the same as the slice through the right halo.}
@@ -46,9 +46,9 @@ Stacking these pairs returns an average $y$ map, which is shown in figure \ref{f
 
 Once we have stacked the pairs, we perform our fit, as described in \ref{alg:analysis}. Beginning with our naive fit, we considered only a single halo, because the mirroring of the image essentially forces the two halos to look identical under this calculation. We also only consider the half of the halo that is on the other side to the filament, to prevent contamination from the filament. Doing so yields a halo shape shown in Figure \ref{fig:halo:single}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_shape.png}
+\includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_shape.png}
 \caption{ Radial Mean of Left Halo from figure \ref{fig:physical:stack}. The shape of the halo does not appear to be gaussian in nature, perhaps owing to the uneven scaling depending on transverse separations. }
 \label{fig:halo:single}
 \end{figure}
@@ -56,7 +56,7 @@ Once we have stacked the pairs, we perform our fit, as described in \ref{alg:ana
 Taking this halo shape, and assuming that there is some constant background signal of approximately $y = 1\times 10^{-7}$, we can combine this into our naive model, and find a measure of the residual filament. Assumig this constant background signal is functionally the same as taking a high bandpass filter of the stack. 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_basic.png}
 \caption{ Basic Halo Model, constructed from the radial mean of a single halo, with error bars given by the standard deviation of the halo in the same radial bins }
@@ -65,7 +65,7 @@ Taking this halo shape, and assuming that there is some constant background sign
 
 Figure \ref{fig:halo:basic_model} shows this model, with errors derived from computing the standard deviation of the radial halo in the same halo bins as the mean was calculated. Subtracting this from the slice through the halos gives us the graph shown in figure \ref{fig:halo:basic_filament}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/filament_basic.png}
 \caption{ Basic Filament Model, with filamentary residual shown between Pixel locations 60 and 110. }
@@ -78,7 +78,7 @@ This naive calculation shows what is visible to the eye when looking at the stac
 
 \par If we consider our more complex models in 1 dimension (along the central slice through both halos), and fit to our data, we get the results shown in figure \ref{fig:halo:complex_model}. All models were fit using standard definitions, and using a damped least-squares method known as the Levenberg-Marquardt algorithm.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/halo_model_complex.png}
 \caption{ Multiple Halo Models fitted to Central Slice of Figure \ref{fig:physical:stack} }
@@ -99,9 +99,9 @@ These are noticably worse than our simple model. The polynomial fit doesn't subt
 
 We chose to use variations of multiple gaussians in order to take into account the distorted shape of the halos. In model \ref{2D:model:1}, we allow 4 gaussians to vary independantly. In model \ref{2D:model:2}, we couple the underlying gaussians together, so that one pair of them will extract the spread of the halo, and another will extract the height. We chose model \ref{2D:model:3} to maintain consistency with our fit from the simple 1D case. In model \ref{2D:model:4}, we force the gaussians to contain our assumption of spherical halos. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/2D_data_fitting.png}
+\includegraphics[width=\textwidth , height=\textheight , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/2D_data_fitting.png}
 \caption{ Multiple Halo Models fitted to 2D array of Figure \ref{fig:physical:stack} }
 \label{fig:halo:2D_complex_model}
 \end{figure}
@@ -118,7 +118,7 @@ When we look at these models, none of them seem to appropriately subtract the ha
 
 \par The results for all models which are considered sensible are included in Table \ref{table:results}. 
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{||c c c c||} 
  \hline
@@ -145,10 +145,10 @@ Given the necessity of accounting for both halo contributions at all points in t
 \subsection{Un-Physical Pairs}
 We constructed a catalogue of unphysical pairs from the galaxies contained in both the SPTpol and DES survey footprints, with radial separations between $\SI{100}{\per\h\mega\parsec}$ and $\SI{200}{\per\h\mega\parsec}$, and transverse separations between $\SI{6}{\per\h\mega\parsec}$ and $\SI{14}{\per\h\mega\parsec}$. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/UnPhysical_Redshift_Distribution.png}
-\caption{Redshift Distributions of Unphysical Pairs. The pairs range from redshifts $z\approx0.24$ to $z\approx0.87$, with a mean redshift of $z\approx0.55$. When compared to the physical pairs, this set has a higher mean redshift, and more pairs in higher redshift bins.   }
+\caption{Redshift Distributions of Unphysical Pairs. The pairs range from redshifts $z\approx0.24$ to $z\approx0.87$, with a mean redshift of $z\approx0.55$. When compared to the physical pairs, this set has a higher mean redshift, and more pairs in higher redshift bins.   . The distribution of physical pairs is overlaid in red.}
 \label{fig:unphysical:redshifts}
 \end{figure}
 As can be seen in figure \ref{fig:unphysical:redshifts}, the distribution of redshifts is generally skewed towards higher redshifts than for the physical pairs. This is likely due to the inherent errors assosciated with the photometric redshifts in the DES redMaGiC survey. Lower redshifts are more likely to be more precise, since the photometric errors for redshift are given by $\Delta z= 0.01(1+z)$, and so be excluded by the line of sight cuts. The other effect which may influence this is the fact that there are far more pairs in the unphysical dataset than in the physical dataset. 
@@ -157,7 +157,7 @@ As can be seen in figure \ref{fig:unphysical:redshifts}, the distribution of red
 This produced a set of unphysical pairs containing $\sim 670,000$ pairs, with a mean line of sigh separation of $\SI{220}{\mega\parsec}$, and a mean transverse separation of $\SI{12.5}{\mega\parsec}$.
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth, keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/UP_LOS_Separation.png}
 \caption{Histogram of Line of Sight Separations of Unphysical Galaxy Pairs. The distribution is relatively flat, with the same shape as the physical pairs, a minimum separation of $\SI{147}{\mega\parsec}$, and a maximum separation of $\SI{295}{\mega\parsec}$.  }
@@ -166,7 +166,7 @@ This produced a set of unphysical pairs containing $\sim 670,000$ pairs, with a 
 
 The choice was made to consider unphysical pairs with a line of sight separation in excess of $\SI{100}{\per\h\mega\parsec}$ because at large redshifts, the errors assosciated with the photometric redshifts can place a very large range on the possible distance to a given galaxy, and we want to be very careful to exclude galaxy pairs that might have a connecting filament between them. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth  , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/UP_TRV_Separation.png}
 \caption{Histogram of Transverse Separations of Unphysical Galaxy Pairs. The distribution is relatively flat, with a minimum seperation of $\SI{8.85}{\mega\parsec}$ and a maximum separation $\SI{20.7}{\mega\parsec}$. This has the same overall shape as the physical pairs data set, except the relative population in the higher separation bins decreases, rather than increases.}
@@ -175,9 +175,9 @@ The choice was made to consider unphysical pairs with a line of sight separation
 
 Performing the stacking procedure on the unphysical dataset gives the stack shown in figure \ref{fig:unphysical:stack}. To the eye, in both the 2D slice and the 3D colour map, it appears that there is less filamentary signal than for the physical pairs. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/UnPhysical_Stack.png}
+\includegraphics[width=0.8\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/UnPhysical_Stack.png}
 \caption{Stacked Image of Unphyiscal pairs.}
 \label{fig:unphysical:stack}
 \end{figure}
@@ -185,7 +185,7 @@ Performing the stacking procedure on the unphysical dataset gives the stack show
 If we fit the two halos for gaussian profiles (shown in figure \ref{fig:halo:basic_filament}) , along with some constant offset, we can see very clearly that there appears to be no residual signal left. The mean of this residual is $3.48 \times 10^{-18}$, with a variance of $1.13 \times 10^{-16}$, which is consistent with a zero measurement. 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/unphysical_halo_fit.png}
 \caption{Gaussian Fit to Unphysical Pairs}
@@ -196,7 +196,7 @@ If we fit the two halos for gaussian profiles (shown in figure \ref{fig:halo:bas
 
 Performing a stack on a set of pseudo-randomly selected slices of the CMB, with the same galactic latitude as the physical pairs, we produced a stack like the one shown in Figure \ref{fig:random:stack}. This has no discernable structure, except for the small circular signal in the centre of the map. This is likely due to the rescaling effect still rescaling the CMB as if it were trying to align pairs. Because the angle that the pairs need to be rotated by should be evenly distributed, there should be some level of correlation in the stack, in a circular structure where we would otherwise expect a filament to be. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth , keepaspectratio]{/home/mitchell/Documents/masters/masters/thesis/Ver_2/figures/Rand_Pos_Stack.png}
 \caption{Stack of pseudo-random slices}

@@ -1,0 +1,29 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}
+\contentsline {section}{\numberline {1.1}Modern Cosmology, and the Cosmic Microwave Background}{5}
+\contentsline {section}{\numberline {1.2}Cosmological Parameters}{7}
+\contentsline {chapter}{\numberline {2}The Missing Baryon Problem}{9}
+\contentsline {section}{\numberline {2.1}A Census of Baryons at Low Redshift}{10}
+\contentsline {subsection}{\numberline {2.1.1}Stellar Baryons}{10}
+\contentsline {subsection}{\numberline {2.1.2}Cold Interstellar Medium}{10}
+\contentsline {subsection}{\numberline {2.1.3}Quasar Absorbers}{11}
+\contentsline {subsubsection}{Photoionised Lyman $\alpha $}{11}
+\contentsline {subsubsection}{OVI and BLA Absorbers}{12}
+\contentsline {subsection}{\numberline {2.1.4}Summary}{13}
+\contentsline {section}{\numberline {2.2}Warm-Hot Interstellar Medium}{13}
+\contentsline {section}{\numberline {2.3}Sunayev-Zeldovich Effect}{15}
+\contentsline {subsection}{\numberline {2.3.1}Atomic Physics}{15}
+\contentsline {subsection}{\numberline {2.3.2}CMB Signal}{17}
+\contentsline {chapter}{\numberline {3}Stacking Methodology}{20}
+\contentsline {subsubsection}{Data Preparation Algorithm}{21}
+\contentsline {subsubsection}{Data Analysis Algorithm}{23}
+\contentsline {section}{\numberline {3.1}Null Tests}{25}
+\contentsline {subsection}{\numberline {3.1.1}Un-Physical Pairs}{25}
+\contentsline {subsection}{\numberline {3.1.2}Random Stack}{26}
+\contentsline {chapter}{\numberline {4}Results}{27}
+\contentsline {section}{\numberline {4.1}Null Tests}{38}
+\contentsline {subsection}{\numberline {4.1.1}Un-Physical Pairs}{38}
+\contentsline {subsection}{\numberline {4.1.2}Random Stack}{41}
+\contentsline {chapter}{\numberline {5}Discussion and Conclusion}{43}
+\contentsline {section}{\numberline {5.1}Discussion}{43}
+\contentsline {subsection}{\numberline {5.1.1}Conclusion}{44}
+\contentsline {subsubsection}{Further Work}{44}

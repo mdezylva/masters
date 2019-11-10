@@ -16,44 +16,46 @@ The style file: avebib.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 43 entries,
+Warning--empty title in peacock_peacock_1998
+You've used 46 entries,
             3108 wiz_defined-function locations,
-            951 strings with 16290 characters,
-and the built_in function-call counts, 29598 in all, are:
-= -- 2153
-> -- 1714
-< -- 23
-+ -- 1566
-- -- 480
-* -- 2032
-:= -- 4105
+            969 strings with 20469 characters,
+and the built_in function-call counts, 31857 in all, are:
+= -- 2311
+> -- 1867
+< -- 26
++ -- 1711
+- -- 522
+* -- 2183
+:= -- 4417
 add.period$ -- 0
-call.type$ -- 43
-change.case$ -- 331
-chr.to.int$ -- 44
-cite$ -- 43
-duplicate$ -- 2110
-empty$ -- 1871
-format.name$ -- 618
-if$ -- 5788
-int.to.chr$ -- 1
+call.type$ -- 46
+change.case$ -- 357
+chr.to.int$ -- 47
+cite$ -- 47
+duplicate$ -- 2257
+empty$ -- 2003
+format.name$ -- 669
+if$ -- 6231
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 503
-newline$ -- 133
-num.names$ -- 176
-pop$ -- 1182
+missing$ -- 540
+newline$ -- 142
+num.names$ -- 188
+pop$ -- 1265
 preamble$ -- 1
-purify$ -- 331
+purify$ -- 357
 quote$ -- 0
-skip$ -- 1337
+skip$ -- 1458
 stack$ -- 0
-substring$ -- 775
-swap$ -- 1210
-text.length$ -- 2
+substring$ -- 822
+swap$ -- 1291
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 387
-warning$ -- 0
-while$ -- 162
+type$ -- 411
+warning$ -- 1
+while$ -- 173
 width$ -- 0
-write$ -- 476
+write$ -- 508
+(There was 1 warning)

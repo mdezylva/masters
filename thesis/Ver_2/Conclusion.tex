@@ -3,7 +3,7 @@
 \section{Discussion}
 Our measure of the Compton $y$ parameter in the filament of $\bar{y} = 1.29 \times 10^{-8}$ at $2.05 \sigma$, is comparable to similar work done by \cite{2019A&A...625A..67T} (refered to as T17), and by \cite{2019A&A...624A..48D} (refered to as G17).
 
-\par T17 found 262,864 galaxy pairs at redshifts $z<0.4$ using the Sloan Digital Sky Survey LRG catalogue, detecting a mean Compton parameter of $y \approx 1 \times 10^{-8}$ in the \emph{Planck} $y$ map at a $5.3\sigma$ confidence level. 
+\par T17 found 262,864 galaxy pairs at redshifts $z<0.4$ using the Sloan Digital Sky Survey luminous red galaxy catalogue, detecting a mean Compton parameter of $y \approx 1 \times 10^{-8}$ in the \emph{Planck} $y$ map at a $5.3\sigma$ confidence level. 
 
 \par G17 found 1,020,334 galaxy pairs in a redshift range $0.43 < z < 0.75$ using the Sloan Digital Sky Survey CMASS catalogue, detecting a mean Compton parameter of $y \approx 0.6 \times 10^{-8}$ in the \emph{Planck} $y$ map at the $5.1\sigma$ confidence level. 
 
@@ -23,15 +23,18 @@ Our measure of the Compton $y$ parameter in the filament of $\bar{y} = 1.29 \tim
 
 \par One possible method of mitigating this effect is to make better use of the null tests when analysing our physical pairs. This could be done by constructing sets of unphysical pairs which contain the same number as the physical set. We could then subtract the unphysical stack from the physical stack. Doing this for a number of different bundles of unphysical pairs would allow us to take an average, and hopefully model the overarching halo structure as subject to our analysis pipeline. 
 
+\subsection{Conclusion}
 \par The significance of the signal detected is lower than that of that of previous work ($\sim 2\sigma$ c.f. $\sim 5 \sigma$), due to the unreliability of our modelling, and the uncertainty introduced by uneven scaling factors. Despite this, the higher reading for our Compton $y$ parameter is considerably higher than previous work, which we attribute to the higher precision of the $y$ map we are using. 
 
 \par We performed our fit initially on the SPTpol footprint only, due to the expense in computation when constructing galaxy pairs. With less than a sixth of the original catalogue, over 700 000 pairs were produced. For the sake of edification, the pairing algorithm was run on the full SPT-SZ footprint, and it produced $\sim 5.8$ million physical pairs, and over $15.5$ million unphysical pairs. With this number of pairs, even the stacking algorithm becomes compuationally expensive. 
 
-\subsection{Further Work}
+\subsubsection{Further Work}
+	
+\par Further work can be done to strengthen the conclusions drawn by this work. Improvements in model construction, and refinement of the algorithm are possible, to eliminate possible systematics introduced by the mirroring process. 
 
-\par Further work can be done to strengthen the conclusions drawn by this work. Improvements in model construction, and refinement of the algorithm are possible 
+\par In order to do a direct compuatation of the overall baryon fraction from this $y$-parameter, we need to apply this algorithm to a set of simulations which occupy a simillar comoving volume. Doing so could also give insight into sources of noise in the physical Compton-$y$ dataset, or those introduced by the data analysis pipeline.
 
-\par Further work can apply this algorithm to other data sources. Any data source which acts as a tracer for large scale structure with known statistical information, can be used, since the algorithm doesn't discriminate based on input data type. This process was initially developed for $\kappa$ convergence maps \citep{2016MNRAS.457.2391C}, but it can equally be applied to the other form of \sze, Kinetic \sze , which acts as a tracer for bulk velocities in the intervening structure. 
+\par Further work can also apply this algorithm to other data sources. Any data source which acts as a tracer for large scale structure with known statistical information, can be used, since the algorithm doesn't discriminate based on input data type. This process was initially developed for $\kappa$ convergence maps \citep{2016MNRAS.457.2391C}, but it can equally be applied to the other form of \sze, Kinetic \sze , which acts as a tracer for bulk velocities in the intervening structure. 
 
 \par All previous work has been done with single data sources, but performing it with multiple allows for calculations of cross correlations between independant data sources, which have some major advantages over single source detections. Many of the systematics between the data types will be uncorrelated, and so improve the quality of our signal, whilst driving the noise assosciated with the detection down. 
 
